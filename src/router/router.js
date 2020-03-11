@@ -2,9 +2,14 @@ import Vue from 'vue'
 import NProgress from 'nprogress' // 进度条
 import "nprogress/nprogress.css"
 import Router from 'vue-router'
-import store from '@/vuex/store'
 
 Vue.use(Router)
+// 解决路由报错问题
+const originalPush = Router.prototype.push
+Router.prototype.push = function push(location, onResolve, onReject) {
+  if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject)
+  return originalPush.call(this, location).catch(err => err)
+}
 
 import Layout from '@/view/layout/Layout'
 
@@ -55,7 +60,7 @@ const router = new Router({
       redirect: '/methods/solt',
       meta: {
         title: 'Methods',
-        icon: 'el-icon-menu'
+        icon: 'el-icon-guide'
       },
       children: [{
         path: '/methods/solt',
@@ -103,6 +108,13 @@ const router = new Router({
         component: () => import('../view/tools/SvgIcon'),
         meta: {
           title: 'SVG&ICON'
+        }
+      }, {
+        path: '/tools/image',
+        name: 'Image',
+        component: () => import('../view/tools/Image'),
+        meta: {
+          title: 'Image'
         }
       }]
     },

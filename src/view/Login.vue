@@ -34,7 +34,7 @@ export default {
     }
   },
   created() {
-    this.loginColor = localStorage.getItem('navColor') || '#00b8e6'
+    this.loginColor = localStorage.getItem('navColor') || '#11A983'
   },
   methods: {
     loginSystem() {

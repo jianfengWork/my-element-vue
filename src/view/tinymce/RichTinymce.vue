@@ -21,7 +21,7 @@ export default {
     }
   },
   mounted() {
-    this.content = `<h1 style="text-align: center;">我喜欢土土!</h1><h1 style="text-align: center;">土土喜欢我!</h1>`
+    this.content = `<h1 style="text-align: center;">请随意编辑!</h1>`
   },
   watch: {
     content(val) {
