@@ -1,5 +1,6 @@
 <template>
   <div class="login">
+    <div class="login-bg" :style="{'background': $store.state.themeColor}" />
     <vue-particles
       :color="loginColor"
       :linesColor="loginColor"
@@ -34,7 +35,7 @@ export default {
     }
   },
   created() {
-    this.loginColor = localStorage.getItem('navColor') || '#11A983'
+    this.loginColor = localStorage.getItem('themeColor') || '#11A983'
   },
   methods: {
     loginSystem() {
@@ -62,9 +63,16 @@ export default {
   height: 100%;
   overflow: hidden;
   position: absolute;
-  background: #ffd04b;
 }
 .login {
+  width: 100%;
+  height: 100%;
+  .login-bg {
+    width: 100%;
+    height: 100%;
+    opacity: .2;
+    position: absolute;
+  }
   .login-content {
     position: absolute;
     z-index: 10;

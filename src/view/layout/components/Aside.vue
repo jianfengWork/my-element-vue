@@ -6,7 +6,7 @@
       :default-active="$route.path"
       :router="false"
       @select="selectRouter"
-      class="xf-menu"
+      class="xf-menu better-scrollbar"
       :class="{'xs-mune-mini': menuExpland}"
       :background-color="navColor"
       text-color="#fff"
@@ -35,7 +35,7 @@
         </template>
       </div>
     </el-menu>
-    <div class="footer" @click="toggleOpen">
+    <div class="footer" @click="toggleOpen" :style="{'background': $store.state.themeColor}">
       <i class="el-icon-top" :class="{'el-icon-transtion': menuOpen }" />
     </div>
   </el-aside>
@@ -141,6 +141,7 @@ export default {
     width: 200px;
     line-height: 50px;
     border-right: none;
+    max-height: calc(100% - 122px);
     &.xs-mune-mini {
       width: 70px;
     }

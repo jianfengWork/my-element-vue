@@ -92,12 +92,12 @@ export default {
     loginOut() {
       this.$router.push({
         path: '/login',
-        query: {locale: localStorage.getItem('systemLanguage') || 'zhCN'}
+        query: {locale: queryString.parse(location.search).locale || localStorage.getItem('systemLanguage') || 'zhCN'}
       })
       setTimeout(() => {
         localStorage.setItem('themeColor', this.$store.state.themeColor)
         localStorage.setItem('systemLanguage', this.$store.state.systemLanguage)
-      })
+      }, 300)
     },
     selectLanguage(key) {
       this.$router.push({query: {...this.$route.query, locale: key}}) // 改变 ？之后参数

@@ -48,7 +48,7 @@ Vue.use({
 import enUS from './locale/enUS'
 import zhCN from './locale/zhCN'
 const i18n = new VueI18n({
-  locale: localStorage.getItem('systemLanguage') || queryString.parse(location.search).locale || 'zhCN',
+  locale: queryString.parse(location.search).locale || localStorage.getItem('systemLanguage') || 'zhCN',
   messages: {
     zhCN: { message: zhCN },
     enUS: { message: enUS },
