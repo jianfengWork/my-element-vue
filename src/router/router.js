@@ -86,7 +86,7 @@ const router = new Router({
       redirect: '/tools/command',
       meta: {
         title: 'Tools',
-        icon: 'el-icon-s-promotion',
+        icon: 'el-icon-brush',
       },
       children: [{
         path: '/tools/vuex',
@@ -142,6 +142,24 @@ const router = new Router({
         component: () => import('../view/files/Upload'),
         meta: {
           title: 'UPLOAD',
+        }
+      }]
+    },
+    {
+      path: '/front',
+      name: 'Front',
+      component: Layout,
+      redirect: '/front/goods',
+      meta: {
+        title: '前端',
+        icon: 'el-icon-monitor'
+      },
+      children: [{
+        path: '/front/goods',
+        name: 'Goods',
+        component: () => import('@/view/front/Goods'),
+        meta: {
+          title: '滑动商品',
         }
       }]
     },

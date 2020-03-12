@@ -14,9 +14,9 @@
               :value="item.value" />
           </el-select>
           <screenfull class="right-menu-item" />
-          <router-link :to="`/login?locale=${$store.state.systemLanguage}`">
-            <el-button type="primary">{{ $t('message')['app.header.login'] }}</el-button>
-          </router-link>
+          <!-- <router-link :to="`/login?locale=${$store.state.systemLanguage}`"> -->
+            <el-button type="primary" @click="loginOut">{{ $t('message')['app.header.login'] }}</el-button>
+          <!-- </router-link> -->
           <img v-if="avatarUrl" :src="avatarUrl" class="heder_avatar" />
         </el-header>
         <el-main>
@@ -80,6 +80,15 @@ export default {
     this.$store.commit('CHANGE_SYSTEM_LANGUAGE', this.value)
   },
   methods: {
+    loginOut() {
+      this.$router.push({
+        path: '/login',
+        query: {locale: localStorage.getItem('systemLanguage') || 'zhCN'}
+      })
+      setTimeout(() => {
+        localStorage.setItem('themeColor', this.$store.state.themeColor)
+      })
+    },
     selectLanguage(key) {
       this.$router.push({query: {...this.$route.query, locale: key}}) // 改变 ？之后参数
       this.$i18n.locale = key

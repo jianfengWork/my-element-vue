@@ -111,6 +111,7 @@ export default {
   position: relative;
   text-align: center;
   transition: all .3s;
+  user-select: none; // 禁止文本选中
   &.aside-mini {
     width: 70px!important;
   }

@@ -46,11 +46,11 @@ export default {
         username: 'admin',
         password: 'sx-tech1@#&111'
       }
-      this.$post('/api/login', params).then(res => {
-        this.$message.success('欢迎你 ' + res.data.username)
-      }).catch(err => {
-        this.$message.error(err.data.error.message)
-      })
+      // this.$post('/api/login', params).then(res => {
+      //   this.$message.success('欢迎你 ' + res.data.username)
+      // }).catch(err => {
+      //   this.$message.error(err.data.error.message)
+      // })
     }
   },
 }

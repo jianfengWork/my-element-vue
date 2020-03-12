@@ -5,6 +5,7 @@ import VueHighlightJS from "vue-highlightjs" // 代码高亮
 import "highlight.js/styles/github.css"
 import ElementUI from 'element-ui'
 import './style/element-variables.scss' // 定制主题
+import './style/common.scss'
 import App from './App.vue'
 import router from './router/router'
 import store from './store/store'
