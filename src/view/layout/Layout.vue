@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import queryString from 'query-string'
 import xfAside from './components/Aside'
 import Screenfull from '@/components/ScreenFull/screenfull'
 
@@ -76,7 +77,15 @@ export default {
   created() {
     this.color = localStorage.getItem('themeColor') || this.$store.state.themeColor
     this.$store.commit('CHANGE_THEME_COLOR', this.color)
-    this.value = localStorage.getItem('systemLanguage') || 'zhCN'
+    
+    if (queryString.parse(location.search).locale) {
+      this.value = queryString.parse(location.search).locale || 'zhCN'
+    } else {
+      this.$router.push({
+        query: {locale: localStorage.getItem('systemLanguage') || 'zhCN'}
+      })
+      this.value = localStorage.getItem('systemLanguage') || 'zhCN'
+    }
     this.$store.commit('CHANGE_SYSTEM_LANGUAGE', this.value)
   },
   methods: {
@@ -87,6 +96,7 @@ export default {
       })
       setTimeout(() => {
         localStorage.setItem('themeColor', this.$store.state.themeColor)
+        localStorage.setItem('systemLanguage', this.$store.state.systemLanguage)
       })
     },
     selectLanguage(key) {
