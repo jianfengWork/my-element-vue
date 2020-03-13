@@ -25,7 +25,7 @@ const router = new Router({
       name: 'Login',
       hide: true, // 自定义标志位，不渲染该菜单
       meta: {icon: '', title: ''}, // 图标，标题
-      component: () => import('../view/Login')
+      component: () => import('../view/layout/Login')
     },
     {
       path: '/dashboard',
@@ -115,6 +115,13 @@ const router = new Router({
         component: () => import('../view/tools/Image'),
         meta: {
           title: 'Image'
+        }
+      }, {
+        path: '/tools/graphic',
+        name: 'Graphic',
+        component: () => import('@/view/tools/Graphic'),
+        meta: {
+          title: '图形验证码'
         }
       }]
     },

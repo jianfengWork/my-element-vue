@@ -56,16 +56,16 @@ export default {
     mask.style.width = mask_len + 'px'
 
     // 3. 鼠标操作
-    box.onmousedown = function (event) {
-      var e = event || window.event
+    box.onmousedown = function(event) {
+      let e = event || window.event
       // 3.1 求出初始值
-      var beginX = e.clientX - mask.offsetLeft
+      let beginX = e.clientX - mask.offsetLeft
       // 3.2 移动
-      document.onmousemove = function (event) {
-        var e = event || window.event
+      document.onmousemove = function(event) {
+        let e = event || window.event
 
         // 3.3 求出移动的距离
-        var endX = event.clientX - beginX
+        let endX = event.clientX - beginX
 
         // 边界值
         if (endX < 0) {
@@ -77,14 +77,14 @@ export default {
         // 3.4 动起来
         mask.style.left = endX + 'px'
 
-        // 内容走的距离 = （内容的长度 - 盒子的长度） \/ (盒子长度 - 滚动条的长度) * 滚动条走的距离
-        var content_len = (box_top.offsetWidth - box.offsetWidth) / (box.offsetWidth - mask.offsetWidth) * endX
+        // 内容走的距离 =（内容的长度 - 盒子的长度）\/ (盒子长度 - 滚动条的长度) * 滚动条走的距离
+        let content_len = (box_top.offsetWidth - box.offsetWidth) / (box.offsetWidth - mask.offsetWidth) * endX
         box_top.style.left = -content_len + 'px'
 
         return false
       }
 
-      document.onmouseup = function () {
+      document.onmouseup = function() {
         document.onmousemove = null
       }
     }
