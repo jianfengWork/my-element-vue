@@ -50,6 +50,7 @@
   div {
     width: 112px;
     cursor: pointer;
+    user-select: none;
   }
 }
 </style>

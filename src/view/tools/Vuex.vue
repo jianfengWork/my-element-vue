@@ -10,15 +10,14 @@
 </template>
 <script>
 import {changeStore} from './js/use-store'
+import {mapState} from 'vuex'
 export default {
   name: 'Vuex',
   mounted() {
     // changeStore()
   },
   computed: {
-    count() {
-      return this.$store.state.count
-    },
+    ...mapState(['count']),
     uesrname() {
       return this.$store.state.user.username
     }
