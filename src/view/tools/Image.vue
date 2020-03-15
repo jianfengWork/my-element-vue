@@ -6,6 +6,9 @@
       </el-col>
     </el-row>
     <big-image ref="bigImageDom" />
+    <!-- Sticker.js -->
+    <el-alert title="Sticker.js" type="success" :closable="false" />
+    <div class="sticker example-1" />
   </div>
 </template>
 
@@ -21,6 +24,9 @@ export default {
         'https://mifbb-upload-image.oss-cn-hangzhou.aliyuncs.com/mifbb_online_app/decoration/20200305/75680054014060f575b477020725f7b7.png',
       ],
     }
+  },
+  mounted() {
+    Sticker.init('.sticker')
   },
   methods: {
     showBigImage(item) {
@@ -39,6 +45,16 @@ export default {
     width: 100px;
     height: 100px;
     cursor: pointer;
+  }
+  .sticker {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+  }
+  .example-1 .sticker-img { // 必须是 .sticker-img
+    background: url('../../assets/avatar.jpeg');
+    background-size: 100% 100%;
   }
 }
 </style>
