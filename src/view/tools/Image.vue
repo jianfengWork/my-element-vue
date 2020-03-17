@@ -26,6 +26,7 @@ export default {
     }
   },
   mounted() {
+    // eslint-disable-next-line
     Sticker.init('.sticker')
   },
   methods: {

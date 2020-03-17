@@ -121,7 +121,7 @@ const router = new Router({
         name: 'Graphic',
         component: () => import('@/view/tools/Graphic'),
         meta: {
-          title: '图形验证码'
+          title: '验证码'
         }
       }]
     },

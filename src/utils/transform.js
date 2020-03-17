@@ -25,3 +25,22 @@ export function formatCash(val, digit) {
 export function repairZero(num) {
   return num = num > 9 ? num : '0' + num
 }
+
+/**
+ * 数组去重
+ * @param Array 支持数组
+ * @returns {[...item]}
+ */
+export function uniqueArray(arr) {
+  let temp = []
+  let obj = {}
+  let len = arr.length
+  for (let i = 0; i < len; i++) {
+    let v = arr[i]
+    if (!obj[v]) {
+      obj[v] = 1
+      temp.push(v)
+    }
+  }
+  return temp
+}
