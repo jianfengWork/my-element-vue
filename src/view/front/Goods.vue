@@ -69,7 +69,7 @@ export default {
 
         // 边界值
         if (endX < 0) {
-            endX = 0
+          endX = 0
         } else if (endX >= box.offsetWidth - mask.offsetWidth) {
           endX = box.offsetWidth - mask.offsetWidth
         }

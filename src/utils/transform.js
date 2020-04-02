@@ -28,7 +28,7 @@ export function repairZero(num) {
 
 /**
  * 数组去重
- * @param Array 支持数组
+ * @param Array 支持数组、对象数组
  * @returns {[...item]}
  */
 export function uniqueArray(arr) {
@@ -39,7 +39,7 @@ export function uniqueArray(arr) {
     let v = arr[i]
     if (!obj[v]) {
       obj[v] = 1
-      temp.push(v)
+      temp.push(arr[i])
     }
   }
   return temp
