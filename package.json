@@ -17,6 +17,7 @@
     "echarts": "^4.2.1",
     "element-ui": "^2.8.2",
     "file-saver": "^2.0.2",
+    "moment": "^2.24.0",
     "nprogress": "^0.2.0",
     "query-string": "^6.4.2",
     "resize-detector": "^0.2.0",

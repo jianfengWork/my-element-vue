@@ -26,6 +26,16 @@ Vue.component(Drawer.name, Drawer) // 组件名，组件
 import globalComponent from '@/components/component' // 集成全局组件注册
 Vue.use(globalComponent)
 
+// 全局验证
+import validator from '@/utils/validator'
+Vue.prototype.$validator = validator
+
+// 全局filter
+import * as globalFilter from '@/utils/filters'
+Object.keys(globalFilter).forEach(key => {
+  Vue.filter(key, globalFilter[key])
+})
+
 Vue.prototype.$bus = new Vue() // 消息总线
 
 Vue.use(VueI18n)
