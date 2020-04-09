@@ -168,6 +168,13 @@ const router = new Router({
         meta: {
           title: '滑动商品',
         }
+      }, {
+        path: '/front/cart',
+        name: 'Cart',
+        component: () => import('@/view/front/Cart'),
+        meta: {
+          title: '购物车',
+        }
       }]
     },
     {
