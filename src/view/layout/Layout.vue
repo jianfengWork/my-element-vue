@@ -112,6 +112,7 @@ export default {
       this.color = val || this.$store.state.themeColor
       localStorage.setItem('themeColor', this.color)
       this.$store.commit('CHANGE_THEME_COLOR', this.color)
+      this.$bus.$emit('changeOptions', this.color)
       this.showSetting = false
     },
   },

@@ -13,6 +13,20 @@ import VueParticles from 'vue-particles' // 登录背景
 import './assets/font/iconfont.css' // icon
 import './svg-icons' // svg-icon
 
+// 自写 Echarts
+// import Echarts from 'echarts'
+// Vue.prototype.Echarts = Echarts
+
+// 插件 Echarts
+import Echarts from "vue-echarts";
+import "echarts/lib/chart/bar";
+import "echarts/lib/component/tooltip";
+import "echarts/lib/component/legend";
+import "echarts/lib/chart/line";
+import "echarts/lib/chart/pie";
+import "echarts/lib/component/polar";
+Vue.component("v-chart", Echarts);
+
 // 定义请求方法
 import {fetch, post, put, del, fileDownLoad} from './http/http'
 Vue.prototype.$fetch = fetch
