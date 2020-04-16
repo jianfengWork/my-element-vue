@@ -125,6 +125,9 @@ export default {
         advlist_bullet_styles: 'square',
         advlist_number_styles: 'default',
         imagetools_cors_hosts: ['www.tinymce.com', 'codepen.io'],
+        fontsize_formats: '12px 14px 16px 18px 22px 24px 28px 30px 32px 36px',
+        content_style: 'body,p,img {margin: 0px; border: 0px; padding: 0px; display: block;}',
+        font_formats: 'Verdana=verdana,geneva,sans-serif;微软雅黑=Microsoft YaHei,Helvetica Neue,PingFang SC,sans-serif;苹果苹方=PingFang SC,Microsoft YaHei,sans-serif;宋体=simsun,serif;仿宋体=FangSong,serif;黑体=SimHei,sans-serif;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;',
         default_link_target: '_blank',
         link_title: false,
         nonbreaking_force_tab: true, // inserting nonbreaking space &nbsp; need Nonbreaking Space Plugin
