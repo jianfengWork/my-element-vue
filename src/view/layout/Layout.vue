@@ -35,6 +35,7 @@
         <theme-picker @change="changeThemeColor" />
       </div>
     </drawer>
+    <theme-picker ref="themePickerDom" v-show="false" />
   </div>
 </template>
 
@@ -69,6 +70,10 @@ export default {
     localStorage.clear('avatar')
   },
   mounted() {
+    this.$refs.themePickerDom.theme = ''
+    setTimeout(() => {
+      this.$refs.themePickerDom.theme = this.color
+    }, 300)
     this.avatarUrl = localStorage.getItem('avatar') || require('../../assets/avatar.jpeg')
     this.$bus.$on('changeAvatar', (item) => {
       this.avatarUrl = item
