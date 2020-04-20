@@ -29,6 +29,10 @@ export default {
       type: String,
       default: ''
     },
+    readonly: {
+      type: Boolean,
+      default: false,
+    },
     toolbar: {
       type: Array,
       required: false,
@@ -118,15 +122,18 @@ export default {
         toolbar: this.toolbar.length > 0 ? this.toolbar : toolbar,
         menubar: this.menubar,
         plugins: plugins,
+        readonly: this.readonly,
         end_container_on_empty_block: true,
         powerpaste_word_import: 'clean',
         code_dialog_height: 450,
         code_dialog_width: 1000,
+        custom_undo_redo_levels: 30, // 撤销次数
+        autosave_ask_before_unload: false, // 是否提示离开此网站
         advlist_bullet_styles: 'square',
         advlist_number_styles: 'default',
         imagetools_cors_hosts: ['www.tinymce.com', 'codepen.io'],
         fontsize_formats: '12px 14px 16px 18px 22px 24px 28px 30px 32px 36px',
-        content_style: 'body,p,img {margin: 0px; border: 0px; padding: 0px; display: block;}',
+        content_style: 'body,p,img,h1,h2,h3,h4,h5,h6 {margin: 0px; border: 0px; padding: 0px; display: block;}',
         font_formats: 'Verdana=verdana,geneva,sans-serif;微软雅黑=Microsoft YaHei,Helvetica Neue,PingFang SC,sans-serif;苹果苹方=PingFang SC,Microsoft YaHei,sans-serif;宋体=simsun,serif;仿宋体=FangSong,serif;黑体=SimHei,sans-serif;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;',
         default_link_target: '_blank',
         link_title: false,

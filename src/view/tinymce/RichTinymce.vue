@@ -1,7 +1,7 @@
 <template>
   <div class="components-container">
     <div>
-      <tinymce v-model="content" :height="300" />
+      <tinymce v-model="content" :readonly="false" :height="300" />
     </div>
     <div class="editor-content" v-html="content" />
     <!-- {{html}} -->

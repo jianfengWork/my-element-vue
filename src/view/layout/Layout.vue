@@ -29,8 +29,8 @@
     </el-container>
     <drawer :visible="showSetting" width="450px" @closeDrawer="() => showSetting = false">
       <div slot="content">
-        <div>导航风格</div>
-        <el-color-picker v-model="color" @change="changeThemeColor" />
+        <!-- <div>导航风格</div>
+        <el-color-picker v-model="color" @change="changeThemeColor" /> -->
         <div>导航加主题风格</div>
         <theme-picker @change="changeThemeColor" />
       </div>
