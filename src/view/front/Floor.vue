@@ -60,7 +60,7 @@ export default {
       const {nav_item, floor_item} = this.element
       const window_scrollTop = this.currentDom.scrollTop || document.documentElement.scrollTop || document.body.scrollTop
       for (let i = 0, len = floor_item.length; i < len; i++) {
-        let floor_offsetTop = floor_item[i].offsetTop - floor_item[0].offsetTop
+        let floor_offsetTop = floor_item[i].offsetTop - floor_item[0].offsetTop - (document.body.clientHeight / 2)
         if (window_scrollTop >= floor_offsetTop) {
           for (let n = 0, len = nav_item.length; n < len; n++) {
             const current_classList = nav_item[n].classList
@@ -74,8 +74,8 @@ export default {
       const floor_offsetTop = floor_item[index].offsetTop - floor_item[0].offsetTop
       const window_scrollTop = this.currentDom.scrollTop || document.documentElement.scrollTop || document.body.scrollTop
       const move = {
-          step: 50,
-          times: 15,
+          step: 40,
+          times: 10,
           FLOOR_OFFSETTOP: floor_offsetTop,
         }
       if (window_scrollTop > floor_offsetTop) {
@@ -139,9 +139,29 @@ export default {
     cursor: pointer;
     border-bottom: 1px solid #fff;
   }
-  .nav-list-item.active, .nav-list-item:hover {
-    color: #FFF;
-    background: #404040;
+  .nav-list .active:nth-child(1), .nav-list-item:nth-child(1):hover {
+    color: #fff;
+    background: linear-gradient(145deg, rgb(98, 171, 253), rgb(158, 128, 243));
+  }
+  .nav-list .active:nth-child(2), .nav-list-item:nth-child(2):hover {
+    color: #fff;
+    background: linear-gradient(145deg, rgb(119, 239, 216), rgb(69, 186, 242));
+  }
+  .nav-list .active:nth-child(3), .nav-list-item:nth-child(3):hover {
+    color: #fff;
+    background: linear-gradient(145deg, rgb(249, 191, 102), rgb(249, 92, 129));
+  }
+  .nav-list .active:nth-child(4), .nav-list-item:nth-child(4):hover {
+    color: #fff;
+    background: linear-gradient(145deg, rgb(255, 227, 90), rgb(255, 176, 100));
+  }
+  .nav-list .active:nth-child(5), .nav-list-item:nth-child(5):hover {
+    color: #fff;
+    background: linear-gradient(145deg, rgb(231, 238, 144), rgb(91, 242, 185));
+  }
+  .nav-list .active:nth-child(6), .nav-list-item:nth-child(6):hover {
+    color: #fff;
+    background: linear-gradient(145deg, rgb(243, 135, 188), rgb(162, 143, 237));
   }
   // floor
   .floor-wrap {
@@ -154,22 +174,22 @@ export default {
     color: #FFF;
   }
   .floor-wrap div:nth-child(1) {
-    background: #409EFF;
+    background: linear-gradient(145deg, rgb(98, 171, 253), rgb(158, 128, 243));
   }
   .floor-wrap div:nth-child(2) {
-    background: #304156;
+    background: linear-gradient(145deg, rgb(119, 239, 216), rgb(69, 186, 242));
   }
   .floor-wrap div:nth-child(3) {
-    background: #11A983;
+    background: linear-gradient(145deg, rgb(249, 191, 102), rgb(249, 92, 129));
   }
   .floor-wrap div:nth-child(4) {
-    background: #13C2C2;
+    background: linear-gradient(145deg, rgb(255, 227, 90), rgb(255, 176, 100));
   }
   .floor-wrap div:nth-child(5) {
-    background: #6959CD;
+    background: linear-gradient(145deg, rgb(231, 238, 144), rgb(91, 242, 185));
   }
   .floor-wrap div:nth-child(6) {
-    background: #1270C9;
+    background: linear-gradient(145deg, rgb(243, 135, 188), rgb(162, 143, 237));
   }
 }
 </style>
