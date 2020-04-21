@@ -175,6 +175,13 @@ const router = new Router({
         meta: {
           title: '购物车',
         }
+      }, {
+        path: '/front/floor',
+        name: 'Floor',
+        component: () => import('@/view/front/Floor'),
+        meta: {
+          title: '楼层',
+        }
       }]
     },
     {

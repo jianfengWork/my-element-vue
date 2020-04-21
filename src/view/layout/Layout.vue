@@ -201,10 +201,10 @@ html, body {
 }
 .router-transform-enter {
   opacity: 0;
-  transform: translateX(-30px);
+  // transform: translateX(-30px);
 }
 .router-transform-leave-to {
   opacity: 0;
-  transform: translateX(30px);
+  // transform: translateX(30px);
 }
 </style>
