@@ -27,6 +27,24 @@ export function uniqueArray(arr) {
 }
 
 /**
+ * 二维数组去重
+ * @param Array 支持数组
+ * @returns {[[...item], [...item]]}
+ * var arr = [[1, 2, 3], [3, 2, 1], [1, 2, 3]]
+ */
+export function multipleArray(arr) {
+  const temp = Array.from(new Set(arr.map(item => {
+    return item.join('')
+  }))).map(item => {
+    return item.split('')
+  })
+  // console.log(new Set(arr.map(item => {
+  //   return item.join('')
+  // })))
+  return temp
+}
+
+/**
  * 字节长度
  * @param String 支持字符串
  * @returns {Number}
