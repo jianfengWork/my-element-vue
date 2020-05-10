@@ -182,6 +182,13 @@ const router = new Router({
         meta: {
           title: '楼层',
         }
+      }, {
+        path: '/front/drag',
+        name: 'Drag',
+        component: () => import('@/view/front/DragList'),
+        meta: {
+          title: '拖拽列表',
+        }
       }]
     },
     {
