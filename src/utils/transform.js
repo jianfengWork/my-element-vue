@@ -1,6 +1,6 @@
 /**
- * 补零
- * @param num 支持数字、字符串
+ * @method 补零
+ * @param {Number, String} num
  * @returns {'09'||10}
  */
 export function repairZero(num) {
@@ -8,7 +8,7 @@ export function repairZero(num) {
 }
 
 /**
- * 数组去重
+ * @method 数组去重
  * @param Array 支持数组、对象数组
  * @returns {[...item]}
  */
@@ -18,6 +18,7 @@ export function uniqueArray(arr) {
   let len = arr.length
   for (let i = 0; i < len; i++) {
     let v = arr[i]
+    // let v = arr[i].id
     if (!obj[v]) {
       obj[v] = 1
       temp.push(arr[i])
@@ -27,7 +28,7 @@ export function uniqueArray(arr) {
 }
 
 /**
- * 二维数组去重
+ * @method 二维数组去重
  * @param Array 支持数组
  * @returns {[[...item], [...item]]}
  * var arr = [[1, 2, 3], [3, 2, 1], [1, 2, 3]]
@@ -45,7 +46,7 @@ export function multipleArray(arr) {
 }
 
 /**
- * 字节长度
+ * @method 字节长度
  * @param String 支持字符串
  * @returns {Number}
  */
@@ -55,4 +56,35 @@ export function getBytes(val) {
     if (val.charCodeAt(i) > 255) len++
   }
   return len
+}
+
+/**
+ * @method 时间戳(秒)=>年月日时分秒
+ * @param {String} fmt 日期格式
+ * @param {*} timestamp 时间戳
+ * @returns {yyyy || MM || dd || hh || mm || ss}
+ */
+export function dateFmt(timestamp, fmt = 'yyyy-MM-dd hh:mm:ss') {
+  let date = new Date(timestamp * 1000)
+  let o = {
+    'M+': date.getMonth() + 1, // 月份
+    'd+': date.getDate(), // 日
+    'h+': date.getHours(), // 小时
+    'm+': date.getMinutes(), // 分
+    's+': date.getSeconds(), // 秒
+    'q+': Math.floor((date.getMonth() + 3) / 3), // 季度
+    S: date.getMilliseconds(), // 毫秒
+  }
+  if (/(y+)/.test(fmt)) {
+    fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length))
+  }
+  for (let k in o) {
+    if (new RegExp('(' + k + ')').test(fmt)) {
+      fmt = fmt.replace(
+        RegExp.$1,
+        RegExp.$1.length === 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length),
+      )
+    }
+  }
+  return fmt
 }

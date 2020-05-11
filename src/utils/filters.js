@@ -1,7 +1,7 @@
 import moment from 'moment'
 /**
- * 时间戳（秒） => 年月日 时分秒
- * @param timestamp 1586361600
+ * @method 时间戳(秒)=>年月日时分秒
+ * @param {Number, String} timestamp 1586361600
  * @returns {'2020-04-09 00:00:00'}
  */
 export function formatDate(timestamp) {
@@ -9,9 +9,9 @@ export function formatDate(timestamp) {
 }
 
 /**
- * 转换金额展示
- * @param val 支持数字、字符串
- * @param digit 支持数字、字符串
+ * @method 转换金额展示
+ * @param {Number, String} val 1000000
+ * @param {Number, String} digit 保留小数点位数
  * @returns {'10,000.00'}
  */
 export function formatCash(val, digit) {
