@@ -60,8 +60,8 @@ export function getBytes(val) {
 
 /**
  * @method 时间戳(秒)=>年月日时分秒
- * @param {String} fmt 日期格式
- * @param {*} timestamp 时间戳
+ * @param {String} fmt 日期格式 'MM-dd hh:mm'
+ * @param {Number, String} timestamp 时间戳 1589126400
  * @returns {yyyy || MM || dd || hh || mm || ss}
  */
 export function dateFmt(timestamp, fmt = 'yyyy-MM-dd hh:mm:ss') {
