@@ -88,3 +88,20 @@ export function dateFmt(timestamp, fmt = 'yyyy-MM-dd hh:mm:ss') {
   }
   return fmt
 }
+
+/**
+ * @method 0分00秒
+ * @param {Number} num 100
+ * @returns {1分40秒}
+ */
+export function minuteSecond(s) {
+  let t = ''
+  if (s >= 0) {
+    const min = Math.floor(s / 60) % 60
+    t += min + '分'
+    let sec = s % 60
+    if (sec < 10) t += '0'
+    t += sec + '秒'
+  }
+  return t
+}
