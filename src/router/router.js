@@ -196,6 +196,13 @@ const router = new Router({
         meta: {
           title: '词云',
         }
+      }, {
+        path: '/front/recorder',
+        name: 'Recorder',
+        component: () => import('@/view/front/Recorder'),
+        meta: {
+          title: '录音',
+        }
       }]
     },
     {

@@ -42,5 +42,7 @@ export default {
 </script>
 
 <style lang="scss">
-
+div.tooltip {
+  display: none;
+}
 </style>
