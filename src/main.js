@@ -68,6 +68,10 @@ Vue.use({
   }
 })
 
+// vue-audio-native
+import vueAudioNative from 'vue-audio-native'
+Vue.use(vueAudioNative)
+
 // 系统语言切换
 import enUS from './locale/enUS'
 import zhCN from './locale/zhCN'

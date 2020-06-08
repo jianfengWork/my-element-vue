@@ -82,6 +82,18 @@
       <div style="padding: 20px 0;">格式</div>
       <el-button type="primary" @click="downloadWAV" :disabled="download_WAV">下载WAV</el-button>
     </div>
+    <div class="view-area">
+      <div style="padding: 20px 0;">vue-audio-native</div>
+      <vue-audio-native
+        :url="'https://mifbb-upload-image.oss-cn-hangzhou.aliyuncs.com/mifbb_test_app/business_college/audio/20200409/79c3182021410b559d53e6fde3afda55.mp3'"
+        :show-current-time="true"
+        :show-controls="false"
+        :show-download="true"
+        :autoplay="false"
+        :wait-buffer="true"
+        hint=""
+      />
+    </div>
   </div>
 </template>
 
@@ -332,7 +344,7 @@ export default {
 
       clearInterval(this.timer)
       this.timer = null
-      this.playTime = recorder && recorder.getPlayTime()
+      this.playTime = 0
     },
     drawPlay() {
       drawPlayId = requestAnimationFrame(this.drawPlay) // 用requestAnimationFrame稳定60fps绘制
