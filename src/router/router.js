@@ -123,6 +123,13 @@ const router = new Router({
         meta: {
           title: '验证码'
         }
+      }, {
+        path: '/tools/countup',
+        name: 'CountUp',
+        component: () => import('@/view/tools/CountUp'),
+        meta: {
+          title: 'CountUp'
+        }
       }]
     },
     {
