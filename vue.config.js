@@ -18,6 +18,7 @@ module.exports = {
       }
     }
   },
+  transpileDependencies: ['vue-clamp', 'resize-detector'], // vue-clamp组件需要
   chainWebpack: config => {
     // set svg-sprite-loader
     config.module

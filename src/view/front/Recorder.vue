@@ -8,8 +8,9 @@
             v-for="item in sampleRateOptions"
             :key="item.value"
             :label="item.text"
-            :value="item.value" />
-          </el-select>
+            :value="item.value"
+          />
+        </el-select>
       </el-col>
       <el-col :span="8">
         <div>采样位数</div>
@@ -18,8 +19,9 @@
             v-for="item in sampleBitOptions"
             :key="item.value"
             :label="item.text"
-            :value="item.value" />
-          </el-select>
+            :value="item.value"
+          />
+        </el-select>
       </el-col>
       <el-col :span="8">
         <div>声道数</div>
@@ -28,8 +30,9 @@
             v-for="item in numChannelOptions"
             :key="item.value"
             :label="item.text"
-            :value="item.value" />
-          </el-select>
+            :value="item.value"
+          />
+        </el-select>
       </el-col>
     </el-row>
     <div class="btn-action">

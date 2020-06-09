@@ -203,6 +203,13 @@ const router = new Router({
         meta: {
           title: '录音',
         }
+      }, {
+        path: '/front/clamp',
+        name: 'Clamp',
+        component: () => import('@/view/front/Clamp'),
+        meta: {
+          title: '多行文本截断',
+        }
       }]
     },
     {
