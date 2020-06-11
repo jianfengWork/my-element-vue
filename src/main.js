@@ -72,6 +72,10 @@ Vue.use({
 import vueAudioNative from 'vue-audio-native'
 Vue.use(vueAudioNative)
 
+// https://github.com/monoplasty/vue-monoplasty-slide-verify
+import SlideVerify from 'vue-monoplasty-slide-verify'
+Vue.use(SlideVerify)
+
 // 系统语言切换
 import enUS from './locale/enUS'
 import zhCN from './locale/zhCN'
