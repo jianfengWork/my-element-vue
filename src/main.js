@@ -93,6 +93,9 @@ new Vue({
   render: h => h(App),
   router,
   store,
+  mounted() {
+    document.dispatchEvent(new Event('render-event'))
+  },
 }).$mount('#app')
 
 // vue inspect > output.js // 输出vue-cli内置配置
