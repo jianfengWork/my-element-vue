@@ -40,7 +40,7 @@ export default {
   methods: {
     loginSystem() {
       this.$router.push({
-        path: '/dashboard/index',
+        path: '/layout',
         query: {locale: localStorage.getItem('systemLanguage') || 'zhCN'}
       })
       const params = {

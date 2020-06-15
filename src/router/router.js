@@ -19,6 +19,7 @@ const router = new Router({
   history: true,
   routes: [ // 配置路由
     { path: '/', redirect: '/dashboard/index', hide: true },
+    { path: '/layout', component: () => import('@/view/layout/Layout'), hide: true },
     { path: '*', name: '404', hide: true, component: () => import('@/view/layout/404') },
     {
       path: '/login',

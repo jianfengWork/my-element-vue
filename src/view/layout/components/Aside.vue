@@ -66,6 +66,10 @@ export default {
       // console.log(this.$store.state.routerPermission)
       this.asideList = this.$router.options.routes.filter(item => !item.hide) // 过滤一级隐藏模块
       // console.log(this.asideList)
+      this.$router.push({
+        path: '/dashboard/index',
+        query: {locale: localStorage.getItem('systemLanguage') || 'zhCN'}
+      })
     })
   },
   methods: {
