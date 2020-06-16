@@ -1,5 +1,23 @@
 const path = require('path')
 
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
+const compress = new CompressionWebpackPlugin(
+  {
+    filename: info => {
+      return `${info.path}.gz${info.query}`
+    },
+    algorithm: 'gzip', 
+    threshold: 10240,
+    test: new RegExp(
+      '\\.(' +
+      ['js'].join('|') +
+      ')$'
+    ),
+    minRatio: 0.8,
+    deleteOriginalAssets: false
+  }
+)
+
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
@@ -20,7 +38,8 @@ module.exports = {
       alias: {
         '@': resolve('src')
       }
-    }
+    },
+    plugins: [compress]
   },
   configureWebpack: () => {
     if (process.env.NODE_ENV !== 'production') return
@@ -43,7 +62,11 @@ module.exports = {
     }
   },
   transpileDependencies: ['vue-clamp', 'resize-detector'], // vue-clamp组件需要
+  css: { // 从js中提取css包
+    extract: true
+  },
   chainWebpack: config => {
+    config.optimization.minimize(true) // 压缩代码
     // set svg-sprite-loader
     config.module
       .rule('svg')
