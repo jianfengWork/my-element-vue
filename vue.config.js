@@ -66,7 +66,7 @@ module.exports = {
     extract: true
   },
   chainWebpack: config => {
-    config.optimization.minimize(true) // 压缩代码
+    if (process.env.NODE_ENV === 'production') config.optimization.minimize(true) // 压缩代码
     // set svg-sprite-loader
     config.module
       .rule('svg')
