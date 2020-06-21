@@ -98,6 +98,15 @@ export default {
       ],
     }
   },
+  created() {
+    console.log('第一次进入keep-alive触发')
+  },
+  activated() {
+    console.log('我被keep-alive激活')
+  },
+  deactivated() {
+    console.log('我被keep-alive关闭')
+  },
   methods: {
     addCart(item) {
       let flag = false // 记录 存在

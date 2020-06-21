@@ -21,7 +21,12 @@
         </el-header>
         <el-main>
           <transition name="router-transform" mode="out-in">
-            <router-view />
+            <div>
+              <keep-alive>
+                <router-view v-if="$route.meta.title === '购物车'" />
+              </keep-alive>
+              <router-view v-if="$route.meta.title !== '购物车'" />
+            </div>
           </transition>
           <i class="el-icon-setting setting" :style="{'background': $store.state.themeColor}" @click="showDrawer" />
         </el-main>

@@ -179,7 +179,7 @@ const router = new Router({
       }, {
         path: '/front/cart',
         name: 'Cart',
-        component: () => import('@/view/front/Cart'),
+        component: resolve => require(['@/view/front/Cart'], resolve),
         meta: {
           title: '购物车',
         }
