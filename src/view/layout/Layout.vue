@@ -20,14 +20,12 @@
           <img v-if="avatarUrl" :src="avatarUrl" class="heder_avatar" />
         </el-header>
         <el-main>
-          <transition name="router-transform" mode="out-in">
-            <div>
-              <keep-alive>
-                <router-view v-if="$route.meta.title === '购物车'" />
-              </keep-alive>
-              <router-view v-if="$route.meta.title !== '购物车'" />
-            </div>
-          </transition>
+          <!-- <transition name="router-transform" mode="out-in"> -->
+            <keep-alive>
+              <router-view v-if="$route.meta.title === '购物车'" />
+            </keep-alive>
+            <router-view v-if="$route.meta.title !== '购物车'" />
+          <!-- </transition> -->
           <i class="el-icon-setting setting" :style="{'background': $store.state.themeColor}" @click="showDrawer" />
         </el-main>
       </el-container>

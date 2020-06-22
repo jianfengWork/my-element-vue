@@ -107,6 +107,13 @@ export default {
   deactivated() {
     console.log('我被keep-alive关闭')
   },
+  beforeRouteEnter(to, from, next) {
+    next()
+  },
+  beforeRouteLeave(to, from, next) {
+    console.log('to:', to, 'from:', from)
+    next()
+  },
   methods: {
     addCart(item) {
       let flag = false // 记录 存在
