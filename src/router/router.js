@@ -52,6 +52,14 @@ const router = new Router({
         meta: {
           title: 'Analysis',
         }
+      }, {
+        path: '/dashboard/chinamap',
+        name: 'Chinamap',
+        hide: false,
+        component: () => import('../view/dashboard/ChinaMap'),
+        meta: {
+          title: 'ChinaMap',
+        }
       }]
     },
     {
@@ -179,7 +187,7 @@ const router = new Router({
       }, {
         path: '/front/cart',
         name: 'Cart',
-        component: resolve => require(['@/view/front/Cart'], resolve),
+        component: resolve => require(['@/view/front/Cart'], resolve), // 路由懒加载
         meta: {
           title: '购物车',
         }
