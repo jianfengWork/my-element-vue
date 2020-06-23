@@ -17,7 +17,7 @@ export default {
       pieChart: '',
       options: {
         title: {
-        text: 'line'
+        // text: 'line'
       },
       tooltip: {
         trigger: 'axis',

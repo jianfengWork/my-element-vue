@@ -1,5 +1,7 @@
 <template>
-  <div ref="chinaMapDom" class="china-map" />
+  <div class="china-map-cont">
+    <div ref="chinaMapDom" class="china-map" />
+  </div>
 </template>
 
 <script>
