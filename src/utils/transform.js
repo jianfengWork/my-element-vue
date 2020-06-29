@@ -46,6 +46,23 @@ export function multipleArray(arr) {
 }
 
 /**
+ * @method 一维数组转二维数组
+ * @param Array 支持数组
+ * @returns {[[...item], [...item]]}
+ * var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+ */
+export function dimensionArray(arr, chunkLength) {
+  const chunkArr = []
+  const len = arr.length
+  chunkArr[0] = arr.slice(0, chunkLength)
+  for (let i = chunkLength; i < len; i++) {
+    if (chunkArr[chunkArr.length - 1].length === chunkLength) chunkArr.push([])
+    chunkArr[chunkArr.length - 1].push(arr[i])
+  }
+  return chunkArr
+}
+
+/**
  * @method 字节长度
  * @param String 支持字符串
  * @returns {Number}
