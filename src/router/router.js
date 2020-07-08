@@ -17,6 +17,7 @@ import Layout from '@/view/layout/Layout'
 const router = new Router({
   mode: 'history', // hash 模式会带#
   history: true,
+  base: '/my-element-vue/',
   routes: [ // 配置路由
     { path: '/', redirect: '/dashboard/index', hide: true },
     { path: '/layout', component: () => import('@/view/layout/Layout'), hide: true },
