@@ -23,3 +23,6 @@ git commit -m 'deploy'
  git push -f https://github.com/jianfengWork/my-element-vue.git master:gh-pages
 
 cd -
+
+# https://jianfengWork.github.io/my-element-vue/
+# sh ./deploy.sh

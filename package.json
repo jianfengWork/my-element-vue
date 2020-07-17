@@ -25,6 +25,7 @@
     "query-string": "^6.4.2",
     "resize-detector": "^0.2.0",
     "screenfull": "^4.2.0",
+    "socket.io-client": "^2.3.0",
     "tinymce": "^5.1.2",
     "urijs": "^1.19.2",
     "vue": "^2.6.10",

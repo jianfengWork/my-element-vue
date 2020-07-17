@@ -70,6 +70,14 @@ Vue.use({
   }
 })
 
+// socket.io-client
+/* import io from 'socket.io-client'
+const socket = io('ws://localhost:3001')
+Vue.prototype.$socket = socket
+socket.on('connect', function() {
+  console.log('成功连接服务器')
+}) */
+
 // vue-audio-native
 import vueAudioNative from 'vue-audio-native'
 Vue.use(vueAudioNative)
