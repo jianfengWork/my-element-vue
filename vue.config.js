@@ -62,9 +62,9 @@ module.exports = {
   //   }
   // },
   transpileDependencies: ['vue-clamp', 'resize-detector'], // vue-clamp组件需要
-  css: { // 从js中提取css包
-    extract: true
-  },
+  // css: { // 从js中提取css包
+  //   extract: true
+  // },
   chainWebpack: config => {
     if (process.env.NODE_ENV === 'production') config.optimization.minimize(true) // 压缩代码
     // set svg-sprite-loader

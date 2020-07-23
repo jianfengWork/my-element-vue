@@ -15,9 +15,9 @@ import Layout from '@/view/layout/Layout'
 
 // component: { render: h => h('router-view') }, // 视图占位
 const router = new Router({
-  mode: 'hash', // hash 模式会带#
+  mode: process.env.NODE_ENV === 'production' ? 'hash' : 'history', // hash 模式会带#
   history: true,
-  base: '/my-element-vue/',
+  base: process.env.NODE_ENV === 'production' ? '/my-element-vue/' : '',
   routes: [ // 配置路由
     { path: '/', redirect: '/dashboard/index', hide: true },
     { path: '/layout', component: () => import('@/view/layout/Layout'), hide: true },
@@ -60,6 +60,14 @@ const router = new Router({
         component: () => import('../view/dashboard/ChinaMap'),
         meta: {
           title: 'ChinaMap',
+        }
+      }, {
+        path: '/dashboard/canvas',
+        name: 'Canvas',
+        hide: false,
+        component: () => import('../view/dashboard/Canvas'),
+        meta: {
+          title: 'Canvas',
         }
       }]
     },
