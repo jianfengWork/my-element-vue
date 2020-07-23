@@ -69,6 +69,14 @@ const router = new Router({
         meta: {
           title: 'Canvas',
         }
+      }, {
+        path: '/dashboard/cropper',
+        name: 'Cropper',
+        hide: false,
+        component: () => import('../view/dashboard/Cropper'),
+        meta: {
+          title: 'Cropper',
+        }
       }]
     },
     {
