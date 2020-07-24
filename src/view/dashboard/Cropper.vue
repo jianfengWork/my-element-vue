@@ -59,58 +59,47 @@
         accept="image/png, image/jpeg, image/gif, image/jpg"
         @change="uploadImg($event, 1)"
       >
-      <div style="display:block; width: 100%;color: #000;">
-        <label class="c-item">
-          <span>上传图片是否显示原始宽高 (针对大图 可以铺满)</span>
-          <input type="checkbox" v-model="option.original">
-          <span>original: {{ option.original}}</span>
-        </label>
-        <label class="c-item">
-          <span>能否拖动图片</span>
-          <input type="checkbox" v-model="option.canMove">
-        </label>
-        <label class="c-item">
-          <span>能否拖动截图框</span>
-          <input type="checkbox" v-model="option.canMoveBox">
-          <span>canMoveBox: {{ option.canMoveBox}}</span>
-        </label>
-        <label class="c-item">
-          <span>截图框固定大小</span>
-          <input type="checkbox" v-model="option.fixedBox">
-          <span>fixedBox: {{ option.fixedBox}}</span>
-        </label>
-        <label class="c-item">
-          <span>是否输出原图比例的截图</span>
-          <input type="checkbox" v-model="option.full">
-          <span>full: {{ option.full}}</span>
-        </label>
-        <label class="c-item">
-          <span>是否自动生成截图框</span>
-          <input type="checkbox" v-model="option.autoCrop">
-          <span>autoCrop: {{ option.autoCrop}}</span>
-        </label>
-        <label class="c-item">
-          <span>是否根据dpr生成适合屏幕的高清图片</span>
-          <input type="checkbox" v-model="option.high">
-          <span>high: {{ option.high}}</span>
-        </label>
-        <label class="c-item">
-          <span>截图框是否限制在图片里(只有在自动生成截图框时才能生效)</span>
-          <input type="checkbox" v-model="option.centerBox">
-          <span>centerBox: {{ option.centerBox}}</span>
-        </label>
-        <label class="c-item">
-          <p>输出图片格式</p>
-          <label>jpg
-            <input type="radio" name="type" value="jpeg" v-model="option.outputType">
-          </label>
-          <label>png
-            <input type="radio" name="type" value="png" v-model="option.outputType">
-          </label>
-          <label>webp
-            <input type="radio" name="type" value="webp" v-model="option.outputType">
-          </label>
-        </label>
+      <div style="display: block; width: 100%; color: #000;">
+        <div class="c-item">
+          <span>上传图片是否显示原始宽高 (针对大图 可以铺满)：</span>
+          <el-checkbox v-model="option.original">original: {{option.original}}</el-checkbox>
+        </div>
+        <div class="c-item">
+          <span>能否拖动图片：</span>
+          <el-checkbox v-model="option.canMove">canMove: {{option.canMove}}</el-checkbox>
+        </div>
+        <div class="c-item">
+          <span>能否拖动截图框：</span>
+          <el-checkbox v-model="option.canMoveBox">canMoveBox: {{option.canMoveBox}}</el-checkbox>
+        </div>
+        <div class="c-item">
+          <span>截图框固定大小：</span>
+          <el-checkbox v-model="option.fixedBox">fixedBox: {{option.fixedBox}}</el-checkbox>
+        </div>
+        <div class="c-item">
+          <span>是否输出原图比例的截图：</span>
+          <el-checkbox v-model="option.full">full: {{option.full}}</el-checkbox>
+        </div>
+        <div class="c-item">
+          <span>是否自动生成截图框：</span>
+          <el-checkbox v-model="option.autoCrop">autoCrop: {{option.autoCrop}}</el-checkbox>
+        </div>
+        <div class="c-item">
+          <span>是否根据dpr生成适合屏幕的高清图片：</span>
+          <el-checkbox v-model="option.high">high: {{option.high}}</el-checkbox>
+        </div>
+        <div class="c-item">
+          <span>截图框是否限制在图片里(只有在自动生成截图框时才能生效)：</span>
+          <el-checkbox v-model="option.centerBox">centerBox: {{option.centerBox}}</el-checkbox>
+        </div>
+        <div class="c-item">
+          <span>输出图片格式：</span>
+          <el-radio-group v-model="option.outputType">
+            <el-radio label="jpeg">jpg</el-radio>
+            <el-radio label="png">png</el-radio>
+            <el-radio label="webp">webp</el-radio>
+          </el-radio-group>
+        </div>
       </div>
     </div>
   </div>
@@ -347,7 +336,6 @@ export default {
 .c-item {
   max-width: 800px;
   margin: 20px auto 10px;
-  display: block;
 }
 .test-button {
   display: flex;
