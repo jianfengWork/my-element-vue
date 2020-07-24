@@ -102,7 +102,7 @@ export default {
         path: '/login',
         query: {locale: queryString.parse(location.search).locale || localStorage.getItem('systemLanguage') || 'zhCN'}
       })
-      setTimeout(() => {
+      setTimeout(() => { // login 和 Layout 不在同个视图，localStorage会被清空
         localStorage.setItem('themeColor', this.$store.state.themeColor)
         localStorage.setItem('systemLanguage', this.$store.state.systemLanguage)
       }, 300)
