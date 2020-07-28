@@ -17,7 +17,7 @@
             <div>{{item.name}}</div>
             <div>¥{{item.price}}<span class="cart-num">x{{item.num}}</span></div>
             <div>价格：{{parseInt((item.price * 100 * item.num)) / 100}}</div>
-            <el-input-number v-model="item.num" :min="1" :max="10" @change="getTotalPrice" @blur="($event) => blurNum(item, $event)" size="mini" />
+            <el-input-number v-model="item.num" :min="1" :max="10" @blur="($event) => blurNum(item, $event)" size="mini" />
           </div>
           <el-tooltip class="item" effect="dark" :content="`删除 ${item.name}`" placement="top">
             <i class="el-icon-delete" @click="delGoods(item, index)" />
@@ -36,7 +36,6 @@ export default {
     return {
       isIndeterminate: false, // 只负责样式控制
       checkAll: false, // 选中所有
-      totalPrice: 0,
       goodsList: [
         {
           id: 1,
@@ -114,6 +113,15 @@ export default {
     console.log('to:', to, 'from:', from)
     next()
   },
+  computed: {
+    totalPrice() { // 计算总价
+      const temp = this.cartList.filter(item => item.select) // 过滤出选中商品，计算总价
+      let totalPrice = temp.reduce((sum, item) => {
+        return sum + parseInt((item.price * 100 * item.num))
+      }, 0)
+      return totalPrice / 100
+    },
+  },
   methods: {
     addCart(item) {
       let flag = false // 记录 存在
@@ -139,14 +147,6 @@ export default {
     },
     blurNum(item, evt) {
       !evt.target.value ? item.num = 1 : item.num = parseInt(item.num) // 过滤 undefined 和 小数
-      this.getTotalPrice()
-    },
-    getTotalPrice() { // 计算总价
-      const temp = this.cartList.filter(item => item.select) // 过滤出选中商品，计算总价
-      let totalPrice = temp.reduce((sum, item) => {
-        return sum + parseInt((item.price * 100 * item.num))
-      }, 0)
-      this.totalPrice = totalPrice / 100
     },
     changeSelect() {
       const temp = this.cartList.filter(item => item.select) // 选中的商品数组
@@ -162,7 +162,6 @@ export default {
         this.isIndeterminate = false
         this.checkAll = false
       }
-      this.getTotalPrice()
     },
     changeCheckAll(bol) { // 改变全选状态
       this.isIndeterminate = false
@@ -172,7 +171,6 @@ export default {
           select: bol,
         }
       })
-      this.getTotalPrice()
     },
   },
 }
