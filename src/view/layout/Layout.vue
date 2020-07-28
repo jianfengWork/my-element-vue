@@ -4,7 +4,7 @@
       <xf-aside :menu-expland="menuExpland" :nav-color="$store.state.themeColor" />
       <el-container>
         <el-header>
-          <i @click="menuExpland = !menuExpland" class="menu-icon" :class="{'el-icon-sunny': !menuExpland , 'el-icon-sunrise': menuExpland}" />
+          <i @click="menuExpland = !menuExpland" class="menu-icon target-dom-left" :class="{'el-icon-sunny': !menuExpland , 'el-icon-sunrise': menuExpland}" />
           <span class="language">{{ $t('message')['app.header.desc'] }}</span>
           <el-select v-model="value" @change="selectLanguage">
             <el-option
@@ -15,7 +15,7 @@
           </el-select>
           <screenfull class="right-menu-item" />
           <!-- <router-link :to="`/login?locale=${$store.state.systemLanguage}`"> -->
-            <el-button type="primary" @click="loginOut">{{ $t('message')['app.header.login'] }}</el-button>
+            <el-button type="primary" @click="loginOut" class="target-dom">{{ $t('message')['app.header.login'] }}</el-button>
           <!-- </router-link> -->
           <img v-if="avatarUrl" :src="avatarUrl" class="heder_avatar" />
         </el-header>

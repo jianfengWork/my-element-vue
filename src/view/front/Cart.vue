@@ -214,14 +214,41 @@ export default {
       }
     },
     beforeDrop(el) {
-      const ball = this.dropBalls[this.dropBalls.length - 1]
+      const ball = this.dropBalls[this.dropBalls.length - 1] // 从 el 运动起始点
       const rect = ball.el.getBoundingClientRect()
+      // console.log(ball, rect)
+      /* 从上往下运动 */
       const x = rect.left - 300
       const y = -(window.innerHeight - rect.top - 540)
       el.style.display = ''
       el.style.transform = el.style.webkitTransform = `translate3d(0,${y}px,0)`
       const inner = el.querySelector(innerClsHook)
       inner.style.transform = inner.style.webkitTransform = `translate3d(${x}px,0,0)`
+      /* 从下往上运动 */
+      // const targetDom = document.querySelector('.target-dom')
+      // const x = -(targetDom.getBoundingClientRect().left - rect.left)
+      // const y = (rect.top - (rect.height / 2))
+      // el.style.display = ''
+      // el.style.transform = el.style.webkitTransform = `translate3d(0,${y}px,0)`
+      // const inner = el.querySelector(innerClsHook)
+      // inner.style.transform = inner.style.webkitTransform = `translate3d(${x}px,0,0)`
+      /* 从下往上运动二 */
+      // const targetDom = document.querySelector('.target-dom')
+      // const x = (rect.top - (rect.height / 2))
+      // const y = -(targetDom.getBoundingClientRect().left - rect.left)
+      // el.style.display = ''
+      // el.style.transform = el.style.webkitTransform = `translate3d(${y}px,0,0)`
+      // const inner = el.querySelector(innerClsHook)
+      // inner.style.transform = inner.style.webkitTransform = `translate3d(0,${x}px,0)`
+      /* 从右往左运动 */
+      // const targetDomLeft = document.querySelector('.target-dom-left')
+      // const x = (rect.top - (rect.height / 2))
+      // const y = -(targetDomLeft.getBoundingClientRect().left - rect.left)
+      // el.style.display = ''
+      // el.style.transform = el.style.webkitTransform = `translate3d(${y}px,0,0)`
+      // const inner = el.querySelector(innerClsHook)
+      // inner.style.transform = inner.style.webkitTransform = `translate3d(0,${x}px,0)`
+      console.log('x:', x,'y:', y)
     },
     dropping(el, done) {
       this._reflow = document.body.offsetHeight // 浏览器重绘
@@ -283,8 +310,15 @@ export default {
   .ball-container {
     .ball-cont {
       position: fixed;
+      /* 从上往下运动 */
       left: 300px;
       bottom: 540px;
+      /* 从下往上运动 | 从下往上运动二 */
+      // right: 120px;
+      // top: 20px;
+      /* 从右往左运动 */
+      // left: 220px;
+      // top: 20px;
       z-index: 200;
       transition: all 0.4s cubic-bezier(0.49, -0.29, 0.75, 0.41); // 贝塞尔曲线
       .inner {
