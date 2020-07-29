@@ -16,11 +16,15 @@
     <div class="PADTB20">
       <el-button type="primary" @click="previewPoster">预览海报</el-button>
       <el-button type="primary" @click="empty">清空海报</el-button>
+      <el-button type="primary" @click="downloadVueCanvas" :disabled="!vueCanvasSrc">下载 vue-canvas-poster 海报(png)</el-button>
       <el-button type="primary" @click="downloadPoster" :disabled="!canvasData">下载 html2canvas 海报(png)</el-button>
       <el-button type="primary" @click="downloadPDF" :disabled="!canvasData">下载 html2canvas 海报(pdf)</el-button>
     </div>
     <el-alert title="我是 native 海报" type="success" :closable="false" />
     <div ref="nativeDom" style="height: 248px;"></div>
+    <el-alert title="我是 vue-canvas-poster 海报" type="success" :closable="false" />
+    <vue-canvas-poster :widthPixels="1000" :painting="painting" @success="success" @fail="fail" />
+    <img :src="vueCanvasSrc" alt="" style="width: 700px;" />
     <el-alert title="我是 html2canvas 下载海报" type="success" :closable="false" />
     <div ref="downloadDom" style="height: 248px;">
       <img :src="downloadImg" alt="" />
@@ -39,12 +43,54 @@ export default {
       httpImg: '',
       canvasData: '',
       downloadImg: '',
+      vueCanvasSrc: '',
+      painting: {},
     }
   },
   mounted() {
+    this.painting = {}
     this.getBas64('https://mifbb-upload-image.oss-cn-hangzhou.aliyuncs.com/mifbb_online_app/decoration/20200327/cb2d839481c4f7b275a2bb084e838d6a.png').then(data => {
       // console.log(data)
       this.httpImg = data
+
+      // vue-canvas-poster
+      this.painting = {
+        width: '700px',
+        height: '243px',
+        background: '#fff',
+        views: [
+          {
+            type: 'image',
+            url: this.httpImg,
+            css: {
+              top: '0px',
+              left: '0px',
+              width: '400px',
+              height: '167px'
+            }
+          },
+          {
+            type: 'text',
+            text: '网络图片',
+            css: {
+              top: '170px',
+              left: '158px',
+              color: 'grey',
+              fontSize: '16px',
+            }
+          },
+          {
+            type: 'image',
+            url: require('@/assets/avatar.jpeg'),
+            css: {
+              top: '0px',
+              left: '420px',
+              width: '200px',
+              height: '200px'
+            }
+          },
+        ]
+      }
 
       // native 拼接
       let canvasDom = document.createElement('canvas')
@@ -61,14 +107,15 @@ export default {
         ctx.drawImage(img, 0, 0, 400, 166)
         const staticImg = new Image() // 静态图片
         staticImg.src = require('@/assets/avatar.jpeg')
-        ctx.drawImage(staticImg, 420, 0, 200, 220)
-        ctx.font = '16px 微软雅黑'
-        ctx.fillStyle = 'grey'
-        ctx.textAlign = 'center'
-        ctx.fillText('网络图片', 200, 188)
-        that.$refs.nativeDom.appendChild(canvasDom)
+        staticImg.onload = () => {
+          ctx.drawImage(staticImg, 420, 0, 200, 220)
+          ctx.font = '16px 微软雅黑'
+          ctx.fillStyle = 'grey'
+          ctx.textAlign = 'center'
+          ctx.fillText('网络图片', 200, 188)
+          that.$refs.nativeDom.appendChild(canvasDom)
+        }
       }
-
     })
   },
   methods: {
@@ -88,8 +135,8 @@ export default {
         const that = this
         img.onload = function() {
           if (window.devicePixelRatio > 1) {
-            canvasDom.width = img.width / 2
-            canvasDom.height = img.height / 2
+            canvasDom.width = img.width / 2 // (img.width / 2) * 1.5 适当缩放增加清晰度
+            canvasDom.height = img.height / 2 // (img.height / 2) * 1.5 适当缩放增加清晰度
             ctx.drawImage(img, 0, 0, canvasDom.width, canvasDom.height)
             canvasDom.toBlob(
               blob => {
@@ -113,6 +160,22 @@ export default {
     empty() {
       this.canvasData = null
       this.downloadImg = null
+    },
+    success(src) {
+      // console.log(src)
+      this.vueCanvasSrc = src
+    },
+    fail(err) {
+      console.log('fail:', err)
+    },
+    downloadVueCanvas() {
+      const link = document.createElement('a')
+      link.href = this.vueCanvasSrc
+      link.setAttribute('download', 'poster' + Date.now() + '.png')
+      link.style.display = 'none'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
     },
     downloadPoster() {
       const link = document.createElement('a')

@@ -68,6 +68,7 @@ export function dimensionArray(arr, chunkLength) {
  * @returns {Number}
  */
 export function getBytes(val) {
+  if (!val) val = ''
   let len = val.length
   for (let i in val) {
     if (val.charCodeAt(i) > 255) len++

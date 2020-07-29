@@ -29,6 +29,10 @@ Vue.component("v-chart", vueEcharts);
 import Echarts from 'echarts/lib/echarts'
 Vue.prototype.Echarts = Echarts
 
+// https://sunniejs.github.io/vue-canvas-poster/#/
+import VueCanvasPoster from 'vue-canvas-poster'
+Vue.use(VueCanvasPoster)
+
 // 定义请求方法
 import {fetch, post, put, del, fileDownLoad} from './http/http'
 Vue.prototype.$fetch = fetch
