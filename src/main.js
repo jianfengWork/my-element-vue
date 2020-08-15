@@ -56,6 +56,11 @@ Object.keys(globalFilter).forEach(key => {
   Vue.filter(key, globalFilter[key])
 })
 
+// js文件调用需要 单独创建 bus.js
+// import Vue from 'vue'
+// export default new Vue()
+// import Bus from '@/utils/bus'
+// Vue.prototype.$bus = Bus
 Vue.prototype.$bus = new Vue() // 消息总线
 
 Vue.use(VueI18n)
