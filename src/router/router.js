@@ -41,7 +41,10 @@ const router = new Router({
       children: [{
         path: '/dashboard/index',
         name: 'Index',
-        component: () => import('../view/dashboard/Index'),
+        components: { // 命名视图
+          header: () => import('@/view/methods/Solt'),
+          default: () => import('../view/dashboard/Index')
+        },
         meta: {
           title: '首页',
         }

@@ -20,6 +20,7 @@
           <img v-if="avatarUrl" :src="avatarUrl" class="heder_avatar" />
         </el-header>
         <el-main>
+          <router-view name="header" />
           <!-- <transition name="router-transform" mode="out-in"> -->
             <keep-alive>
               <router-view v-if="$route.meta.title === '购物车'" />

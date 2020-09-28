@@ -3,6 +3,7 @@
 ## Project setup
 ```
 npm install
+node server
 ```
 
 ### Compiles and hot-reloads for development

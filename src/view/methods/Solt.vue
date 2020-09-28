@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-input v-model="input" placeholder="请输入内容并按下Enter" @keyup.enter.native="addList"></el-input>
-    <xf-solt v-for="(item) in list" :key="item" :item="item">
+    <xf-solt v-for="(item, $index) in list" :key="'slot' + $index" :item="item">
       <template v-slot:content="itemprops">
         <span class="text" :style="{'color': itemprops.checked ? '#00b8e6' : 'grey'}">{{item}}</span>
         <i @click="dels(item)">x</i>
