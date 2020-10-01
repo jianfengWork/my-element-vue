@@ -31,11 +31,11 @@ export default {
       identifyCode: '',
       identifyCodeCont: '1234567890ABCDEFG',
       imgList: [
-        'http://e.hiphotos.baidu.com/zhidao/pic/item/b64543a98226cffc7a951157b8014a90f703ea9c.jpg',
-        'http://img.pconline.com.cn/images/upload/upc/tx/wallpaper/1208/15/c0/12924355_1344999165562.jpg',
-        'http://img1.imgtn.bdimg.com/it/u=3483415840,2446087639&fm=26&gp=0.jpg',
-        'http://img3.imgtn.bdimg.com/it/u=3992873028,1734106948&fm=214&gp=0.jpg',
-        'http://img2.imgtn.bdimg.com/it/u=3381731657,4133778123&fm=214&gp=0.jpg',
+        '/images/graphic1.png',
+        '/images/graphic2.png',
+        '/images/graphic3.png',
+        '/images/graphic4.png',
+        '/images/graphic5.png',
       ],
     }
   },

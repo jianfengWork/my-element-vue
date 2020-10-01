@@ -9,7 +9,7 @@
     </div>
     <el-alert title="transition-group" type="success" :closable="false" class="MT20" />
     <el-button type="primary" @click="arr.push(Math.random())">添加 transition</el-button>
-    <transition-group name="fadeLeft" tag="ul" class="transition-list">
+    <transition-group name="bounce" tag="ul" class="transition-list">
       <!-- 以 item 为 key，使动画作用在该元素上 -->
       <li v-for="(item, $index) in arr" :key="item">
         <span :style="{'background': themeColor}">{{item}}</span>
