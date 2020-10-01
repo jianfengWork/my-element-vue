@@ -39,7 +39,7 @@ const router = new Router({
         icon: 'el-icon-menu'
       },
       children: [{
-        path: '/dashboard/index',
+        path: '/dashboard/index', // 绝对路径 || index 相对路径
         name: 'Index',
         components: { // 命名视图
           header: () => import('@/view/methods/Solt'),
@@ -158,6 +158,13 @@ const router = new Router({
         component: () => import('@/view/tools/CountUp'),
         meta: {
           title: 'CountUp'
+        }
+      }, {
+        path: '/tools/transition',
+        name: 'Transition',
+        component: () => import('@/view/tools/Transition'),
+        meta: {
+          title: 'Transition'
         }
       }]
     },

@@ -63,6 +63,9 @@ Object.keys(globalFilter).forEach(key => {
 // Vue.prototype.$bus = Bus
 Vue.prototype.$bus = new Vue() // 消息总线
 
+// animate
+import 'vue2-animate/dist/vue2-animate.min.css'
+
 Vue.use(VueI18n)
 Vue.use(ElementUI, {
   size: 'medium', // set element-ui default size
