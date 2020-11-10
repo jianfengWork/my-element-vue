@@ -123,3 +123,22 @@ export function minuteSecond(s) {
   }
   return t
 }
+
+/**
+ * @method 数组的最小值及索引
+ * @param Array 数组
+ * @returns {obj.value, obj.index}
+ * var arr = [97, 68, 72, 29, 51, 45]
+ */
+export function getArrayMin(arr) {
+  const obj = {}
+  obj.value = arr[0]
+  obj.index = 0
+  for (let i = 1, len = arr.length; i < len; i++) {
+    if (obj.value > arr[i]) {
+      obj.value = arr[i]
+      obj.index = i
+    }
+  }
+  return obj
+}
