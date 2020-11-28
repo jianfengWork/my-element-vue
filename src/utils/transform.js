@@ -63,6 +63,26 @@ export function dimensionArray(arr, chunkLength) {
 }
 
 /**
+ * @method 深拷贝
+ * @param Object 支持对象、数组
+ * @returns {Object}
+ */
+export function deepClone(source) {
+  if (!source && typeof source !== 'object') {
+    throw new Error('error arguments', 'shallowClone')
+  }
+  const targetObj = source.constructor === Array ? [] : {}
+  Object.keys(source).forEach(keys => {
+    if (source[keys] && typeof source[keys] === 'object') {
+      targetObj[keys] = deepClone(source[keys])
+    } else {
+      targetObj[keys] = source[keys]
+    }
+  })
+  return targetObj
+}
+
+/**
  * @method 字节长度
  * @param String 支持字符串
  * @returns {Number}
