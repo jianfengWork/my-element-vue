@@ -18,14 +18,14 @@ export default {
      * @description 起始值，即动画开始前显示的数值
      */
     start: {
-      type: Number,
+      type: [Number, String],
       default: 0
     },
     /**
      * @description 结束值，即动画结束后显示的数值
      */
     end: {
-      type: Number,
+      type: [Number, String],
       required: true
     },
     /**
