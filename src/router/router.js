@@ -39,7 +39,7 @@ const router = new Router({
         icon: 'el-icon-menu'
       },
       children: [{
-        path: '/dashboard/index', // 绝对路径 || index 相对路径
+        path: '/dashboard/index', // 绝对路径 || index 相对路径 (此处使用绝对路径是 path 高亮路由，可用 name 代替)
         name: 'Index',
         components: { // 命名视图
           header: () => import('@/view/methods/Solt'),

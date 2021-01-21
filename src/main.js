@@ -11,7 +11,7 @@ import router from './router/router'
 import store from './store/store'
 import VueParticles from 'vue-particles' // 登录背景
 import './assets/font/iconfont.css' // icon
-import './svg-icons' // svg-icon
+import './svg-icons' // svg-icon (配置svg-sprite-loader)
 
 // 插件 Echarts
 import vueEcharts from "vue-echarts";
