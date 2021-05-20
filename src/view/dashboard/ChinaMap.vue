@@ -40,28 +40,28 @@ export default {
           }
         },
         backgroundColor: '#272D3A',
-        // visualMap: {
-        //   type:'continuous',
-        //   orient: 'horizontal', // 控制条横向
-        //   bottom:20,
-        //   min: 0,
-        //   max: 10000,
-        //   inRange: {
-        //     color: ['#ffd200','#ff0000']
-        //   },
-        //   text: ['高', '低'],
-        //   calculable: false, // 是否显示拖把
-        // },
+        visualMap: { // 查看官方文档配置
+          type: 'continuous',
+          orient: 'horizontal', // 控制条横向
+          bottom: -50, // 改变 bottom 可不显示 visualMap
+          min: 0,
+          max: 10000,
+          inRange: {
+            color: ['#ffd200', '#ff0000']
+          },
+          text: ['高', '低'],
+          calculable: false, // 是否显示拖把
+        },
         series: [
           {
             type: 'map',
             mapType: 'china', // 指定地图类型
             label: {
-              normal: {
+              normal: { // 字体颜色
                 show: true,
                 // color: '#fff'
               },
-              emphasis: {
+              emphasis: { // 鼠标聚焦时字体颜色
                 show: true,
                 color: '#fff'
               }

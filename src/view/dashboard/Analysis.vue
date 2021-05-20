@@ -1,55 +1,71 @@
 <template>
   <div>
-    <el-alert title="Echarts" type="success" :closable="false" />
+    <el-alert :title="'vueEcharts & Echarts'" type="success" :closable="false" />
     <!-- <div ref="chartDom" style="height: 500px;"></div> -->
     <v-chart class="chart-line" :options="options" autoresize />
+    <!-- 折线图 -->
+    <el-row :gutter="20" class="MT20">
+      <el-col :span="12">
+        <el-alert title="折线图：渐变、图例、曲线" type="success" :closable="false" />
+        <ChartLine1 />
+      </el-col>
+      <el-col :span="12">
+        <el-alert title="折线图：渐变、图例、双折线" type="success" :closable="false" />
+        <ChartLine2 />
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script>
 import debounce from 'lodash/debounce' // 防抖效果
 import { addListener, removeListener } from 'resize-detector' // 监听图表resize改变
+import ChartLine1 from './charts/chartLine1'
+import ChartLine2 from './charts/chartLine2'
 
 export default {
   name: 'Analysis',
+  components: {
+    ChartLine1, ChartLine2,
+  },
   data() {
     return {
       pieChart: '',
       options: {
         title: {
-        // text: 'line'
-      },
-      tooltip: {
-        trigger: 'axis',
-      },
-      color: [this.$store.state.themeColor],
-      grid: { // 内边距
-        top: '8%',
-        left: '0%',
-        right: '2%',
-        bottom: '3%',
-        containLabel: true
-      },
-      xAxis: [
-        {
-          type: 'category',
-          boundaryGap: false,
-          data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
-        }
-      ],
-      yAxis: [
-        {
-          type: 'value'
-        }
-      ],
-      series: [
-        {
-          name: '邮件营销',
-          type: 'line',
-          areaStyle: {},
-          data: [120, 132, 101, 134, 90, 230, 210]
+          // text: 'line'
         },
-      ],
+        tooltip: {
+          trigger: 'axis',
+        },
+        color: [this.$store.state.themeColor],
+        grid: { // 内边距
+          top: '8%',
+          left: '0%',
+          right: '2%',
+          bottom: '3%',
+          containLabel: true
+        },
+        xAxis: [
+          {
+            type: 'category',
+            boundaryGap: false,
+            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+          }
+        ],
+        yAxis: [
+          {
+            type: 'value'
+          }
+        ],
+        series: [
+          {
+            name: '邮件营销',
+            type: 'line',
+            areaStyle: {},
+            data: [120, 132, 101, 134, 90, 230, 210]
+          },
+        ],
       },
     }
   },

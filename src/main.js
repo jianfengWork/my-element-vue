@@ -13,7 +13,7 @@ import VueParticles from 'vue-particles' // 登录背景
 import './assets/font/iconfont.css' // icon
 import './svg-icons' // svg-icon (配置svg-sprite-loader)
 
-// 插件 Echarts
+// 插件 vueEcharts
 import vueEcharts from "vue-echarts";
 import "echarts/lib/chart/bar";
 import "echarts/lib/component/tooltip";
@@ -22,7 +22,7 @@ import "echarts/lib/chart/line";
 import "echarts/lib/chart/pie";
 import "echarts/lib/component/polar";
 import 'echarts/lib/chart/map'
-import 'echarts/map/js/china'
+import 'echarts/map/js/china' // 引入中国地图
 Vue.component("v-chart", vueEcharts);
 
 // 自写 Echarts
