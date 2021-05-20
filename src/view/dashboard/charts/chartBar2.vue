@@ -5,11 +5,12 @@
 <script>
 export default {
   data() {
-    const xAxisData = ['1月', '2月', '3月', '4月', '5月']
-    const seriesData = [0, 307, 246, 503, 240]
+    const xAxisData = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月']
+    const seriesData1 = [150, 307, 246, 503, 240, 300, 250, 500]
+    const seriesData2 = [100, 207, 146, 303, 450, 300, 370, 380]
     return {
       options: {
-        color: '#fff', // 圆点的颜色
+        color: ['#00FFC3', '#18B6E4'], // 柱图颜色
         grid: {
           top: '20%',
           left: '18%',
@@ -17,9 +18,8 @@ export default {
           bottom: '12%'
         },
         legend: {
-          selectedMode: false, // 图例 是否可点击
           itemWidth: 20, // 横线的长度
-          itemHeight: 8, // 横线的高度
+          itemHeight: 10, // 横线的高度
           top: 10, // top | left | right | bottom
           align: 'left', // 线 和 字 的位置，可选 left | right
           itemGap: 10,
@@ -36,12 +36,9 @@ export default {
           }
         },
         tooltip: {
-          trigger: 'axis', // item | axis 是由轴线触发，还是点触发
+          trigger: 'axis',
           axisPointer: {
-            type: 'line', // 可选值 line | shadow 默认 line
-            lineStyle: {
-              color: 'rgba(205, 153, 253, 0.5)',
-            },
+            type: 'shadow', // 可选值 line | shadow 默认 line
           },
           // backgroundColor: '', // 背景色
           borderColor: '#ddd',
@@ -54,13 +51,14 @@ export default {
             const date = new Date()
             const year = date.getFullYear() + '年'
             return `${year + val[0].name}份<br />
-              <span style="display: inline-block; width: 8px; height: 8px; background: #CD99FD; border-radius: 50%;"></span>
-              数据量：${val[0].value}`;
+              <span style="display: inline-block; width: 8px; height: 8px; background: #00FFC3; border-radius: 50%;"></span>
+              预警数量：${val[0].value}<br />
+              <span style="display: inline-block; width: 8px; height: 8px; background: #18B6E4; border-radius: 50%;"></span>
+              原辅料：${val[1].value}`;
           }
         },
         xAxis: {
           type: 'category',
-          boundaryGap: false, // true 原点标记在中间位置
           data: xAxisData,
           axisLine: {
             show: true,
@@ -71,11 +69,11 @@ export default {
           axisLabel: {
             fontSize: 12,
             color: '#fff',
-          }
+          },
         },
         yAxis: {
           type: 'value',
-          name: '(兆)',
+          name: '(个)',
           splitLine: { // 网格线
             show: false
           },
@@ -91,48 +89,31 @@ export default {
               fontSize: 12,
               color: '#fff'
             }
-          }
+          },
         },
         series: [
           {
-            data: seriesData,
-            type: 'line',
-            name: '数据总量',
-            symbol: 'circle',
-            smooth: true, // 曲线
-            itemStyle: { // 图例颜色
-              color: '#CD99FD',
-            },
-            lineStyle: {
-              normal: {
-                color: '#CD99FD',
-                width: 1
-              }
-            },
-            tooltip: {
-              show: true
-            },
-            areaStyle: { // 区域颜色 - 渐变
-              normal: {
-                color: {
-                  type: 'linear',
-                  x: 0,
-                  y: 0,
-                  x2: 0,
-                  y2: 1,
-                  colorStops: [
-                    {
-                      offset: 0, // 100% 处的颜色
-                      color: 'rgba(205, 153, 253, 0.8)'
-                    },
-                    {
-                      offset: 1, // 0% 处的颜色
-                      color: 'rgba(205, 153, 253, 0.1)'
-                    }
-                  ],
-                  global: false // 缺省为 false
-                }
-              }
+            data: seriesData1,
+            name: '风险预警',
+            type: 'bar',
+            barMinWidth: '20%',
+            barMaxWidth: '40%',
+            barGap: '30%', // 柱图间距
+            label: {
+              show: true,
+              position: "top"
+            }
+          },
+          {
+            data: seriesData2,
+            name: '原辅料',
+            type: 'bar', // line
+            barMinWidth: '20%',
+            barMaxWidth: '40%',
+            barGap: '30%',
+            label: {
+              show: true,
+              position: "top"
             }
           }
         ]

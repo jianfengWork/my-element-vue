@@ -15,7 +15,7 @@ export default {
           top: '20%',
           left: '18%',
           right: '10%',
-          bottom: '20%'
+          bottom: '12%'
         },
         legend: {
           itemWidth: 20, // 横线的长度
@@ -92,6 +92,9 @@ export default {
             name: '数据总量',
             symbol: 'circle',
             smooth: true, // 曲线
+            itemStyle: { // 图例颜色
+              color: '#CD99FD',
+            },
             lineStyle: {
               normal: {
                 color: '#CD99FD',
@@ -130,9 +133,12 @@ export default {
             name: '成本总量',
             smooth: true, // 曲线
             symbol: 'circle',
+            itemStyle: { // 默认从全局调色盘 option.color 获取颜色
+              color: '#13C2C2',
+            },
             lineStyle: {
               normal: {
-                color: '#CD99FD',
+                color: '#13C2C2',
                 width: 1
               }
             },

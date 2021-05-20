@@ -14,6 +14,21 @@
         <ChartLine2 />
       </el-col>
     </el-row>
+    <!-- 柱状图 -->
+    <el-row :gutter="20" class="MT20">
+      <el-col :span="12">
+        <el-alert title="柱状图：渐变、图例" type="success" :closable="false" />
+        <ChartBar1 />
+      </el-col>
+      <el-col :span="12">
+        <el-alert title="柱状图：图例、双柱图" type="success" :closable="false" />
+        <ChartBar2 />
+      </el-col>
+      <el-col :span="12" class="MT20">
+        <el-alert title="柱状图：x轴、y轴互换" type="success" :closable="false" />
+        <ChartBar3 />
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -22,11 +37,15 @@ import debounce from 'lodash/debounce' // 防抖效果
 import { addListener, removeListener } from 'resize-detector' // 监听图表resize改变
 import ChartLine1 from './charts/chartLine1'
 import ChartLine2 from './charts/chartLine2'
+import ChartBar1 from './charts/chartBar1'
+import ChartBar2 from './charts/chartBar2'
+import ChartBar3 from './charts/chartBar3'
 
 export default {
   name: 'Analysis',
   components: {
     ChartLine1, ChartLine2,
+    ChartBar1, ChartBar2, ChartBar3,
   },
   data() {
     return {
