@@ -29,6 +29,17 @@
         <ChartBar3 />
       </el-col>
     </el-row>
+    <!-- 饼图 -->
+    <el-row :gutter="20" class="MT20">
+      <el-col :span="12">
+        <el-alert title="饼图：图例 - 正常" type="success" :closable="false" />
+        <ChartPie1 />
+      </el-col>
+      <el-col :span="12">
+        <el-alert title="饼图：图例 - 自定义" type="success" :closable="false" />
+        <ChartPie2 />
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -40,12 +51,15 @@ import ChartLine2 from './charts/chartLine2'
 import ChartBar1 from './charts/chartBar1'
 import ChartBar2 from './charts/chartBar2'
 import ChartBar3 from './charts/chartBar3'
+import ChartPie1 from './charts/chartPie1'
+import ChartPie2 from './charts/chartPie2'
 
 export default {
   name: 'Analysis',
   components: {
     ChartLine1, ChartLine2,
     ChartBar1, ChartBar2, ChartBar3,
+    ChartPie1, ChartPie2
   },
   data() {
     return {
