@@ -19,7 +19,7 @@ export default {
           itemWidth: 20, // 横线的长度
           itemHeight: 8, // 横线的高度
           bottom: 'center', // top | left | right | bottom
-          right: '5%',
+          right: '15%',
           align: 'left', // 线 和 字 的位置，可选 left | right
           itemGap: 10,
           textStyle: {
@@ -42,7 +42,7 @@ export default {
             name: '数据统计',
             type: 'pie',
             radius: '60%', // 控制大小
-            center: ['40%', '50%'], // 控制位置
+            center: ['35%', '50%'], // 控制位置
             avoidLabelOverlap: true, // 是否启用防止标签重叠策略
             data: seriesData,
             label: {

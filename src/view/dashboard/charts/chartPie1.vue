@@ -40,7 +40,7 @@ export default {
             name: '数据统计',
             type: 'pie',
             radius: '60%', // 控制大小
-            center: ['40%', '50%'], // 控制位置
+            center: ['50%', '50%'], // 控制位置
             avoidLabelOverlap: true, // 是否启用防止标签重叠策略
             data: seriesData,
             label: {

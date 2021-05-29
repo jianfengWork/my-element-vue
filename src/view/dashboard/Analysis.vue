@@ -40,6 +40,21 @@
         <ChartPie2 />
       </el-col>
     </el-row>
+    <!-- 环形图 -->
+    <el-row :gutter="20" class="MT20">
+      <el-col :span="12" class="chart-cont">
+        <el-alert title="环形图：中心数据" type="success" :closable="false" />
+        <ChartRing1 />
+        <div class="chart-text">
+          <div class="">商户数(个)</div>
+          <div class="">{{ 0 }}</div>
+        </div>
+      </el-col>
+      <el-col :span="12">
+        <el-alert title="环形图：Label、图例" type="success" :closable="false" />
+        <ChartRing2 />
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -53,13 +68,16 @@ import ChartBar2 from './charts/chartBar2'
 import ChartBar3 from './charts/chartBar3'
 import ChartPie1 from './charts/chartPie1'
 import ChartPie2 from './charts/chartPie2'
+import ChartRing1 from './charts/chartRing1'
+import ChartRing2 from './charts/chartRing2'
 
 export default {
   name: 'Analysis',
   components: {
     ChartLine1, ChartLine2,
     ChartBar1, ChartBar2, ChartBar3,
-    ChartPie1, ChartPie2
+    ChartPie1, ChartPie2,
+    ChartRing1, ChartRing2,
   },
   data() {
     return {
@@ -163,9 +181,23 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .chart-line {
   width: 100%;
   height: 280px;
+}
+.chart-cont {
+  position: relative;
+  .chart-text {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: calc(50% + 19px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+  }
 }
 </style>
