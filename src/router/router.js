@@ -65,6 +65,14 @@ const router = new Router({
           title: 'ChinaMap',
         }
       }, {
+        path: '/dashboard/AHmap',
+        name: 'AHmap',
+        hide: false,
+        component: () => import('../view/dashboard/AHmap'),
+        meta: {
+          title: '安徽地图',
+        }
+      }, {
         path: '/dashboard/canvas',
         name: 'Canvas',
         hide: false,

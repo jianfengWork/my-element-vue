@@ -31,7 +31,7 @@ export default {
       this.chinaMap = this.Echarts.init(this.$refs.chinaMapDom)
       
       const option = { // 指定图表的配置项和数据
-        tooltip:{
+        tooltip: {
           show: true,
           formatter: function(params) {
             if (params.data) {
@@ -69,18 +69,17 @@ export default {
             aspectScale: 0.9,
             zoom: 1.1,
             itemStyle: { // 区域颜色
-              areaColor:'#465471',
+              areaColor: '#465471',
               borderColor: '#282F3C',
             },
             emphasis: { // 鼠标聚焦时区域颜色
-              itemStyle:{
+              itemStyle: {
                 areaColor: '#8796B4',
               }
             },
-            data:[{
-              name: '安徽',
-              value: [1000, 5000]
-            }], 
+            data: [
+              { name: '安徽', value: [1000, 5000] }
+            ],
           }
         ],
       }

@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
-import queryString from "query-string" // 解析url参数
-import VueHighlightJS from "vue-highlightjs" // 代码高亮
-import "highlight.js/styles/github.css"
+import queryString from 'query-string' // 解析url参数
+import VueHighlightJS from 'vue-highlightjs' // 代码高亮
+import 'highlight.js/styles/github.css'
 import ElementUI from 'element-ui'
 import './style/element-variables.scss' // 定制主题
 import './style/common.scss'
@@ -14,16 +14,19 @@ import './assets/font/iconfont.css' // icon
 import './svg-icons' // svg-icon (配置svg-sprite-loader)
 
 // 插件 vueEcharts
-import vueEcharts from "vue-echarts";
-import "echarts/lib/chart/bar";
-import "echarts/lib/component/tooltip";
-import "echarts/lib/component/legend";
-import "echarts/lib/chart/line";
-import "echarts/lib/chart/pie";
-import "echarts/lib/component/polar";
+import vueEcharts from 'vue-echarts'
+import 'echarts/lib/chart/bar'
+import 'echarts/lib/component/tooltip'
+import 'echarts/lib/component/legend'
+import 'echarts/lib/chart/line'
+import 'echarts/lib/chart/pie'
+import 'echarts/lib/component/polar'
 import 'echarts/lib/chart/map'
 import 'echarts/map/js/china' // 引入中国地图
-Vue.component("v-chart", vueEcharts);
+Vue.component('v-chart', vueEcharts)
+
+// 安徽地图
+import 'echarts/map/js/province/anhui' // 引入安徽地图
 
 // 自写 Echarts
 import Echarts from 'echarts/lib/echarts'
