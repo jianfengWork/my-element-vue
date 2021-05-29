@@ -31,20 +31,59 @@ export default {
           itemWidth: 20, // 横线的长度
           itemHeight: 8, // 横线的高度
           bottom: 'center', // top | left | right | bottom
-          right: '15%',
+          right: '5%',
           align: 'left', // 线 和 字 的位置，可选 left | right
           itemGap: 10,
           textStyle: {
             color: '#fff',
-            fontSize: 12
+            fontSize: 12,
+            rich: {
+              yellow: {
+                color: '#13C2C2',
+                fontSize: 14
+              }
+            }
           },
+          formatter: name => {
+            var value = this.options.series[0].data
+            var total = value.reduce((prev, cur) => {
+              return Number(cur.value) + Number(prev)
+            }, 0)
+            // console.log(total)
+            for (let i = 0; i < value.length; i++) {
+              if (name === value[i].name) {
+                if (total !== 0) {
+                  return (
+                    value[i].name +
+                    '    ' +
+                    '{yellow|' +
+                    value[i].value +
+                    '件}' +
+                    '    ' +
+                    Math.round((value[i].value / total) * 10000) / 100 +
+                    '%'
+                  )
+                } else {
+                  return (
+                    value[i].name +
+                    '    ' +
+                    '{yellow|' +
+                    value[i].value +
+                    '件}' +
+                    '    ' +
+                    '0%'
+                  )
+                }
+              }
+            }
+          }
         },
         series: [
           {
             name: '商户数',
             type: 'pie',
-            radius: ['60%', '70%'], // 调整 pie 渲染区域，需要同时按比例更改
-            center: ['35%', '50%'], // 坐标 x y，饼图的圆心的位置，比如将 50% 调整为 30%，饼图就会往上移动容器高度的 20%
+            radius: ['60%', '75%'], // 调整 pie 渲染区域，需要同时按比例更改
+            center: ['30%', '50%'], // 坐标 x y，饼图的圆心的位置，比如将 50% 调整为 30%，饼图就会往上移动容器高度的 20%
             avoidLabelOverlap: true, // 是否启用防止标签重叠策略
             data: seriesData,
             label: {
