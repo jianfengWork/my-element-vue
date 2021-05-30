@@ -2,7 +2,8 @@
   <div>
     <el-alert :title="$t('message')['app.index.desc']" type="success" :closable="false" />
     <el-button type="primary" size="mini" @click="copyCode">复制代码</el-button>
-    <el-button type="primary" size="mini" @click="downloadPdf">导出PDF</el-button>
+    <el-button type="primary" size="mini" @click="pdfExport">导出PDF</el-button>
+    <el-button type="primary" size="mini" @click="wordExport">导出WORD</el-button>
     <pre id="pdfDom" v-highlightjs="AsideCode"><code class="html"></code></pre>
   </div>
 </template>
@@ -53,8 +54,11 @@ export default {
     copyCode(event) {
       this.$clipboard(this.AsideCode, event)
     },
-    downloadPdf() {
+    pdfExport() {
       this.getPdf('#pdfDom')
+    },
+    wordExport() {
+      $('#pdfDom').wordExport(Date.now())
     },
   }
 }
