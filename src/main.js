@@ -85,6 +85,10 @@ Vue.use({
   }
 })
 
+// 生成 pdf
+import HtmlToPdf from '@/utils/HtmlToPdf/HtmlToPdf'
+Vue.use(HtmlToPdf)
+
 // socket.io-client
 /* import io from 'socket.io-client'
 const socket = io('ws://localhost:3001')

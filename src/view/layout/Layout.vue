@@ -6,7 +6,7 @@
         <el-header>
           <i @click="menuExpland = !menuExpland" class="menu-icon target-dom-left" :class="{'el-icon-sunny': !menuExpland , 'el-icon-sunrise': menuExpland}" />
           <span class="language">{{ $t('message')['app.header.desc'] }}</span>
-          <el-button type="primary" @click="showNoviceGuide">新手指引</el-button>
+          <el-button type="text" @click="showNoviceGuide">新手指引</el-button>
           <div class="DIB" ref="language">
             <el-select v-model="value" @change="selectLanguage">
               <el-option
