@@ -11,6 +11,7 @@ const store = new Vuex.Store({
     themeColor: variables.theme, // 主题颜色
     systemLanguage: 'zhCN', // 系统语言
     routerPermission: {},
+    noviceGuideElems: [], // 新手指引，DOM元素数组
   },
   mutations: { // 只更改state数据，由$store.commit('ADD_COUNT')调用
     ADD_COUNT(state, n) {
@@ -24,7 +25,15 @@ const store = new Vuex.Store({
     },
     SET_ROUTER_PERMISSION(state, router) { // 路由权限
       state.routerPermission = router
-    }
+    },
+    SET_NOVICE_GUIDE_ELEM(state, data) {
+      if (Array.isArray(data)) {
+        state.noviceGuideElems = []
+      } else {
+        console.log(data)
+        state.noviceGuideElems.push(data)
+      }
+    },
   },
   actions: { // 异步操作数据，由$store.dispatch('addCount')调用
     addCount({ commit }, n) {

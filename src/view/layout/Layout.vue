@@ -6,16 +6,21 @@
         <el-header>
           <i @click="menuExpland = !menuExpland" class="menu-icon target-dom-left" :class="{'el-icon-sunny': !menuExpland , 'el-icon-sunrise': menuExpland}" />
           <span class="language">{{ $t('message')['app.header.desc'] }}</span>
-          <el-select v-model="value" @change="selectLanguage">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value" />
-          </el-select>
+          <el-button type="primary" @click="showNoviceGuide">新手指引</el-button>
+          <div class="DIB" ref="language">
+            <el-select v-model="value" @change="selectLanguage">
+              <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value" />
+            </el-select>
+          </div>
           <screenfull class="right-menu-item" />
           <!-- <router-link :to="`/login?locale=${$store.state.systemLanguage}`"> -->
+          <div class="DIB" ref="loginout">
             <el-button type="primary" @click="loginOut" class="target-dom">{{ $t('message')['app.header.login'] }}</el-button>
+          </div>
           <!-- </router-link> -->
           <img v-if="avatarUrl" :src="avatarUrl" class="heder_avatar" />
         </el-header>
@@ -40,6 +45,7 @@
       </div>
     </drawer>
     <theme-picker ref="themePickerDom" v-show="false" />
+    <NoviceGuide v-if="fristCensor" @close-guide="fristCensor = false" />
   </div>
 </template>
 
@@ -47,6 +53,7 @@
 import queryString from 'query-string'
 import xfAside from './components/Aside'
 import Screenfull from '@/components/ScreenFull/screenfull'
+import NoviceGuide from '@/components/NoviceGuide/noviceGuide'
 
 export default {
   name: 'Layout',
@@ -61,6 +68,7 @@ export default {
       showSetting: false,
       color: '',
       avatarUrl: '',
+      fristCensor: false,
     }
   },
   watch: {
@@ -82,6 +90,20 @@ export default {
     this.$bus.$on('changeAvatar', (item) => {
       this.avatarUrl = item
     })
+    // 新手指引
+    this.$store.commit('SET_NOVICE_GUIDE_ELEM', [])
+    this.$nextTick(_ => {
+      this.$store.commit('SET_NOVICE_GUIDE_ELEM', {
+        DOMelems: this.$refs['language'],
+        type: 'language',
+        tipText: '切换中英文',
+      })
+      this.$store.commit('SET_NOVICE_GUIDE_ELEM', {
+        DOMelems: this.$refs['loginout'],
+        type: 'loginout',
+        tipText: '退出登录咯',
+      })
+    })
   },
   created() {
     this.color = localStorage.getItem('themeColor') || this.$store.state.themeColor
@@ -98,6 +120,9 @@ export default {
     this.$store.commit('CHANGE_SYSTEM_LANGUAGE', this.value)
   },
   methods: {
+    showNoviceGuide() {
+      this.fristCensor = true
+    },
     loginOut() {
       this.$router.push({
         path: '/login',
@@ -126,7 +151,7 @@ export default {
     },
   },
   components: {
-    xfAside, Screenfull
+    xfAside, Screenfull, NoviceGuide
   }
 }
 </script>
