@@ -17,6 +17,7 @@
     "countup.js": "^1.9.3",
     "debounce": "^1.2.0",
     "echarts": "^4.2.1",
+    "echarts-china-cities-js": "^0.1.1",
     "element-ui": "^2.8.2",
     "file-saver": "^2.0.2",
     "html2canvas": "^1.0.0-rc.5",

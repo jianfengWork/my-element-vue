@@ -26,7 +26,7 @@ import 'echarts/map/js/china' // 引入中国地图
 Vue.component('v-chart', vueEcharts)
 
 // 安徽地图
-import 'echarts/map/js/province/anhui' // 引入安徽地图
+// import 'echarts/map/js/province/anhui' // 引入安徽地图
 
 // 自写 Echarts
 import Echarts from 'echarts/lib/echarts'

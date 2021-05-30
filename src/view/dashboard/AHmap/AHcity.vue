@@ -1,66 +1,69 @@
 <template>
-  <div class="anhui-map-cont">
-    <el-button type="primary" size="mini" v-show="!showMap" @click="showMap = true">返回省份</el-button>
-    <div ref="anhuiMapDom" class="anhui-map" />
-    <AHcity :city-name="cityName" v-if="!showMap" />
+  <div class="anhui-city-cont">
+    <div ref="anhuiCityDom" class="anhui-city" />
   </div>
 </template>
 
 <script>
 import debounce from 'lodash/debounce' // 防抖效果
 import { addListener, removeListener } from 'resize-detector' // 监听图表resize改变
-import AHmapJson from 'echarts/map/json/province/anhui.json' // registerMap 扩展注册
-import AHcity from './AHmap/AHcity'
+// import AH_HF_JSON from '../AHmap/hefei.json' // registerMap 扩展注册
 
 export default {
-  components: {
-    AHcity,
+  props: {
+    cityName: {
+      type: String,
+      default: '芜湖市'
+    },
   },
   data() {
     return {
-      anhuiMap: null,
-      showMap: true,
-      cityName: '',
+      anhuiCity: null,
+      mapEnum: {
+        '合肥市': 'hefei',
+        '芜湖市': 'wuhu',
+      },
+      seriesEnum: {
+        '合肥市': [
+          { name: '肥东县', value: 1000 },
+          { name: '瑶海区', value: 900 },
+          { name: '包河区', value: 700 },
+          { name: '蜀山区', value: 700 },
+          { name: '庐阳区', value: 700 },
+          { name: '长丰县', value: 500 },
+          { name: '肥西县', value: 500 },
+          { name: '庐江县', value: 500 },
+          { name: '巢湖市', value: 500 },
+        ],
+        '芜湖市': [
+          { name: '三山区', value: 1000 },
+        ],
+      },
     }
   },
   created() {
     this.resize = debounce(this.resize, 200)
   },
   beforeDestroy() {
-    this.anhuiMap.dispose()
-    this.anhuiMap = null
-    removeListener(this.$refs.anhuiMapDom, this.resize)
+    this.anhuiCity.dispose()
+    this.anhuiCity = null
+    removeListener(this.$refs.anhuiCityDom, this.resize)
   },
   mounted() {
     this.renderEchart()
-    addListener(this.$refs.anhuiMapDom, this.resize)
+    addListener(this.$refs.anhuiCityDom, this.resize)
   },
   methods: {
     renderEchart() {
-      this.anhuiMap = this.Echarts.init(this.$refs.anhuiMapDom)
-      this.Echarts.registerMap('anhui', AHmapJson)
-      const seriesData = [
-        { name: '合肥市', value: 1000 },
-        { name: '芜湖市', value: 900 },
-        { name: '蚌埠市', value: 700 },
-        { name: '黄山市', value: 700 },
-        { name: '阜阳市', value: 700 },
-        { name: '宿州市', value: 500 },
-        { name: '滁州市', value: 500 },
-        { name: '亳州市', value: 500 },
-        { name: '池州市', value: 500 },
-        { name: '淮南市', value: 300 },
-        { name: '安庆市', value: 300 },
-        { name: '宣城市', value: 300 },
-        { name: '淮北市', value: 100 },
-        { name: '六安市', value: 100 },
-        { name: '马鞍山市', value: 100 },
-        { name: '铜陵市', value: 100 },
-      ]
+      // console.log(this.cityName)
+      this.anhuiCity = this.Echarts.init(this.$refs.anhuiCityDom)
+      const AH_CITY_JSON = require('../AHmap/json/' + this.mapEnum[this.cityName] + '.json')
+      this.Echarts.registerMap('anhui-city', AH_CITY_JSON)
+      const seriesData = this.seriesEnum[this.cityName]
       
       const option = { // 指定图表的配置项和数据
         title: {
-          text: '安徽省',
+          text: this.cityName,
         },
         tooltip: {
           trigger: 'item',
@@ -71,7 +74,7 @@ export default {
           }
         },
         legend: {
-          show: true,
+          show: false,
           orient: 'vertical',
           x: 'right',
           top: '20',
@@ -108,7 +111,7 @@ export default {
           {
             name: '安徽省区域分布图',
             type: 'map',
-            mapType: 'anhui', // 自定义扩展图表类型
+            mapType: 'anhui-city', // 自定义扩展图表类型
             zoom: 1.2,
             label: {
               normal: { // 字体颜色
@@ -121,7 +124,7 @@ export default {
               }
             },
             itemStyle: {
-              areaColor: '#bf2cfe', // 未匹配到 visualMap 颜色时显示
+              areaColor: '#f0f4fe', // 未匹配到 visualMap 颜色时显示
               color: '#25D72A', // area 中心点颜色
               borderWidth: 0.5, // 边框大小
               borderColor: '#e5e5e5', // 边界线颜色，borderwidth 必须要大于 0
@@ -138,34 +141,33 @@ export default {
         ],
       }
 
-      this.anhuiMap.setOption(option)
-      this.anhuiMap.on('click', param => {
-        console.log(param)
-        if (param.name != '合肥市' && param.name != '芜湖市') return this.$message.error('暂未开发')
-        this.$message.success(param.name)
-        this.showMap = false
-        this.cityName = param.name
+      this.anhuiCity.setOption(option)
+      const that = this
+      this.anhuiCity.on('click', function(param) {
+        console.log(param.name)
+        that.$message.success(param.name)
+        // return false
       })
     },
     resize() {
-      this.anhuiMap.resize()
+      this.anhuiCity.resize()
     }
   },
 }
 </script>
 
 <style lang="scss">
-.anhui-map {
+.anhui-city-cont {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.anhui-city {
   width: 100%;
   height: 600px;
-}
-.anhui-map-cont {
-  position: relative;
-  .el-button {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    z-index: 2;
-  }
 }
 </style>
