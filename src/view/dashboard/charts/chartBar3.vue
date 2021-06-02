@@ -107,7 +107,7 @@ export default {
             label: {
               show: true,
               position: 'right',
-              color: '#00FFC3'
+              color: '#CD99FD'
             },
             itemStyle: { // 区域颜色 - 渐变
               normal: {

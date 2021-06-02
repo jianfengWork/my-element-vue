@@ -101,7 +101,7 @@ export default {
             barGap: '30%', // 柱图间距
             label: {
               show: true,
-              position: "top"
+              position: 'top'
             }
           },
           {
@@ -113,7 +113,7 @@ export default {
             barGap: '30%',
             label: {
               show: true,
-              position: "top"
+              position: 'top'
             }
           }
         ]

@@ -77,7 +77,11 @@ export default {
           type: 'value',
           name: '(兆)',
           splitLine: { // 网格线
-            show: false
+            show: true,
+            lineStyle: {
+              type: 'dashed',
+              color: '#13C2C2',
+            }
           },
           axisLine: {
             show: true,

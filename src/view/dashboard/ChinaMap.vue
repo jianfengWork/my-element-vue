@@ -89,6 +89,9 @@ export default {
       this.chinaMap.on('click', function(param) {
         console.log(param)
         that.$message.success(param.name)
+        if (param.name == '安徽') {
+          that.$router.push('/dashboard/AHmap')
+        }
       })
     },
     resize() {

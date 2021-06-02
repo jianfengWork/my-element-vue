@@ -39,6 +39,10 @@
         <el-alert title="饼图：图例 - 自定义" type="success" :closable="false" />
         <ChartPie2 />
       </el-col>
+      <el-col :span="12" class="MT20">
+        <el-alert title="饼图：内外环" type="success" :closable="false" />
+        <ChartPie3 />
+      </el-col>
     </el-row>
     <!-- 环形图 -->
     <el-row :gutter="20" class="MT20">
@@ -68,6 +72,7 @@ import ChartBar2 from './charts/chartBar2'
 import ChartBar3 from './charts/chartBar3'
 import ChartPie1 from './charts/chartPie1'
 import ChartPie2 from './charts/chartPie2'
+import ChartPie3 from './charts/chartPie3'
 import ChartRing1 from './charts/chartRing1'
 import ChartRing2 from './charts/chartRing2'
 
@@ -76,7 +81,7 @@ export default {
   components: {
     ChartLine1, ChartLine2,
     ChartBar1, ChartBar2, ChartBar3,
-    ChartPie1, ChartPie2,
+    ChartPie1, ChartPie2, ChartPie3,
     ChartRing1, ChartRing2,
   },
   data() {
