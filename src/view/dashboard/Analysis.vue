@@ -28,6 +28,10 @@
         <el-alert title="柱状图：x轴、y轴互换" type="success" :closable="false" />
         <ChartBar3 />
       </el-col>
+      <el-col :span="12" class="MT20">
+        <el-alert title="柱状图：图例、折线图、下载、水印" type="success" :closable="false" />
+        <ChartBar4 />
+      </el-col>
     </el-row>
     <!-- 饼图 -->
     <el-row :gutter="20" class="MT20">
@@ -70,6 +74,7 @@ import ChartLine2 from './charts/chartLine2'
 import ChartBar1 from './charts/chartBar1'
 import ChartBar2 from './charts/chartBar2'
 import ChartBar3 from './charts/chartBar3'
+import ChartBar4 from './charts/chartBar4'
 import ChartPie1 from './charts/chartPie1'
 import ChartPie2 from './charts/chartPie2'
 import ChartPie3 from './charts/chartPie3'
@@ -80,7 +85,7 @@ export default {
   name: 'Analysis',
   components: {
     ChartLine1, ChartLine2,
-    ChartBar1, ChartBar2, ChartBar3,
+    ChartBar1, ChartBar2, ChartBar3, ChartBar4,
     ChartPie1, ChartPie2, ChartPie3,
     ChartRing1, ChartRing2,
   },
