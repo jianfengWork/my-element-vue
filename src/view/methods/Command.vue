@@ -9,7 +9,7 @@
     <div class="computed">
       <div class="MT20">
         <span>firstname：</span>
-        <el-input v-model.trim="firstname" />
+        <el-input v-model.trim="firstname" v-focus="focusBol" />
       </div>
       <div class="MT20">
         <span>lastname：</span>
@@ -25,6 +25,14 @@
 <script>
 export default {
   directives: {
+    focus(el, { value }, { context }) {
+      if (value) {
+        context.$nextTick(() => {
+        const input = el.querySelector('input')
+          input.focus()
+        })
+      }
+    },
     appendText: { // 指令名称
       bind() {
         // console.log('bind')
@@ -64,6 +72,7 @@ export default {
       show: true,
       firstname: '建',
       lastname: '峰',
+      focusBol: true,
     }
   }
 }
