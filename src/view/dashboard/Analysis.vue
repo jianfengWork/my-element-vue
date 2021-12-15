@@ -17,7 +17,7 @@
     <!-- 柱状图 -->
     <el-row :gutter="20" class="MT20">
       <el-col :span="12">
-        <el-alert title="柱状图：渐变、图例" type="success" :closable="false" />
+        <el-alert title="柱状图：渐变、图例、shadowStyle" type="success" :closable="false" />
         <ChartBar1 />
       </el-col>
       <el-col :span="12">

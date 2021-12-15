@@ -39,6 +39,28 @@ export default {
           trigger: 'axis',
           axisPointer: {
             type: 'shadow', // 可选值 line | shadow 默认 line
+            shadowStyle: {
+              color: {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: 'rgba(18, 155, 249, 0)', // 0% 处的颜色
+                  },
+                  {
+                    offset: 1,
+                    color: 'rgba(18, 155, 249, 0.5)', // 100% 处的颜色
+                  },
+                ],
+                global: false, // 缺省为 false
+              },
+              shadowColor: 'rgba(0, 0, 0, 0.2)',
+              shadowBlur: 5,
+            },
           },
           // backgroundColor: '', // 背景色
           borderColor: '#ddd',
