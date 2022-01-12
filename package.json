@@ -29,7 +29,7 @@
     "resize-detector": "^0.2.0",
     "screenfull": "^4.2.0",
     "socket.io-client": "^2.3.0",
-    "tinymce": "^5.1.2",
+    "tinymce": "^5.1.5",
     "urijs": "^1.19.2",
     "vue": "^2.6.10",
     "vue-audio-native": "^0.1.41",
