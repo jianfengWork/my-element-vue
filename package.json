@@ -41,6 +41,7 @@
     "vue-i18n": "^8.11.1",
     "vue-monoplasty-slide-verify": "^1.1.2",
     "vue-particles": "^1.0.9",
+    "vue-qr": "^2.3.0",
     "vue-router": "^3.0.6",
     "vue-wordcloud": "^1.1.1",
     "vue2-animate": "^2.1.4",

@@ -174,6 +174,13 @@ const router = new Router({
         meta: {
           title: 'Transition'
         }
+      }, {
+        path: '/tools/vueqr',
+        name: 'VueQr',
+        component: () => import('@/view/tools/VueQr'),
+        meta: {
+          title: 'VueQr'
+        }
       }]
     },
     {

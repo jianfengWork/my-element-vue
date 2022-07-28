@@ -2,7 +2,7 @@
   <div class="my-drag-list">
     <div>List</div>
     <draggable
-      :list="dragList"
+      v-model="dragList"
       v-bind="$attrs"
       @start="dragStart"
       @end="dragEnd"
