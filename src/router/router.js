@@ -126,6 +126,13 @@ const router = new Router({
         icon: 'el-icon-brush',
       },
       children: [{
+        path: '/tools/g6',
+        name: 'G6',
+        component: () => import('@/view/tools/G6'),
+        meta: {
+          title: 'G6'
+        }
+      }, {
         path: '/tools/vuex',
         name: 'Vuex',
         component: () => import('@/view/tools/Vuex'),

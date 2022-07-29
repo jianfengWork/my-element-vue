@@ -1,0 +1,197 @@
+{
+  "id": 99997,
+  "unitName": "测试生产厂商",
+  "unitNumber": "1",
+  "inStorageTime": null,
+  "outStorageTime": "2022-07-06",
+  "storageNumber": 70,
+  "storageUnit": "箱",
+  "children": [
+    {
+      "id": 123456,
+      "unitName": "测试杭州市三号供应商",
+      "unitNumber": "789",
+      "inStorageTime": null,
+      "outStorageTime": "2022-07-20",
+      "storageNumber": 20,
+      "storageUnit": "箱",
+      "children": [
+        {
+          "id": 123457,
+          "unitName": "人民大药房",
+          "unitNumber": "101112",
+          "inStorageTime": "2022-07-20",
+          "outStorageTime": null,
+          "storageNumber": 70,
+          "storageUnit": "箱",
+          "children": [],
+          "info": [
+            {
+              "inTime": "2022-07-20",
+              "outTime": null,
+              "number": "70 箱"
+            },
+            {
+              "inTime": null,
+              "outTime": "2022-07-20",
+              "number": "70 箱"
+            }
+          ]
+        },
+        {
+          "id": 123461,
+          "unitName": "荣民药店",
+          "unitNumber": "12341",
+          "inStorageTime": "2022-07-20",
+          "outStorageTime": null,
+          "storageNumber": 15,
+          "storageUnit": "箱",
+          "children": [],
+          "info": [
+            {
+              "inTime": "2022-07-20",
+              "outTime": null,
+              "number": "15 箱"
+            }
+          ]
+        }
+      ],
+      "info": [
+        {
+          "inTime": null,
+          "outTime": "2022-07-20",
+          "number": "20 箱"
+        },
+        {
+          "inTime": null,
+          "outTime": "2022-07-20",
+          "number": "15 箱"
+        },
+        {
+          "inTime": "2022-07-05",
+          "outTime": null,
+          "number": "70 箱"
+        }
+      ]
+    },
+    {
+      "id": 100001,
+      "unitName": "健民药业集团股份有限公司",
+      "unitNumber": "91330481MA2BB1UN2H",
+      "inStorageTime": "2022-07-20",
+      "outStorageTime": null,
+      "storageNumber": 10000,
+      "storageUnit": "箱",
+      "children": [
+        {
+          "id": 100003,
+          "unitName": "浙江亚瑟医药有限公12司",
+          "unitNumber": "91330400MA2CYC9K120W",
+          "inStorageTime": "2022-07-20",
+          "outStorageTime": null,
+          "storageNumber": 10000,
+          "storageUnit": "箱",
+          "children": [],
+          "info": [
+            {
+              "inTime": "2022-07-20",
+              "outTime": null,
+              "number": "10000 箱"
+            }
+          ]
+        },
+        {
+          "id": 123462,
+          "unitName": "中新药店",
+          "unitNumber": "12342",
+          "inStorageTime": "2022-07-20",
+          "outStorageTime": null,
+          "storageNumber": 15,
+          "storageUnit": "箱",
+          "children": [],
+          "info": [
+            {
+              "inTime": "2022-07-20",
+              "outTime": null,
+              "number": "15 箱"
+            }
+          ]
+        }
+      ],
+      "info": [
+        {
+          "inTime": "2022-07-20",
+          "outTime": null,
+          "number": "10000 箱"
+        },
+        {
+          "inTime": null,
+          "outTime": "2022-07-20",
+          "number": "10000 箱"
+        },
+        {
+          "inTime": null,
+          "outTime": "2022-07-20",
+          "number": "50000 箱"
+        }
+      ]
+    },
+    {
+      "id": 9999996,
+      "unitName": "测试杭州市一号供应商",
+      "unitNumber": "123",
+      "inStorageTime": null,
+      "outStorageTime": "2022-07-05",
+      "storageNumber": 30,
+      "storageUnit": "箱",
+      "children": [
+        {
+          "id": 99994,
+          "unitName": "天津力生制药股份有限公司",
+          "unitNumber": "456",
+          "inStorageTime": "2022-07-05",
+          "outStorageTime": null,
+          "storageNumber": 30,
+          "storageUnit": "箱",
+          "children": [],
+          "info": [
+            {
+              "inTime": "2022-07-05",
+              "outTime": null,
+              "number": "30 箱"
+            }
+          ]
+        }
+      ],
+      "info": [
+        {
+          "inTime": null,
+          "outTime": "2022-07-05",
+          "number": "30 箱"
+        },
+        {
+          "inTime": "2022-07-05",
+          "outTime": null,
+          "number": "30 箱"
+        }
+      ]
+    }
+  ],
+  "info": [
+    {
+      "inTime": null,
+      "outTime": "2022-07-06",
+      "number": "70 箱"
+    },
+    {
+      "inTime": null,
+      "outTime": "2022-07-20",
+      "number": "10000 箱"
+    },
+    {
+      "inTime": null,
+      "outTime": "2022-07-05",
+      "number": "30 箱"
+    }
+  ]
+}
