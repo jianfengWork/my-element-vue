@@ -12,18 +12,24 @@
         <span class="mask" :style="{'background': $store.state.themeColor}"></span>
       </div>
     </div>
+    <ScrollBar />
   </div>
 </template>
 
 <script>
+import ScrollBar from './components/ScrollBar'
+
 export default {
+  components: {
+    ScrollBar
+  },
   data() {
     return {
       imgList: [
         'https://img.alicdn.com/imgextra/i3/1055530397/TB1kNMegyCYBuNkHFCcXXcHtVXa_!!0-item_pic.jpg',
         'http://img.alicdn.com/imgextra/i2/1666952063/O1CN01arfGwX1R6tec9bqqc_!!1666952063.jpg',
         'https://img.alicdn.com/imgextra/i1/67422402/O1CN01a3MIhV1Tc9syINiWE_!!67422402.jpg',
-        'https://img.alicdn.com/imgextra/i1/752144829/O1CN01pnY8FJ1lXjBURgckl_!!752144829.jpg',
+        'https://img.alicdn.com/imgextra/i1/67422402/O1CN01a3MIhV1Tc9syINiWE_!!67422402.jpg',
         'http://img.alicdn.com/imgextra/i3/2400758027/O1CN018pdN3W29APn9P5dDC_!!0-item_pic.jpg',
         'http://img.alicdn.com/imgextra/i3/2768808186/O1CN01bah6op2ALElA42tEC_!!2768808186.jpg',
         'https://img.alicdn.com/imgextra/i3/2794538083/O1CN01zsUX7U29a3whvdszb_!!2794538083.jpg',
@@ -47,13 +53,12 @@ export default {
     // 1. 获取需要的标签
     let box = document.querySelector('.box')
     let box_top = document.querySelector('.box_top')
-    let box_bottom = document.querySelector('.box_bottom')
-    let mask = box_bottom.children[0]
+    let mask = document.querySelector('.box_bottom').children[0]
 
     // 2. 设置滚动条的长度
-    // 滚动条长度 = ( 盒子的宽度 / 内容的宽度) * 盒子的宽度
-    let mask_len = (box.offsetWidth / box_top.offsetWidth) * box.offsetWidth
-    mask.style.width = mask_len + 'px'
+    // 滚动条宽度 = (盒子的宽度 / 内容的宽度) * 盒子的宽度
+    let maskW = (box.offsetWidth / box_top.offsetWidth) * box.offsetWidth
+    mask.style.width = maskW + 'px'
 
     // 3. 鼠标操作
     box.onmousedown = function(event) {
@@ -65,7 +70,7 @@ export default {
         let e = event || window.event
 
         // 3.3 求出移动的距离
-        let endX = event.clientX - beginX
+        let endX = e.clientX - beginX
 
         // 边界值
         if (endX < 0) {
@@ -77,7 +82,7 @@ export default {
         // 3.4 动起来
         mask.style.left = endX + 'px'
 
-        // 内容走的距离 =（内容的长度 - 盒子的长度）\/ (盒子长度 - 滚动条的长度) * 滚动条走的距离
+        // 内容走的距离 = (内容的长度 - 盒子的长度) / (盒子长度 - 滚动条的长度) * 滚动条走的距离
         let content_len = (box_top.offsetWidth - box.offsetWidth) / (box.offsetWidth - mask.offsetWidth) * endX
         box_top.style.left = -content_len + 'px'
 
@@ -87,6 +92,7 @@ export default {
       document.onmouseup = function() {
         document.onmousemove = null
       }
+
     }
   },
 }
@@ -94,12 +100,13 @@ export default {
 
 <style lang="scss">
 .my-goods {
+  display: flex;
   .box {
-    width: 800px;
+    width: 600px;
     height: 200px;
     border: 1px solid #ddd;
     position: relative;
-    margin: 100px auto;
+    margin: 100px;
     overflow: hidden;
   }
   .box_top {

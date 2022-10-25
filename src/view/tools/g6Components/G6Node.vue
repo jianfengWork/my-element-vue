@@ -61,6 +61,7 @@ export default {
                 cursor: 'pointer'
               },
               name: 'text-shape',
+              draggable: true,
             });
             group.addShape('marker', {
               attrs: {

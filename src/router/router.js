@@ -231,7 +231,7 @@ const router = new Router({
         name: 'Goods',
         component: () => import('@/view/front/Goods'),
         meta: {
-          title: '滑动商品',
+          title: '滑动商品 / 滚动条',
         }
       }, {
         path: '/front/cart',
