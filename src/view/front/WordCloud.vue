@@ -1,6 +1,8 @@
 <template>
   <div class="word-cloud">
+    <el-button class="FR" type="primary" size="mini" @click="elemKey = Date.now()">刷新词云</el-button>
     <wordcloud
+      :key="elemKey"
       :data="defaultWords"
       nameKey="name"
       valueKey="value"
@@ -9,15 +11,20 @@
       :showTooltip="false"
       :wordClick="wordClickHandler"
     />
+    <el-alert title="手风琴" type="success" :closable="false" />
+    <FengQin />
   </div>
 </template>
 
 <script>
 import wordcloud from 'vue-wordcloud'
 // https://github.com/feifang/vue-wordcloud
+import FengQin from './components/FengQin'
+
 export default {
   data() {
     return {
+      elemKey: 0,
       myColors: ['#11a983', '#13c2c2', '#6959CD', '#1270C9'],
       defaultWords: [
         { 'name': 'Cat', 'value': 26 },
@@ -37,7 +44,10 @@ export default {
       console.log(name, value, vm);
     }
   },
-  components: {wordcloud},
+  components: {
+    wordcloud,
+    FengQin
+  },
 }
 </script>
 

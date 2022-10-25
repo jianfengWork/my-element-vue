@@ -259,7 +259,7 @@ const router = new Router({
         name: 'Cloud',
         component: () => import('@/view/front/WordCloud'),
         meta: {
-          title: '词云',
+          title: '词云 / 手风琴',
         }
       }, {
         path: '/front/recorder',

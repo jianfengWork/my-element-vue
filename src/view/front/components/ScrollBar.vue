@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import { animateScroll } from '@/utils/animate'
+
 export default {
   data() {
     return {}
@@ -36,13 +38,13 @@ export default {
     // 3. 绑定事件（鼠标按下，然后移动）
     elem_piece.onmousedown = function(event) {
       let e = event || window.event
-      let pageY = e.pageY || scroll().top + e.clientY
+      let pageY = e.pageY || animateScroll().top + e.clientY
       let beginY = pageY - elem_piece.offsetTop
       // 模拟拖拽案例
       document.onmousemove = function(event) {
         // 获取鼠标在页面的位置
         let e = event || window.event
-        let pageY = e.pageY || scroll().top + e.clientY
+        let pageY = e.pageY || animateScroll().top + e.clientY
         // 鼠标的位置 - 鼠标在盒子中的位置
         let endY = pageY - beginY
 
