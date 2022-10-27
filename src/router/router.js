@@ -172,7 +172,7 @@ const router = new Router({
         name: 'CountUp',
         component: () => import('@/view/tools/CountUp'),
         meta: {
-          title: 'CountUp'
+          title: 'CountUp / 时分秒'
         }
       }, {
         path: '/tools/transition',

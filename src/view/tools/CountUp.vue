@@ -40,8 +40,9 @@
           />
         </el-card>
       </el-col>
-      <!--  -->
-      <el-col style="margin-top: 20px" :span="8">
+    </el-row>
+    <el-row :gutter="20" class="MT20">
+      <el-col :span="8">
         <el-card shadow="hover">
           <div slot="header">
             <span class="cart-title">自定义样式</span>
@@ -56,7 +57,7 @@
         </el-card>
       </el-col>
       <!--  -->
-      <el-col style="margin-top: 20px" :span="8">
+      <el-col :span="8">
         <el-card shadow="hover">
           <div slot="header">
             <span class="cart-title">分组</span>
@@ -69,7 +70,7 @@
         </el-card>
       </el-col>
       <!--  -->
-      <el-col style="margin-top: 20px" :span="8">
+      <el-col :span="8">
         <el-card shadow="hover">
           <div slot="header">
             <span class="cart-title">自定义单位(20200609)</span>
@@ -94,11 +95,38 @@
         </el-card>
       </el-col>
     </el-row>
+    <el-alert class="MT20" title="时分秒" type="success" :closable="false" />
+    <el-row :gutter="20" class="MT20">
+      <el-col :span="8">
+        <el-card shadow="hover">
+          <div slot="header">
+            <span class="cart-title">倒计时(天)</span>
+          </div>
+          <TimeDay />
+        </el-card>
+      </el-col>
+      <!--  -->
+      <el-col :span="8">
+        <el-card shadow="hover">
+          <div slot="header">
+            <span class="cart-title">倒计时(小时)</span>
+          </div>
+          <TimeHour />
+        </el-card>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script>
+import TimeDay from './timeComponents/TimeDay'
+import TimeHour from './timeComponents/TimeHour'
+
 export default {
+  components: {
+    TimeDay,
+    TimeHour
+  },
   data() {
     return {
       contentStyle: {
