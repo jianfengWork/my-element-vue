@@ -255,6 +255,13 @@ const router = new Router({
           title: '拖拽列表',
         }
       }, {
+        path: '/front/mouse',
+        name: 'Mouse',
+        component: () => import('@/view/front/MouseDrag'),
+        meta: {
+          title: '鼠标三剑客',
+        }
+      }, {
         path: '/front/cloud',
         name: 'Cloud',
         component: () => import('@/view/front/WordCloud'),
