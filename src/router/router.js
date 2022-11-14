@@ -252,7 +252,7 @@ const router = new Router({
         name: 'Drag',
         component: () => import('@/view/front/DragList'),
         meta: {
-          title: '拖拽列表',
+          title: '拖拽列表 / 导航动画',
         }
       }, {
         path: '/front/mouse',

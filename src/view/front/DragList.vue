@@ -12,11 +12,15 @@
         {{ elem.name }} {{ elem.id }}
       </el-card>
     </draggable>
+    <el-alert class="MT20" title="导航动画" type="success" :closable="false" />
+    <NavMove />
   </div>
 </template>
 
 <script>
 import draggable from 'vuedraggable'
+import NavMove from './components/NavMove'
+
 export default {
   data() {
     return {
@@ -40,7 +44,8 @@ export default {
     }
   },
   components: {
-    draggable
+    draggable,
+    NavMove
   },
 }
 </script>

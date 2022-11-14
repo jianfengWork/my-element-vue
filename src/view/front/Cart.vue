@@ -320,14 +320,17 @@ export default {
       // left: 220px;
       // top: 20px;
       z-index: 200;
+      // transition: all 0.4s linear;
       transition: all 0.4s cubic-bezier(0.49, -0.29, 0.75, 0.41); // 贝塞尔曲线
       .inner {
         width: 16px;
         height: 16px;
         border-radius: 50%;
         transition: all 0.4s linear;
+        // y 轴做贝塞尔运动 > 从下往上运动二、从右往左运动
+        // transition: all 0.4s cubic-bezier(0.49, -1, 0.75, 0.41); // 贝塞尔曲线
       }
-    }       
+    }
   }
 }
 </style>

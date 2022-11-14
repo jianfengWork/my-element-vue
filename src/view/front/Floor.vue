@@ -104,7 +104,8 @@ export default {
       clearInterval(this.timer)
       this.timer = setInterval(() => {
         let window_scrollTop = this.currentDom.scrollTop || document.documentElement.scrollTop || document.body.scrollTop
-        if (window_scrollTop >= move.FLOOR_OFFSETTOP) {
+        // console.log(window_scrollTop, move.FLOOR_OFFSETTOP)
+        if (window_scrollTop >= (move.FLOOR_OFFSETTOP - 20)) {
           this.currentDom.scrollTop = move.FLOOR_OFFSETTOP
           clearInterval(this.timer)
         } else {

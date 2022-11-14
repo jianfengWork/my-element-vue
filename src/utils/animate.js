@@ -1,19 +1,27 @@
-export function animate(obj, json) {
+/**
+ * 
+ * @param {*} obj 
+ * @param {*} json 
+ * current: 当前值
+ * target: 目标值
+ * 运动对象: width、height、left、top
+ */
+export function animateMove(obj, json) {
   clearInterval(obj.timer)
   obj.timer = setInterval(function() {
     // 先假设，这一次执行完所有的属性都到达目标了
     var flag = true
 
     for (var k in json) {
-      var leader = parseInt(getStyle(obj, k)) || 0
+      var current = parseInt(getStyle(obj, k)) || 0
       var target = json[k]
-      var step = (target - leader) / 10
+      var step = (target - current) / 10 // 除数越小，运动越快
       step = step > 0 ? Math.ceil(step) : Math.floor(step)
-      leader = leader + step
-      obj.style[k] = leader + 'px'
+      current = current + step
+      obj.style[k] = current + 'px'
 
       // 告诉标记，当前这个属性还没到达
-      if (leader != target) {
+      if (current != target) {
         flag = false
       }
 

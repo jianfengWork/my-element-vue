@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { animate } from '@/utils/animate'
+import { animateMove } from '@/utils/animate'
 
 export default {
   data() {
@@ -25,16 +25,16 @@ export default {
       liArr[i].onmouseover = function() {
         for (var j = 0; j < liArr.length; j++) {
           // 引用框架实现宽度变窄
-          animate(liArr[j], {'width': 100})
+          animateMove(liArr[j], {'width': 100})
         }
         // 自身
-        animate(this, {'width': 800})
+        animateMove(this, {'width': 800})
       }
 
       // 鼠标移开，回复原样
       liArr[i].onmouseout = function() {
         for (var j = 0; j < liArr.length; j++) {
-          animate(liArr[j], {'width': 240})
+          animateMove(liArr[j], {'width': 240})
         }
       }
       
