@@ -4,6 +4,7 @@
     <el-button type="primary" size="mini" @click="copyCode">复制代码</el-button>
     <el-button type="primary" size="mini" @click="pdfExport">导出PDF</el-button>
     <el-button type="primary" size="mini" @click="wordExport">导出WORD</el-button>
+    <el-button type="primary" size="mini" @click="$router.push('/nav')">路由导航</el-button>
     <pre id="pdfDom" v-highlightjs="AsideCode"><code class="html"></code></pre>
   </div>
 </template>

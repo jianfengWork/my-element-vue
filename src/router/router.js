@@ -15,9 +15,15 @@ import Layout from '@/view/layout/Layout'
 
 // component: { render: h => h('router-view') }, // 视图占位
 const router = new Router({
-  mode: process.env.NODE_ENV === 'production' ? 'hash' : 'history', // hash 模式会带#
-  history: true,
-  base: process.env.NODE_ENV === 'production' ? '/my-element-vue/' : '',
+  mode: 'history', // require service support
+  scrollBehavior (to, from, savedPosition) {
+    if (to.hash) {
+      return {
+        selector: to.hash,
+        behavior: 'smooth',
+      }
+    }
+  },
   routes: [ // 配置路由
     { path: '/', redirect: '/dashboard/index', hide: true },
     { path: '/layout', component: () => import('@/view/layout/Layout'), hide: true },
@@ -28,6 +34,13 @@ const router = new Router({
       hide: true, // 自定义标志位，不渲染该菜单
       meta: {icon: '', title: ''}, // 图标，标题
       component: () => import('../view/layout/Login')
+    },
+    {
+      path: '/nav',
+      name: 'routerNav',
+      hide: true,
+      meta: {icon: '', title: ''},
+      component: () => import('@/RouetrNav')
     },
     {
       path: '/dashboard',
