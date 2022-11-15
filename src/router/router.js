@@ -164,7 +164,7 @@ const router = new Router({
         name: 'Svg',
         component: () => import('../view/tools/SvgIcon'),
         meta: {
-          title: 'SVG&ICON'
+          title: 'SVG / ICON'
         }
       }, {
         path: '/tools/image',
@@ -293,7 +293,7 @@ const router = new Router({
         name: 'Clamp',
         component: () => import('@/view/front/Clamp'),
         meta: {
-          title: '多行文本截断',
+          title: '文本截断 / 原生拖拽',
         }
       }]
     },
