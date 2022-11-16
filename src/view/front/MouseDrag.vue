@@ -5,17 +5,21 @@
     <el-alert title="自由拖拽" type="success" :closable="false" />
     <MouseDrug />
     <img class="mouse-img" :src="require('@/assets/avatar.jpeg')" alt="" />
+    <el-alert title="浮动弹窗" type="success" :closable="false" />
+    <FloatDialog />
   </div>
 </template>
 
 <script>
 import MouseBound from './components/MouseBound'
 import MouseDrug from './components/MouseDrug'
+import FloatDialog from './components/FloatDialog'
 
 export default {
   components: {
     MouseBound,
-    MouseDrug
+    MouseDrug,
+    FloatDialog
   },
   data() {
     return {

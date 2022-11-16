@@ -61,7 +61,7 @@ export default {
   justify-content: center;
   .bound-box {
     width: 800px;
-    height: 500px;
+    height: 400px;
     border: 1px solid #b6b6b6;
     margin: 20px;
   }
