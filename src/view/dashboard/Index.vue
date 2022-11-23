@@ -5,6 +5,7 @@
     <el-button type="primary" size="mini" @click="pdfExport">导出PDF</el-button>
     <el-button type="primary" size="mini" @click="wordExport">导出WORD</el-button>
     <el-button type="primary" size="mini" @click="$router.push('/nav')">路由导航</el-button>
+    <el-button type="primary" size="mini" @click="openPdf">查看PDF</el-button>
     <pre id="pdfDom" v-highlightjs="AsideCode"><code class="html"></code></pre>
   </div>
 </template>
@@ -60,6 +61,9 @@ export default {
     },
     wordExport() {
       $('#pdfDom').wordExport(Date.now())
+    },
+    openPdf() {
+      window.open('/pdf/web/viewer.html?file=http://localhost:3000/static/downloads/hzp.pdf')
     },
   }
 }
