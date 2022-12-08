@@ -16,13 +16,24 @@
         <el-button type="danger" @click="del($index)">删除</el-button>
       </li>
     </transition-group>
+    <el-alert title="transition: 双卡片" type="success" :closable="false" class="MT20" />
+    <TransitionCard />
+    <el-alert title="transition: 多棱柱" type="success" :closable="false" class="MT20" />
+    <TransitionGraph />
   </div>
 </template>
 
 <script>
 // https://github.com/asika32764/vue2-animate
 import { mapState } from 'vuex';
+import TransitionCard from './components/TransitionCard'
+import TransitionGraph from './components/TransitionGraph'
+
 export default {
+  components: {
+    TransitionCard,
+    TransitionGraph
+  },
   data() {
     return {
       single: true,
