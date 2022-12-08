@@ -295,6 +295,13 @@ const router = new Router({
         meta: {
           title: '文本截断 / 原生拖拽',
         }
+      }, {
+        path: '/water/flow',
+        name: 'waterFlow',
+        component: () => import('@/view/front/waterFlow/WaterFlow'),
+        meta: {
+          title: '瀑布流',
+        }
       }]
     },
     {

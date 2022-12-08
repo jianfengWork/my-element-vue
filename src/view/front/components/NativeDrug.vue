@@ -16,6 +16,10 @@ export default {
   data() {
     return {}
   },
+  beforeDestroy() {
+    document.ondragstart = null
+    document.ondragend = null
+  },
   mounted() {
     // 1.ondragstart: 源对象开始被拖动
     var obj = null // 拖放源对象

@@ -63,7 +63,8 @@ export default {
       $('#pdfDom').wordExport(Date.now())
     },
     openPdf() {
-      window.open('/pdf/web/viewer.html?file=http://localhost:3000/static/downloads/hzp.pdf')
+      // window.open('/pdf/web/viewer.html?file=http://localhost:3000/static/downloads/hzp.pdf') // 全路径
+      window.open('/pdf/web/viewer.html?file=/static/downloads/hzp.pdf') // 当前服务路径
     },
   }
 }
