@@ -139,6 +139,13 @@ const router = new Router({
         icon: 'el-icon-brush',
       },
       children: [{
+        path: '/tools/print',
+        name: 'vuePrint',
+        component: () => import('@/view/tools/VuePrint'),
+        meta: {
+          title: 'VuePrint'
+        }
+      }, {
         path: '/tools/g6',
         name: 'G6',
         component: () => import('@/view/tools/G6'),

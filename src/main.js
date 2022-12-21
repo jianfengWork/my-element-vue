@@ -89,6 +89,10 @@ Vue.use({
 import HtmlToPdf from '@/utils/HtmlToPdf/HtmlToPdf'
 Vue.use(HtmlToPdf)
 
+// 预览打印 pdf
+import print from 'vue-print-nb'
+Vue.use(print)
+
 // socket.io-client
 /* import io from 'socket.io-client'
 const socket = io('ws://localhost:3001')
