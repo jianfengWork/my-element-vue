@@ -8,12 +8,52 @@
     <!-- <link rel="stylesheet" href="http://localhost:3030/css/skin.min.css"> -->
     <link rel="stylesheet" href="<%= BASE_URL %>static/css/skin.min.css">
     <title>element-vue</title>
+    <style>
+      .yunjia-spacex-home {
+        background-color: #303133;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+  
+      .yunjia-spacex-home__main {
+        user-select: none;
+        width: 100%;
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+  
+      .yunjia-spacex-home__title {
+        color: #FFF;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+  
+      .yunjia-spacex-home__sub-title {
+        color: #ABABAB;
+        font-size: 12px;
+      }
+    </style>
   </head>
   <body>
     <noscript>
       <strong>We're sorry but app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <div id="app">
+      <div class="yunjia-spacex-home">
+        <div class="yunjia-spacex-home__main">
+          <div class="yunjia-spacex-home__title">
+            正在加载资源
+          </div>
+          <div class="yunjia-spacex-home__sub-title">
+            初次加载资源可能需要较多时间 请耐心等待
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- built files will be auto injected -->
   </body>
   <script src="<%= BASE_URL %>static/js/sticker.min.js"></script>
