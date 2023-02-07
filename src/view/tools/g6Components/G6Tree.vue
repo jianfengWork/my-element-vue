@@ -281,6 +281,7 @@ export default {
   min-height: 600px;
   background: url('/images/batch-bg.png');
   background-size: 100% auto;
+  position: relative;
 }
 .g6-component-tooltip {
   width: 240px;

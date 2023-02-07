@@ -191,6 +191,7 @@ export default {
     position: fixed;
     top: 30%;
     right: 0;
+    z-index: 10;
     color: #fff;
     font-size: 26px;
     background: #00b8e6;

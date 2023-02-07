@@ -98,6 +98,9 @@ export default {
             });
             return rect
           },
+          // update(cfg, node) { // 调用 graph.updateItem 触发 update 方法，性能优化
+          //   console.log(cfg, 'cfg')
+          // },
         }
       )
       //  自定义边
@@ -124,6 +127,8 @@ export default {
       // 创建 G6 图实例
       const g6Node = document.getElementById('container');
       const width = g6Node.scrollWidth;
+      // 实例化 Grid 插件
+      const grid = new G6.Grid();
       const graph = new G6.Graph({
         container: 'g6-node', // 指定图画布的容器 id
         // 画布宽高
@@ -156,6 +161,7 @@ export default {
             lineWidth: 2
           },
         },
+        plugins: [grid],
         modes: {
           default: ['drag-node', 'drag-canvas', 'zoom-canvas'],
         },
@@ -285,5 +291,13 @@ export default {
 .node-wrap {
   width: 100%;
   height: 500px;
+  position: relative;
+  ::v-deep(.g6-grid-container) {
+    z-index: 1 !important;
+  }
+  ::v-deep canvas {
+    position: relative;
+    z-index: 2;
+  }
 }
 </style>
