@@ -15,7 +15,7 @@ import Layout from '@/view/layout/Layout'
 
 // component: { render: h => h('router-view') }, // 视图占位
 const router = new Router({
-  mode: 'history', // require service support
+  mode: 'hash', // require service support
   scrollBehavior (to, from, savedPosition) {
     if (to.hash) {
       return {

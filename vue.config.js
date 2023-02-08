@@ -31,7 +31,9 @@ const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
 
 // process.env.MOCK // 由package中scripts提供
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/my-element-vue/' : '/',
+  publicPath: './',
+  outputDir: 'my-element-vue',
+  assetsDir: 'static',
   productionSourceMap: false,
   configureWebpack: {
     resolve: {
