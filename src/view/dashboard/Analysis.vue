@@ -6,7 +6,9 @@
     <!-- 折线图 -->
     <el-row :gutter="20" class="MT20">
       <el-col :span="12">
-        <el-alert title="折线图：渐变、图例、曲线" type="success" :closable="false" />
+        <el-alert title="折线图：渐变、图例、曲线" type="success" :closable="false" class="has-button">
+          <el-button type="primary" size="mini" @click="onEditor">在线编辑</el-button>
+        </el-alert>
         <ChartLine1 />
       </el-col>
       <el-col :span="12">
@@ -161,6 +163,9 @@ export default {
     // removeListener(this.$refs.chartDom, this.resize)
   },
   methods: {
+    onEditor() {
+      this.$router.push('/monaco')
+    },
     renderEchart() {
       this.pieChart = this.Echarts.init(this.$refs.chartDom)
       this.pieChart.setOption({
@@ -208,6 +213,14 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
+  }
+}
+.has-button {
+  ::v-deep(.el-alert__content) {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
 </style>

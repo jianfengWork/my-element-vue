@@ -1,4 +1,5 @@
 const path = require('path')
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
 
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const compress = new CompressionWebpackPlugin(
@@ -86,7 +87,11 @@ module.exports = {
       })
       .end()
 
-      config.module
+    config.plugin('monaco-editor').use(new MonacoWebpackPlugin({
+      languages: ['javascript', 'typescript', 'css', 'html'],
+    }))
+
+    config.module
       .rule('vue')
       .use('vue-loader')
       .loader('vue-loader')

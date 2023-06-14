@@ -43,6 +43,13 @@ const router = new Router({
       component: () => import('@/RouetrNav')
     },
     {
+      path: '/monaco',
+      name: 'monacoEditor',
+      hide: true,
+      meta: {icon: '', title: ''},
+      component: () => import('@/view/monaco/MonacoEditor')
+    },
+    {
       path: '/dashboard',
       name: 'Dashboard',
       component: Layout,

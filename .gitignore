@@ -2,6 +2,7 @@
 node_modules
 dist
 my-element-vue
+package-lock.json
 
 # local env files
 .env.local
