@@ -44,7 +44,7 @@ export default {
 .transition-graph {
   width: 200px;
   height: 100px;
-  padding: 50px;
+  padding: 20px;
   border: 1px dotted #304156;
   perspective: 200px; // 视距
   perspective-origin: center center;
@@ -54,7 +54,9 @@ export default {
   ul {
     position: relative;
     width: 100px;
-    height: 100px;
+    height: 100%;
+    display: flex;
+    align-items: center;
     transform-style: preserve-3d;
     transform-origin: center center 0px;
     transition: all 3s;
@@ -62,7 +64,7 @@ export default {
   }
   li {
     width: 98px;
-    height: 98px;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;

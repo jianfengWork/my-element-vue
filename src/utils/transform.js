@@ -1,3 +1,32 @@
+import moment from 'moment'
+/**
+ * @method 时间戳(秒)=>年月日时分秒
+ * @param {Number, String} timestamp 1586361600
+ * @returns {'2020-04-09 00:00:00'}
+ */
+export function formatDate(timestamp) {
+  return timestamp ? moment(timestamp * 1000).format('YYYY-MM-DD HH:mm:ss') : '-'
+}
+
+/**
+ * @method 转换金额展示
+ * @param {Number, String} val 1000000
+ * @param {Number, String} digit 保留小数点位数
+ * @returns {'10,000.00'}
+ */
+export function formatCash(val, digit) {
+  if (!val) val = 0
+  digit = digit >= 0 && digit <= 20 ? digit : 2
+  val = parseFloat((val + '').replace(/[^\d\.-]/g, '')).toFixed(digit) + ''
+  let l = val.split('.')[0].split('').reverse()
+  let r = val.split('.')[1]
+  let t = ''
+  for (let i = 0; i < l.length; i++) { 
+    t += l[i] + ((i + 1) % 3 === 0 && (i + 1) !== l.length ? ',' : '')
+  } 
+  return t.split('').reverse().join('') + '.' + r
+}
+
 /**
  * @method 补零
  * @param {Number, String} num
@@ -184,4 +213,28 @@ export function getArrayMin(arr) {
     }
   })
   return obj
+}
+
+// 获取两个日期的时间差 - 毫秒
+export function getInterval(start, end) {
+  // 两个日期对象，相差的毫秒数
+  var interval = end - start
+  // 求 相差的天数/小时数/分钟数/秒数
+  var day, hour, minute, second
+
+  // 两个日期对象，相差的秒数
+  // interval = interval / 1000
+  interval /= 1000
+
+  day = Math.round(interval / 60 / 60 / 24)
+  hour = Math.round(interval / 60 / 60 % 24)
+  minute = Math.round(interval / 60 % 60)
+  second = Math.round(interval % 60)
+
+  return {
+    day: day,
+    hour: hour,
+    minute: minute,
+    second: second
+  }
 }

@@ -63,3 +63,37 @@ export function animateScroll() { // 封装 scrollTop
   }
 
 }
+
+// 获取鼠标在页面的位置，处理浏览器兼容性
+export function getPage(evt) {
+  var pageX = evt.pageX || evt.clientX + animateScroll().left
+  var pageY = evt.pageY || evt.clientY + animateScroll().top
+  return {
+    pageX: pageX,
+    pageY: pageY
+  }
+}
+
+// 处理注册事件的兼容性问题
+// eventName, 不带on, click、mouseover、mouseout
+export function addEventListener(element, eventName, fn) {
+  if (element.addEventListener) {
+    element.addEventListener(eventName, fn) // 第三个参数,默认是false
+  } else if (element.attachEvent) {
+    element.attachEvent('on' + eventName, fn)
+  } else {
+    // 相当于 element.onclick = fn
+    element['on' + eventName] = fn
+  }
+}
+
+// 处理移除事件的兼容性处理
+export function removeEventListener(element, eventName, fn) {
+  if (element.removeEventListener) {
+    element.removeEventListener(eventName, fn)
+  } else if (element.detachEvent) {
+    element.detachEvent('on' + eventName, fn)
+  } else {
+    element['on' + eventName] = null
+  }
+}

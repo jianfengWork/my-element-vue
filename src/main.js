@@ -53,12 +53,6 @@ Vue.use(globalComponent)
 import validator from '@/utils/validator'
 Vue.prototype.$validator = validator
 
-// 全局filter
-import * as globalFilter from '@/utils/filters'
-Object.keys(globalFilter).forEach(key => {
-  Vue.filter(key, globalFilter[key])
-})
-
 // js文件调用需要 单独创建 bus.js
 // import Vue from 'vue'
 // export default new Vue()

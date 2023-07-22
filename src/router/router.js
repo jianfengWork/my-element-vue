@@ -54,10 +54,7 @@ const router = new Router({
       name: 'Dashboard',
       component: Layout,
       redirect: '/dashboard/index',
-      meta: {
-        title: 'Dashboard',
-        icon: 'el-icon-menu'
-      },
+      meta: { title: 'Dashboard', icon: 'el-icon-menu' },
       children: [{
         path: '/dashboard/index', // 绝对路径 || index 相对路径 (此处使用绝对路径是 path 高亮路由，可用 name 代替)
         name: 'Index',
@@ -65,75 +62,37 @@ const router = new Router({
           header: () => import('@/view/methods/Solt'),
           default: () => import('../view/dashboard/Index')
         },
-        meta: {
-          title: '首页',
-        }
+        meta: { title: '首页', }
       }, {
         path: '/dashboard/analysis',
         name: 'Analysis',
         hide: false,
         component: () => import('../view/dashboard/Analysis'),
-        meta: {
-          title: 'Analysis',
-        }
+        meta: { title: 'Analysis', }
       }, {
         path: '/dashboard/chinamap',
         name: 'Chinamap',
         hide: false,
         component: () => import('../view/dashboard/ChinaMap'),
-        meta: {
-          title: 'ChinaMap',
-        }
+        meta: { title: 'ChinaMap', }
       }, {
         path: '/dashboard/AHmap',
         name: 'AHmap',
         hide: false,
         component: () => import('../view/dashboard/AHmap'),
-        meta: {
-          title: '安徽地图',
-        }
+        meta: { title: '安徽地图', }
       }, {
         path: '/dashboard/canvas',
         name: 'Canvas',
         hide: false,
         component: () => import('../view/dashboard/Canvas'),
-        meta: {
-          title: 'Canvas',
-        }
+        meta: { title: 'Canvas', }
       }, {
         path: '/dashboard/cropper',
         name: 'Cropper',
         hide: false,
         component: () => import('../view/dashboard/Cropper'),
-        meta: {
-          title: 'Cropper',
-        }
-      }]
-    },
-    {
-      path: '/methods',
-      name: 'Methods',
-      component: Layout,
-      redirect: '/methods/solt',
-      meta: {
-        title: 'Methods',
-        icon: 'el-icon-guide'
-      },
-      children: [{
-        path: '/methods/solt',
-        name: 'Solt',
-        component: () => import('@/view/methods/Solt'),
-        meta: {
-          title: '作用域插槽',
-        }
-      }, {
-        path: '/methods/command',
-        name: 'Command',
-        hide: false,
-        component: () => import('@/view/methods/Command'),
-        meta: {
-          title: '自定义指令',
-        }
+        meta: { title: 'Cropper', }
       }]
     },
     {
@@ -141,80 +100,116 @@ const router = new Router({
       name: 'Tools',
       component: Layout,
       redirect: '/tools/command',
-      meta: {
-        title: 'Tools',
-        icon: 'el-icon-brush',
-      },
+      meta: { title: 'Tools', icon: 'el-icon-brush', },
       children: [{
         path: '/tools/print',
         name: 'vuePrint',
         component: () => import('@/view/tools/VuePrint'),
-        meta: {
-          title: 'VuePrint'
-        }
+        meta: { title: 'VuePrint' }
       }, {
         path: '/tools/g6',
         name: 'G6',
         component: () => import('@/view/tools/G6'),
-        meta: {
-          title: 'G6'
-        }
+        meta: { title: 'G6' }
       }, {
         path: '/tools/vuex',
         name: 'Vuex',
         component: () => import('@/view/tools/Vuex'),
-        meta: {
-          title: 'VUEX'
-        }
+        meta: { title: 'VUEX' }
       }, {
         path: '/tools/axios',
         name: 'Axios',
         component: () => import('@/view/tools/Axios'),
-        meta: {
-          title: 'Axios'
-        }
+        meta: { title: 'Axios' }
       }, {
         path: '/tools/svg',
         name: 'Svg',
         component: () => import('../view/tools/SvgIcon'),
-        meta: {
-          title: 'SVG / ICON'
-        }
+        meta: { title: 'SVG / ICON' }
       }, {
         path: '/tools/image',
         name: 'Image',
         component: () => import('../view/tools/Image'),
-        meta: {
-          title: 'Image'
-        }
+        meta: { title: 'Image' }
       }, {
         path: '/tools/graphic',
         name: 'Graphic',
         component: () => import('@/view/tools/Graphic'),
-        meta: {
-          title: '验证码'
-        }
+        meta: { title: '验证码' }
       }, {
         path: '/tools/countup',
         name: 'CountUp',
         component: () => import('@/view/tools/CountUp'),
-        meta: {
-          title: 'CountUp / 时分秒'
-        }
+        meta: { title: 'CountUp / 时分秒' }
       }, {
         path: '/tools/transition',
         name: 'Transition',
         component: () => import('@/view/tools/Transition'),
-        meta: {
-          title: 'Transition'
-        }
+        meta: { title: 'Transition' }
       }, {
         path: '/tools/vueqr',
         name: 'VueQr',
         component: () => import('@/view/tools/VueQr'),
-        meta: {
-          title: 'VueQr'
+        meta: { title: 'VueQr' }
+      }]
+    },
+    {
+      path: '/front',
+      name: 'Front',
+      component: Layout,
+      redirect: '/front/goods',
+      meta: { title: '前端', icon: 'el-icon-monitor' },
+      children: [{
+        path: '/front/magnifier',
+        name: 'Magnifier',
+        component: () => import('@/view/front/magnifierMG/Magnifier'),
+        meta: { title: '放大镜' }
+      }, {
+        path: '/front/goods',
+        name: 'Goods',
+        component: () => import('@/view/front/Goods'),
+        meta: { title: '滑动商品 / 滚动条', }
+      }, {
+        path: '/front/cart',
+        name: 'Cart',
+        component: resolve => require(['@/view/front/Cart'], resolve), // 路由懒加载
+        meta: { title: '购物车', }
+      }, {
+        path: '/front/floor',
+        name: 'Floor',
+        component: () => import('@/view/front/Floor'),
+        meta: { title: '楼层', }
+      }, {
+        path: '/front/drag',
+        name: 'Drag',
+        component: () => import('@/view/front/DragList'),
+        meta: { title: '拖拽列表 / 导航动画', }
+      }, {
+        path: '/front/mouse',
+        name: 'Mouse',
+        component: () => import('@/view/front/MouseDrag'),
+        meta: {title: '鼠标三剑客',
         }
+      }, {
+        path: '/front/cloud',
+        name: 'Cloud',
+        component: () => import('@/view/front/WordCloud'),
+        meta: {title: '词云 / 手风琴', }
+      }, {
+        path: '/front/recorder',
+        name: 'Recorder',
+        component: () => import('@/view/front/Recorder'),
+        meta: {title: '录音', }
+      }, {
+        path: '/front/clamp',
+        name: 'Clamp',
+        component: () => import('@/view/front/Clamp'),
+        meta: {title: '文本截断 / 原生拖拽', }
+      }, {
+        path: '/water/flow',
+        name: 'waterFlow',
+        component: () => import('@/view/front/waterFlow/WaterFlow'),
+        meta: {title: '瀑布流', }
       }]
     },
     {
@@ -223,99 +218,37 @@ const router = new Router({
       sign: 'FILES', // 区分权限名称
       component: Layout,
       redirect: '/files/download',
-      meta: {
-        title: 'Files',
-        icon: 'el-icon-folder'
-      },
+      meta: { title: 'Files', icon: 'el-icon-folder' },
       children: [{
         path: '/files/download',
         name: 'DOWNLOAD',
         sign: 'DOWNLOAD',
         component: () => import('../view/files/Download'),
-        meta: {
-          title: 'DOWNLOAD',
-        }
+        meta: { title: 'DOWNLOAD', }
       }, {
         path: '/files/upload',
         name: 'Upload',
         component: () => import('../view/files/Upload'),
-        meta: {
-          title: 'UPLOAD',
-        }
+        meta: { title: 'UPLOAD', }
       }]
     },
     {
-      path: '/front',
-      name: 'Front',
+      path: '/methods',
+      name: 'Methods',
       component: Layout,
-      redirect: '/front/goods',
-      meta: {
-        title: '前端',
-        icon: 'el-icon-monitor'
-      },
+      redirect: '/methods/solt',
+      meta: { title: 'Methods', icon: 'el-icon-guide' },
       children: [{
-        path: '/front/goods',
-        name: 'Goods',
-        component: () => import('@/view/front/Goods'),
-        meta: {
-          title: '滑动商品 / 滚动条',
-        }
+        path: '/methods/solt',
+        name: 'Solt',
+        component: () => import('@/view/methods/Solt'),
+        meta: { title: '作用域插槽', }
       }, {
-        path: '/front/cart',
-        name: 'Cart',
-        component: resolve => require(['@/view/front/Cart'], resolve), // 路由懒加载
-        meta: {
-          title: '购物车',
-        }
-      }, {
-        path: '/front/floor',
-        name: 'Floor',
-        component: () => import('@/view/front/Floor'),
-        meta: {
-          title: '楼层',
-        }
-      }, {
-        path: '/front/drag',
-        name: 'Drag',
-        component: () => import('@/view/front/DragList'),
-        meta: {
-          title: '拖拽列表 / 导航动画',
-        }
-      }, {
-        path: '/front/mouse',
-        name: 'Mouse',
-        component: () => import('@/view/front/MouseDrag'),
-        meta: {
-          title: '鼠标三剑客',
-        }
-      }, {
-        path: '/front/cloud',
-        name: 'Cloud',
-        component: () => import('@/view/front/WordCloud'),
-        meta: {
-          title: '词云 / 手风琴',
-        }
-      }, {
-        path: '/front/recorder',
-        name: 'Recorder',
-        component: () => import('@/view/front/Recorder'),
-        meta: {
-          title: '录音',
-        }
-      }, {
-        path: '/front/clamp',
-        name: 'Clamp',
-        component: () => import('@/view/front/Clamp'),
-        meta: {
-          title: '文本截断 / 原生拖拽',
-        }
-      }, {
-        path: '/water/flow',
-        name: 'waterFlow',
-        component: () => import('@/view/front/waterFlow/WaterFlow'),
-        meta: {
-          title: '瀑布流',
-        }
+        path: '/methods/command',
+        name: 'Command',
+        hide: false,
+        component: () => import('@/view/methods/Command'),
+        meta: { title: '自定义指令', }
       }]
     },
     {
@@ -323,18 +256,13 @@ const router = new Router({
       name: 'Tinymce',
       component: Layout,
       redirect: '/tinymce/rich',
-      meta: {
-        title: '富文本编辑器',
-        icon: 'el-icon-document'
-      },
+      meta: { title: '富文本编辑器', icon: 'el-icon-document' },
       children: [
         {
           path: '/tinymce/rich',
           name: 'Rich',
           component: () => import('../view/tinymce/RichTinymce'),
-          meta: {
-            title: '富文本编辑器',
-          }
+          meta: { title: '富文本编辑器', }
         },
         // {
         //   path: '/tinymce/simple',

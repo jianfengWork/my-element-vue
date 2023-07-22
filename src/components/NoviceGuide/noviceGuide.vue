@@ -10,7 +10,7 @@
           <div class="tipAndBtn" :class="{pizhu: isPiZhu}">
             <p class="tip">{{eleemsTipText}}</p>
             <el-button-group>
-              <el-button size="small" type="primary" @click="closeGuide" v-text="noviceGuideElems.length === (showMaskIndex + 1) ? '关闭' : '跳过'">跳过</el-button>
+              <el-button size="small" type="primary" @click="closeGuide">{{ noviceGuideElems.length === (showMaskIndex + 1) ? '关闭' : '跳过' }}</el-button>
               <el-button size="small" type="primary" @click="prevStep" v-show="showMaskIndex !== 0">上一步</el-button>
               <el-button size="small" type="primary" @click="nextStep" v-show="noviceGuideElems.length !== (showMaskIndex + 1)">下一步</el-button>
             </el-button-group>
