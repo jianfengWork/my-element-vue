@@ -161,14 +161,14 @@ export function dateFmt(timestamp, fmt = 'yyyy-MM-dd hh:mm:ss') {
  * @param {Number} num 100
  * @returns {1分40秒}
  */
-export function minuteSecond(s) {
+export function minuteSecond(s, minuteUnit = ':', secondUnit = '') {
   let t = ''
   if (s >= 0) {
     const min = Math.floor(s / 60) % 60
-    t += min + '分'
+    t += repairZero(min) + minuteUnit
     let sec = s % 60
     if (sec < 10) t += '0'
-    t += sec + '秒'
+    t += parseInt(sec) + secondUnit
   }
   return t
 }

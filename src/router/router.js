@@ -165,6 +165,11 @@ const router = new Router({
         component: () => import('@/view/front/magnifierMG/Magnifier'),
         meta: { title: '放大镜' }
       }, {
+        path: '/front/audio',
+        name: 'Audio',
+        component: () => import('@/view/front/audioMG/Audio'),
+        meta: { title: 'Audio' }
+      }, {
         path: '/front/goods',
         name: 'Goods',
         component: () => import('@/view/front/Goods'),
