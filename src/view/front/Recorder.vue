@@ -87,8 +87,9 @@
     </div>
     <div class="view-area">
       <div style="padding: 20px 0;">vue-audio-native</div>
+      <!-- 'https://mifbb-upload-image.oss-cn-hangzhou.aliyuncs.com/mifbb_test_app/business_college/audio/20200409/79c3182021410b559d53e6fde3afda55.mp3' -->
       <vue-audio-native
-        :url="'https://mifbb-upload-image.oss-cn-hangzhou.aliyuncs.com/mifbb_test_app/business_college/audio/20200409/79c3182021410b559d53e6fde3afda55.mp3'"
+        :url="audioSrc"
         :show-current-time="true"
         :show-controls="false"
         :show-download="true"
@@ -101,6 +102,7 @@
 </template>
 
 <script>
+import audioSrc from '@/view/front/audioMG/music/mfbb.mp3'
 import Recorder from 'js-audio-recorder'
 // http://recorder.api.zhuyuntao.cn/
 
@@ -115,6 +117,7 @@ let drawPlayId = null // 回放波纹
 export default {
   data() {
     return {
+      audioSrc,
       sampleRate: 16000, // 采样率
       sampleBit: 16, // 采样位数
       numChannel: 1, // 声道数 单

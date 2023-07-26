@@ -178,6 +178,8 @@ export default {
     nextMusic() {
       if (audioPlayer) audioPlayer.removeEventListener('timeupdate', this.timeUpdate)
       cubeDom.style.left = 0 + 'px'
+      const lyricUlDom = document.querySelector('.lyric-ul')
+      lyricUlDom.style.top = 0 + 'px'
       this.audioSrc = ''
       this.playText = '播放'
       this.lyricList = []
