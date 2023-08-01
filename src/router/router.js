@@ -151,6 +151,11 @@ const router = new Router({
         name: 'VueQr',
         component: () => import('@/view/tools/VueQr'),
         meta: { title: 'VueQr' }
+      }, {
+        path: '/tools/spreadsheet',
+        name: 'Spreadsheet',
+        component: () => import('@/view/tools/Spreadsheet/OnlineExcel'),
+        meta: { title: 'x-data-spreadsheet' }
       }]
     },
     {
