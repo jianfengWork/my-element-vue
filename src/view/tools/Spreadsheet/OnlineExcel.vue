@@ -4,7 +4,8 @@
       <el-button type="primary" size="mini" @click="saveSheet">保存</el-button>
       <el-button type="primary" size="mini" @click="updateSheet">更新</el-button>
       <el-button type="primary" size="mini" @click="uploadSheet">导入</el-button>
-      <el-button type="primary" size="mini" @click="downSheet">导出</el-button>
+      <el-button type="primary" size="mini" @click="downSheet">导出excel</el-button>
+      <el-button type="primary" size="mini" @click="downSheetJson">导出json</el-button>
     </div>
     <div class="spreadsheet-wrap">
       <div id="x-spreadsheet-demo" v-if="showSheet"></div>
@@ -19,6 +20,7 @@ import zhCN from 'x-data-spreadsheet/src/locale/zh-cn'
 Spreadsheet.locale('zh-cn', zhCN)
 import { baseOptions, dataOptions } from './spreadsheet.js'
 import throttle from 'lodash/throttle' // 节流
+import { exportSheet } from './sheetUtils'
 
 let xs
 export default {
@@ -71,11 +73,33 @@ export default {
         this.$nextTick(() => { this.initSpreadsheet() })
       }, 300)
     }, 500, {
-      leading: true, // 等待前被调用
-      trailing: false // 等待后被调用
+      leading: false, // 等待前被调用
+      trailing: true // 等待后被调用
     }),
     uploadSheet() {},
-    downSheet() {},
+    downSheet() {
+      exportSheet(xs)
+    },
+    downSheetJson() {
+      let sheetsData = xs.getData()
+      let rows = Object.entries(sheetsData[0].rows)
+      const jsonProperties = ['field1', 'field2', 'field3', 'field4', 'field5']
+      let jsonData = []
+      // 遍历数据，设置 i = 1，可以跳过第一行表头
+      for (let i = 0; i < rows.length; i++) {
+        if (rows[i] && rows[i][1] && rows[i][1].cells) {
+          let row = Object.entries(rows[i][1].cells)
+          // 构造行对象
+          let JsonRow = {}
+          for (let k = 0; k < row.length; k++) {
+            let cells = row[k]
+            JsonRow[jsonProperties[cells[0]]] = cells[1].text
+          }
+          jsonData.push(JsonRow)
+        }
+      }
+      console.log(jsonData)
+    },
   }
 }
 </script>

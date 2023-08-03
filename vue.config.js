@@ -27,8 +27,9 @@ const appDate = require('./public/mock/data.json')
 const ratings = appDate.ratings
 
 // 预渲染
-const PrerenderSPAPlugin = require('prerender-spa-plugin')
-const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
+// "prerender-spa-plugin": "^3.4.0", cnpm
+// const PrerenderSPAPlugin = require('prerender-spa-plugin')
+// const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
 
 // process.env.MOCK // 由package中scripts提供
 module.exports = {

@@ -21,6 +21,7 @@
     "echarts": "^4.2.1",
     "echarts-china-cities-js": "^0.1.1",
     "element-ui": "2.15.7",
+    "exceljs": "^4.3.0",
     "file-saver": "^2.0.2",
     "html2canvas": "^1.0.0-rc.5",
     "js-audio-recorder": "^1.0.6",
@@ -34,6 +35,7 @@
     "screenfull": "^4.2.0",
     "socket.io-client": "^2.3.0",
     "sortablejs": "^1.15.0",
+    "tinycolor2": "^1.6.0",
     "tinymce": "^5.1.5",
     "urijs": "^1.19.2",
     "vue": "^2.6.10",
@@ -53,7 +55,8 @@
     "vue2-animate": "^2.1.4",
     "vuedraggable": "^2.23.2",
     "vuex": "^3.1.1",
-    "x-data-spreadsheet": "^1.1.9"
+    "x-data-spreadsheet": "^1.1.9",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
@@ -72,7 +75,6 @@
     "koa-static": "^5.0.0",
     "less": "^4.1.0",
     "less-loader": "^7.2.1",
-    "prerender-spa-plugin": "^3.4.0",
     "raw-loader": "^3.0.0",
     "runjs": "^4.3.2",
     "sass": "1.39.0",
