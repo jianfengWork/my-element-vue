@@ -4,8 +4,11 @@
       <el-button type="primary" size="mini" @click="saveSheet">保存</el-button>
       <el-button type="primary" size="mini" @click="updateSheet">更新</el-button>
       <el-button type="primary" size="mini" @click="uploadSheet">导入</el-button>
+      <el-button type="primary" size="mini" @click="uploadExcel">上传spreadsheet到服务器</el-button>
+      <el-button type="primary" size="mini" @click="resolveExcel">解析服务器excel</el-button>
       <el-button type="primary" size="mini" @click="downSheet">导出excel</el-button>
       <el-button type="primary" size="mini" @click="downSheetJson">导出json</el-button>
+      <input type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" style="display: none;" ref="fileDom" @change="changefile($event.target)" />
     </div>
     <div class="spreadsheet-wrap">
       <div id="x-spreadsheet-demo" v-if="showSheet"></div>
@@ -20,7 +23,7 @@ import zhCN from 'x-data-spreadsheet/src/locale/zh-cn'
 Spreadsheet.locale('zh-cn', zhCN)
 import { baseOptions, dataOptions } from './spreadsheet.js'
 import throttle from 'lodash/throttle' // 节流
-import { exportSheet } from './sheetUtils'
+import { exportSheet, loadExcelFile } from './sheetUtils'
 
 let xs
 export default {
@@ -76,7 +79,16 @@ export default {
       leading: false, // 等待前被调用
       trailing: true // 等待后被调用
     }),
-    uploadSheet() {},
+    uploadSheet() {
+      this.$refs.fileDom.click()
+    },
+    changefile(dom) {
+      let file = dom.files[0]
+      loadExcelFile(file).then(res => {
+        console.log(res)
+        xs.loadData(res)
+      })
+    },
     downSheet() {
       exportSheet(xs)
     },
@@ -100,6 +112,8 @@ export default {
       }
       console.log(jsonData)
     },
+    uploadExcel() {},
+    resolveExcel() {},
   }
 }
 </script>
