@@ -4,7 +4,8 @@ import * as tinycolor from 'tinycolor2'
 import _ from 'lodash'
 
 // 导出 x-data-spreadsheet
-export function exportSheet(xs) {
+export function exportSheet(xs, http = false) {
+return new Promise((resolve, reject) => {
   const exceljsWorkbook = new Excel.Workbook()
   exceljsWorkbook.modified = new Date()
   xs.getData().forEach(function (xws) {
@@ -13,13 +14,14 @@ export function exportSheet(xs) {
     const exceljsSheet = exceljsWorkbook.addWorksheet(xws.name)
     // 读取列宽
     let sheetColumns = []
-    let colIndex = 0
+    // 1.先导出excel sheetColumns = []  2.再导入导出的excel sheetColumns = [...]
+    /* let colIndex = 0
     for (let col in xws.cols) {
       if (xws.cols[col].width) {
         sheetColumns.push({ header: colIndex + '', key: colIndex + '', width: xws.cols[col].width / 8})
       }
       colIndex++
-    }
+    } */
     exceljsSheet.columns = sheetColumns
     for (let ri = 0; ri < rowobj.len; ++ri) {
       let row = rowobj[ri]
@@ -126,10 +128,19 @@ export function exportSheet(xs) {
     const blob = new Blob([data], {
       type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8',
     })
-    link.href = window.URL.createObjectURL(blob)
-    link.download = '表格.xlsx'
-    link.click()
+    if (http == true) {
+      // blob转文件类型，用于上传
+      const file = new window.File([blob], new Date().getTime() + '.xlsx', {
+        type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8'
+      })
+      resolve(file)
+    } else {
+      link.href = window.URL.createObjectURL(blob)
+      link.download = '表格.xlsx'
+      link.click()
+    }
   })
+})
 }
 
 // 导入 excel

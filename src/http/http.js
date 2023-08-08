@@ -5,10 +5,9 @@ axios.defaults.timeout = 30000
 // http request Authorization
 axios.interceptors.request.use(
   config => {
-    config.data = JSON.stringify(config.data)
-    config.headers = {
-      'Content-Type': 'application/json;charset=utf-8'
-    }
+    // config.headers = {
+    //   'Content-Type': 'application/json;charset=utf-8'
+    // }
     config.headers['Authorization'] = localStorage.getItem('Authorization') || null
     return config
   },
@@ -27,7 +26,7 @@ axios.interceptors.response.use(
       if (err.response.status === 502) {
         err.response = {data: {error: {message: '服务器忙碌中'}}}
         setTimeout(function () {
-          window.location.reload()
+          // window.location.reload()
         }, 5000)
         return Promise.reject(err.response)
       }
@@ -35,24 +34,24 @@ axios.interceptors.response.use(
       if (err.request.readyState === 4 && err.request.status === 0) {
         err.response = {data: {error: {message: '请求超时'}}}
         setTimeout(function () {
-          window.location.reload()
+          // window.location.reload()
         }, 5000)
         return Promise.reject(err.response)
       }
     }
     if (err.response.status === 401) { // 重定向
-      window.location.href = err.response.data.error.message
+      // window.location.href = err.response.data.error.message
       return false
     }
     if (err.response.status === 503) {
-      window.location.href = '/error'
+      // window.location.href = '/error'
       return false
     }
     if (err.response.data.error.message === '未知错误') {
       err.response.data.error.message = '服务器出错'
     }
     if (err.response.data.error.message.indexOf('未登录') !== -1) {
-      window.location.href = '/'
+      // window.location.href = '/'
     }
     return Promise.reject(err.response)
   }

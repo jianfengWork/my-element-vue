@@ -24,6 +24,7 @@ Spreadsheet.locale('zh-cn', zhCN)
 import { baseOptions, dataOptions } from './spreadsheet.js'
 import throttle from 'lodash/throttle' // 节流
 import { exportSheet, loadExcelFile } from './sheetUtils'
+import axios from 'axios'
 
 let xs
 export default {
@@ -112,8 +113,18 @@ export default {
       }
       console.log(jsonData)
     },
-    uploadExcel() {},
-    resolveExcel() {},
+    uploadExcel() {
+      exportSheet(xs, true).then(file => {
+        console.log(file)
+        const formData = new FormData()
+        formData.append('file', file)
+        axios.post('/api/v1/test', formData).then(_ => {}).catch(_ => {})
+      })
+    },
+    resolveExcel() {
+      // 1.arraybuffer转blob  2.blob转file  3. loadExcelFile(file)
+      // axios.get('/api/v1/test', { responseType: 'arraybuffer'}).then(res => {})
+    },
   }
 }
 </script>
