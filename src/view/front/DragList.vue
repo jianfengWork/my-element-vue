@@ -16,6 +16,8 @@
     </draggable>
     <el-alert class="MT20" title="draggable-group" type="success" :closable="false" />
     <DragGroup />
+    <el-alert class="MT20" title="draggable 题型" type="success" :closable="false" />
+    <DragQA />
     <el-alert class="MT20" title="Sortable" type="success" :closable="false" />
     <Sortable />
     <el-alert class="MT20" title="导航动画" type="success" :closable="false" />
@@ -29,6 +31,7 @@ import draggable from 'vuedraggable'
 import NavMove from './components/NavMove'
 import Sortable from './components/Sortable'
 import DragGroup from './components/DragGroup'
+import DragQA from './components/DragQA'
 
 export default {
   data() {
@@ -64,6 +67,7 @@ export default {
   components: {
     draggable,
     DragGroup,
+    DragQA,
     NavMove,
     Sortable
   },
