@@ -5,16 +5,17 @@
       tag="ul"
       v-model="dragList"
       v-bind="dragOptions"
+      :move="allow"
       @start="dragStart"
       @end="dragEnd"
       :set-data="setData"
     >
-      <transition-group type="transition">
-        <li v-for="elem in dragList" :key="elem.id" class="drag-item">
-          {{ elem.name }} {{ elem.id }}
-        </li>
-      </transition-group>
+      <li v-for="elem in dragList" :key="elem.id" class="drag-item">
+        {{ elem.name }} {{ elem.id }}
+      </li>
     </draggable>
+    <el-alert class="MT20" title="draggable-group" type="success" :closable="false" />
+    <DragGroup />
     <el-alert class="MT20" title="Sortable" type="success" :closable="false" />
     <Sortable />
     <el-alert class="MT20" title="导航动画" type="success" :closable="false" />
@@ -27,6 +28,7 @@
 import draggable from 'vuedraggable'
 import NavMove from './components/NavMove'
 import Sortable from './components/Sortable'
+import DragGroup from './components/DragGroup'
 
 export default {
   data() {
@@ -47,6 +49,10 @@ export default {
     dragStart(evt) {
       // console.log(evt)
     },
+    allow(evt) {
+      if (evt.relatedContext.element.id == 2 || evt.draggedContext.element.id == 2) return false
+      console.log(evt)
+    },
     dragEnd(evt) {
       console.log('dragList', this.dragList)
       // console.log(evt)
@@ -57,6 +63,7 @@ export default {
   },
   components: {
     draggable,
+    DragGroup,
     NavMove,
     Sortable
   },
