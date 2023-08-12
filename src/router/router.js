@@ -175,6 +175,11 @@ const router = new Router({
         component: () => import('@/view/front/audioMG/Audio'),
         meta: { title: 'Audio' }
       }, {
+        path: '/front/video',
+        name: 'Video',
+        component: () => import('@/view/front/videoMG/Video'),
+        meta: { title: 'Video' }
+      }, {
         path: '/front/goods',
         name: 'Goods',
         component: () => import('@/view/front/Goods'),

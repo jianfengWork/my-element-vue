@@ -174,6 +174,18 @@ export function minuteSecond(s, minuteUnit = ':', secondUnit = '') {
 }
 
 /**
+ * @method 00:00:00
+ * @param {Number} num 100
+ * @returns {00:02:40}
+ */
+export function formatHour(time) {
+  let h = Math.floor(time / 3600)
+  let m = Math.floor(time % 3600 / 60)
+  let s = Math.floor(time % 60)
+  return repairZero(h) + ':' + repairZero(m) + ':' + repairZero(s)
+}
+
+/**
  * @method 数组的最小值及索引
  * @param Array 数组
  * @returns {obj.value, obj.index}
