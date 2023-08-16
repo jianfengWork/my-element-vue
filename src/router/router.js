@@ -156,6 +156,11 @@ const router = new Router({
         name: 'Spreadsheet',
         component: () => import('@/view/tools/Spreadsheet/OnlineExcel'),
         meta: { title: 'x-data-spreadsheet' }
+      }, {
+        path: '/tools/docx',
+        name: 'DocxPreview',
+        component: () => import('@/view/tools/DocxPreview'),
+        meta: { title: 'docx-preview' }
       }]
     },
     {
