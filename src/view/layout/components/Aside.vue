@@ -10,6 +10,7 @@
       :class="{'xs-mune-mini': menuExpland}"
       :background-color="navColor"
       text-color="#fff"
+      unique-opened
       :default-openeds="openList"
       :collapse-transition="false"
       active-text-color="#ffd04b">

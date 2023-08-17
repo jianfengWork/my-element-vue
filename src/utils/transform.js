@@ -227,7 +227,11 @@ export function getArrayMin(arr) {
   return obj
 }
 
-// 获取两个日期的时间差 - 毫秒
+/**
+ * @method 获取两个日期的时间差
+ * @param {start: 时间戳, end: 时间戳}
+ * @returns {Object}
+ */
 export function getInterval(start, end) {
   // 两个日期对象，相差的毫秒数
   var interval = end - start
@@ -249,4 +253,23 @@ export function getInterval(start, end) {
     minute: minute,
     second: second
   }
+}
+
+/**
+ * @method uuid
+ * @param {null}
+ * @returns {String}
+ */
+export function getUUId() {
+  const arr = []
+  const hexDigits = '0123456789abcdef'
+  for (let i = 0; i < 36; i++) {
+    const str = Math.floor(Math.random() * 0x10)
+    arr[i] = hexDigits.substring(str, str + 1)
+  }
+  arr[14] = 4
+  const astr = (arr[19] & 0x3) | 0x8
+  arr[19] = hexDigits.substring(astr, astr + 1)
+  arr[8] = arr[13] = arr[18] = arr[23] = '-'
+  return arr.join('').replaceAll('-', '')
 }

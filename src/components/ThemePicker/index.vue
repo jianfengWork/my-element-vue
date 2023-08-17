@@ -1,7 +1,7 @@
 <template>
   <el-color-picker
     v-model="theme"
-    :predefine="['#EB7347', '#8CC7B5', '#304156','#212121','#11a983', '#13c2c2', '#6959CD', '#1270C9', ]"
+    :predefine="['#894e54', '#97846c', '#304156','#c45a65','#497568', '#737c7b', '#6959CD', '#1270C9']"
     class="theme-picker"
     popper-class="theme-picker-dropdown"
   />
