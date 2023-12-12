@@ -1,4 +1,16 @@
 
+/* 数字 */
+@font-face{
+  font-family: 'DIN-Bold';
+  src: url('../font/DIN-Regular.otf');
+}
+
+/* 英文 */
+@font-face{
+  font-family: 'Helvetica';
+  src: url('../font/Helvetica.ttf');
+}
+
 @font-face {
   font-family: "iconfont";
   src: url('../font/iconfont.eot');
