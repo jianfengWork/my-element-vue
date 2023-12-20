@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { minuteSecond } from '@/utils/transform'
+import { minuteSecond } from '@/utils/dateFc'
 import lyricJson from './music/music.json'
 import audioSrc from './music/夜空中最亮的星 - G.E.M.邓紫棋.mp3'
 

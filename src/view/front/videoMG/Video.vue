@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { formatHour } from '@/utils/transform'
+import { formatHour } from '@/utils/dateFc'
 import mp4Src1 from './video/fun.mp4'
 import mp4Src2 from './video/chrome.mp4'
 
