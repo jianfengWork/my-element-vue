@@ -97,7 +97,7 @@ export function filterChildren(list) {
 
 /**
  * @method 数组扁平化，解决三级联动后端只返回任一级id
- * @param {TreeArray, nodeId} 树数组, id
+ * @param {TreeArray<树数组>, nodeId}
  * @returns {[...Number]}
  */
 /* 
