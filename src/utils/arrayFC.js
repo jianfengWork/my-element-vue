@@ -73,3 +73,72 @@ export function getArrayMin(arr) {
   }
   return obj
 }
+
+/**
+ * @method 过滤数组的children，解决三级联动最后一级数据需要为null
+ * @param Array 数组
+ * @returns {Array}
+ */
+export function filterChildren(list) {
+  const arr = []
+
+  list.forEach(item => {
+    const temp = { ...item }
+    if (temp.children.length) {
+      temp.children = this.filterChildren(temp.children)
+    } else {
+      temp.children = null
+    }
+    arr.push(temp)
+  })
+
+  return arr
+}
+
+/**
+ * @method 数组扁平化，解决三级联动后端只返回任一级id
+ * @param {TreeArray, nodeId} 树数组, id
+ * @returns {[...Number]}
+ */
+/* 
+var tree = [
+  {
+    unitId: 1, unitName: '单位1', children: [
+      { unitId: 2, unitName: '单位1-1', parentId: 1, children: null },
+      {
+        unitId: 3, unitName: '单位1-2', parentId: 1, children: [
+          { unitId: 4, unitName: '单位1-2-1', parentId: 3, children: null }
+        ]
+      },
+    ]
+  },
+  {
+    unitId: 5, unitName: '单位2', children: null
+  }
+]
+ */
+export function getTreeIds(tree, nodeId) {
+  const toFlatArray = (tree) => {
+    return tree.reduce((t, _) => {
+      const child = _['children']
+      return [
+        ...t,
+        _,
+        ...(child && child.length ? toFlatArray(child) : [])]
+    }, [])
+  }
+  // console.log(toFlatArray(tree))
+
+  const getIds = flatArray => {
+    let ids = [nodeId]
+    let child = flatArray.find(_ => _['unitId'] === nodeId)
+    while (child && child.parentId) {
+      ids = [child.parentId, ...ids]
+      child = flatArray.find(_ => _['unitId'] === child.parentId)
+    }
+    return ids
+  }
+
+  return getIds(toFlatArray(tree))
+}
+// getTreeIds(tree, 3)
