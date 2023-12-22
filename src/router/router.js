@@ -102,6 +102,11 @@ const router = new Router({
       redirect: '/tools/command',
       meta: { title: 'Tools', icon: 'el-icon-brush', },
       children: [{
+        path: '/tools/bmap',
+        name: 'bmap',
+        component: () => import('@/view/tools/bmap/BMap'),
+        meta: { title: 'BMap' }
+      }, {
         path: '/tools/print',
         name: 'vuePrint',
         component: () => import('@/view/tools/VuePrint'),
