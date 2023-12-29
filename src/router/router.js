@@ -298,7 +298,22 @@ const router = new Router({
         //   }
         // }
       ]
-    }
+    },
+    {
+      path: '/knowledge',
+      name: 'Knowledge',
+      component: Layout,
+      redirect: '/knowledge/sort',
+      meta: { title: '知识库', icon: 'el-icon-medal' },
+      children: [
+        {
+          path: '/knowledge/sort',
+          name: 'Sort',
+          component: () => import('@/view/knowledge/sortMG/Sort'),
+          meta: { title: '排序算法', }
+        },
+      ]
+    },
   ]
 })
 
