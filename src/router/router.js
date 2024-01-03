@@ -312,6 +312,12 @@ const router = new Router({
           component: () => import('@/view/knowledge/sortMG/Sort'),
           meta: { title: '排序算法', }
         },
+        {
+          path: '/knowledge/recursion',
+          name: 'Recursion',
+          component: () => import('@/view/knowledge/Recursion'),
+          meta: { title: '尾递归', }
+        },
       ]
     },
   ]
