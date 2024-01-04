@@ -318,6 +318,12 @@ const router = new Router({
           component: () => import('@/view/knowledge/Recursion'),
           meta: { title: '尾递归', }
         },
+        {
+          path: '/knowledge/videocover',
+          name: 'videoCover',
+          component: () => import('@/view/knowledge/VideoCover'),
+          meta: { title: '获取上传视频封面', }
+        },
       ]
     },
   ]
