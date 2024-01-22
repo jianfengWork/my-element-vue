@@ -151,11 +151,11 @@ export default {
         // 自定义 tooltip 内容
         getContent: (e) => {
           // e.item.getModel()节点配置项
-          const info = e.item.getModel().info
+          const outPutMessage = e.item.getModel().outPutMessage
           const outDiv = document.createElement('div');
           outDiv.setAttribute('class', 'tooltip-wrap')
           let li = ''
-          info.map(item => {
+          outPutMessage.map(item => {
             if(item.inTime != null) {
               li += `
               <li>

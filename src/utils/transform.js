@@ -81,3 +81,30 @@ export function getUUId() {
   arr[8] = arr[13] = arr[18] = arr[23] = '-'
   return arr.join('').replaceAll('-', '')
 }
+
+/**
+ * @method base64转blob
+ * @param {
+*   base64String: 字符串,
+*   contentType: 文件类型
+* }
+* @returns {Blob}
+*/
+export function base64ToBlob(base64String, contentType = '') {
+  var byteCharacters = window.atob(base64String);
+  var byteArrays = [];
+
+  for (var offset = 0; offset < byteCharacters.length; offset += 512) {
+    var slice = byteCharacters.slice(offset, offset + 512);
+
+    var byteNumbers = new Array(slice.length);
+    for (var i = 0; i < slice.length; i++) {
+      byteNumbers[i] = slice.charCodeAt(i);
+    }
+
+    var byteArray = new Uint8Array(byteNumbers);
+    byteArrays.push(byteArray);
+  }
+
+  return new Blob(byteArrays, { type: contentType });
+}

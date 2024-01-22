@@ -142,3 +142,35 @@ export function getTreeIds(tree, nodeId) {
   return getIds(toFlatArray(tree))
 }
 // getTreeIds(tree, 3)
+
+/**
+ * @method 数组树化，解决平级数组生成级联
+ * @param {Array, flag<过滤标识>}
+ * @returns {[Tree]}
+ */
+/*
+var arr = [
+  { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
+  { category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit" },
+  { category: "Fruits", price: "$2", stocked: false, name: "Passionfruit" },
+  { category: "Vegetables", price: "$2", stocked: true, name: "Spinach" },
+  { category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin" },
+  { category: "Vegetables", price: "$1", stocked: true, name: "Peas" }
+]
+*/
+export function generateTree(arr, flag) {
+  const temp = []
+  arr.map(item => {
+    const exist = temp.filter(val => val[flag] == item[flag])
+    if (exist.length) {
+      exist[0].children.push(item)
+    } else {
+      temp.push({
+        ...item,
+        children: [item]
+      })
+    }
+  })
+  return temp
+}
+// generateTree(arr, 'category')

@@ -25,7 +25,7 @@
           "storageNumber": 70,
           "storageUnit": "箱",
           "children": [],
-          "info": [
+          "outPutMessage": [
             {
               "inTime": "2022-07-20",
               "outTime": null,
@@ -47,7 +47,7 @@
           "storageNumber": 15,
           "storageUnit": "箱",
           "children": [],
-          "info": [
+          "outPutMessage": [
             {
               "inTime": "2022-07-20",
               "outTime": null,
@@ -56,7 +56,7 @@
           ]
         }
       ],
-      "info": [
+      "outPutMessage": [
         {
           "inTime": null,
           "outTime": "2022-07-20",
@@ -92,7 +92,7 @@
           "storageNumber": 10000,
           "storageUnit": "箱",
           "children": [],
-          "info": [
+          "outPutMessage": [
             {
               "inTime": "2022-07-20",
               "outTime": null,
@@ -109,7 +109,7 @@
           "storageNumber": 15,
           "storageUnit": "箱",
           "children": [],
-          "info": [
+          "outPutMessage": [
             {
               "inTime": "2022-07-20",
               "outTime": null,
@@ -118,7 +118,7 @@
           ]
         }
       ],
-      "info": [
+      "outPutMessage": [
         {
           "inTime": "2022-07-20",
           "outTime": null,
@@ -154,7 +154,7 @@
           "storageNumber": 30,
           "storageUnit": "箱",
           "children": [],
-          "info": [
+          "outPutMessage": [
             {
               "inTime": "2022-07-05",
               "outTime": null,
@@ -163,7 +163,7 @@
           ]
         }
       ],
-      "info": [
+      "outPutMessage": [
         {
           "inTime": null,
           "outTime": "2022-07-05",
@@ -177,7 +177,7 @@
       ]
     }
   ],
-  "info": [
+  "outPutMessage": [
     {
       "inTime": null,
       "outTime": "2022-07-06",
