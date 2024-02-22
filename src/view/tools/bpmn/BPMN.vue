@@ -44,6 +44,8 @@ import BpmnModeler from "bpmn-js/lib/Modeler";
 
 // 汉化
 import customTranslate from "./customTranslate";
+// 工具
+import customPaletteModule from './customPalette/custom'
 
 import { xmlStr } from "./mock/xmlStr";
 
@@ -70,7 +72,8 @@ export default {
       this.bpmnModeler = new BpmnModeler({
         container: canvas,
         additionalModules: [
-          customTranslateModule
+          customTranslateModule,
+          customPaletteModule
         ],
       });
 
@@ -170,6 +173,9 @@ export default {
       that.bpmnModeler.on("element.click", e => {
         console.log("modelerListener", e);
       });
+      that.bpmnModeler.on("shape.add", e => {
+        console.log("shape:add", e);
+      });
     },
     // 监听element事件 如： element:click element:changed
     addEventBusListener() {
@@ -223,20 +229,22 @@ export default {
   height: 100%;
   position: relative;
 
-  
+  svg.new-parent {
+    background: transparent;
+  }
   .canvas {
     width: 100%;
     height: 100%;
     background: white;
-  overflow: auto;
-  background-image: linear-gradient(
-    90deg,
-    rgba(220, 220, 220, 0.5) 6%,
-    transparent 0
-  ),
-  linear-gradient(rgba(192, 192, 192, 0.5) 6%, transparent 0);
-  background-size: 24px 24px;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    overflow: auto;
+    background-image: linear-gradient(
+      90deg,
+      rgba(220, 220, 220, 0.5) 6%,
+      transparent 0
+    ),
+    linear-gradient(rgba(192, 192, 192, 0.5) 6%, transparent 0);
+    background-size: 24px 24px;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   }
   .buttons {
     position: absolute;
