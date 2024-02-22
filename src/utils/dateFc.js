@@ -6,8 +6,8 @@ import { repairZero } from './transform'
  * @returns {'2020-04-09 00:00:00'}
  */
 import dayjs from 'dayjs'
-export function formatDate(timestamp) {
-  return timestamp ? dayjs(timestamp * 1000).format('YYYY-MM-DD HH:mm:ss') : '-'
+export function formatDate(timestamp, fmt = 'YYYY-MM-DD HH:mm:ss') {
+  return timestamp ? dayjs(timestamp * 1000).format(fmt) : '-'
 }
 
 /**
@@ -96,4 +96,21 @@ export function dateFmt(timestamp, fmt = 'yyyy-MM-dd hh:mm:ss') {
     }
   }
   return fmt
+}
+
+/**
+ * @method 获取当前月的日期
+ * @returns {2024-01-01,2024-01-31}
+ */
+export function getCurrentMonthDate() {
+  let currentDate = new Date()
+  let currentYear = currentDate.getFullYear()
+  let currentMonth = currentDate.getMonth() // 获取当前月份（注意，月份从0开始，0表示1月，11表示12月）
+
+  // 构造当前月份的第一天
+  let firstDay = formatDate(new Date(currentYear, currentMonth, 1) / 1000, 'YYYY-MM-DD')
+  // 构造当前月份的最后一天
+  let lastDay = formatDate(new Date(currentYear, currentMonth + 1, 0) / 1000, 'YYYY-MM-DD')
+
+  return { firstDay, lastDay }
 }

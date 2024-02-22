@@ -25,6 +25,12 @@ import 'echarts/lib/chart/map'
 import 'echarts/map/js/china' // 引入中国地图
 Vue.component('v-chart', vueEcharts)
 
+// bpmn
+import "bpmn-js/dist/assets/diagram-js.css";
+import "bpmn-js/dist/assets/bpmn-font/css/bpmn.css";
+import "bpmn-js/dist/assets/bpmn-font/css/bpmn-codes.css";
+import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
+
 // 安徽地图
 // import 'echarts/map/js/province/anhui' // 引入安徽地图
 

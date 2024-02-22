@@ -102,6 +102,11 @@ const router = new Router({
       redirect: '/tools/command',
       meta: { title: 'Tools', icon: 'el-icon-brush', },
       children: [{
+        path: '/tools/bpmn',
+        name: 'bpmn',
+        component: () => import('@/view/tools/bpmn/BPMN'),
+        meta: { title: 'BPMN' }
+      }, {
         path: '/tools/bmap',
         name: 'bmap',
         component: () => import('@/view/tools/bmap/BMap'),
