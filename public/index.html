@@ -8,6 +8,9 @@
     <!-- <link rel="stylesheet" href="http://localhost:3030/css/skin.min.css"> -->
     <link rel="stylesheet" href="<%= BASE_URL %>static/css/skin.min.css">
     <!-- <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak="></script> -->
+    <script type="text/javascript" src="<%= BASE_URL %>static/js/jquery.min.js"></script>
+    <!-- stellar.js 依赖 jquery 不大于 3.x -->
+    <script type="text/javascript" src="<%= BASE_URL %>static/js/jquery.stellar.min.js"></script>
     <title>element-vue</title>
     <style>
       .yunjia-spacex-home {
@@ -58,7 +61,6 @@
     <!-- built files will be auto injected -->
   </body>
   <script src="<%= BASE_URL %>static/js/sticker.min.js"></script>
-  <script type="text/javascript" src="<%= BASE_URL %>static/js/jquery.min.js"></script>
   <script src="<%= BASE_URL %>static/js/FileSaver.js"></script>
   <!-- wordexport 依赖 jquery + FileSaver -->
   <script src="<%= BASE_URL %>static/js/jquery.wordexport.js"></script>

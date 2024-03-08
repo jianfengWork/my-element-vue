@@ -240,6 +240,11 @@ const router = new Router({
         name: 'waterFlow',
         component: () => import('@/view/front/waterFlow/WaterFlow'),
         meta: {title: '瀑布流', }
+      }, {
+        path: '/front/stellar',
+        name: 'stellar',
+        component: () => import('@/view/front/Stellar'),
+        meta: {title: '视差滚动', }
       }]
     },
     {

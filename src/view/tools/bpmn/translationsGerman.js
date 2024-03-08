@@ -32,7 +32,7 @@ export default {
   'Manual Task': '手工任务',
   'Business Rule Task': '业务规则任务',
   'Service Task': '服务任务',
-  'Script Task': '脚本任务',
+  'Script task': '脚本任务',
   'Call Activity': '调用活动',
   'Sub Process (collapsed)': '子流程（折叠的）',
   'Sub Process (expanded)': '子流程（展开的）',

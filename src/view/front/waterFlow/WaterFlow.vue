@@ -27,7 +27,7 @@ export default {
   },
   mounted() {
     this.$nextTick(_ => {
-      this.imgLocation()
+      setTimeout(() => { this.imgLocation() }, 50)
 
       this.currentDom = document.querySelector('.el-main')
       this.currentDom.addEventListener('scroll', this.loadImg)
