@@ -94,6 +94,7 @@ import print from 'vue-print-nb'
 Vue.use(print)
 
 // socket.io-client
+// 配合 WebSocket-Chat 项目使用
 /* import io from 'socket.io-client'
 const socket = io('ws://localhost:3001')
 Vue.prototype.$socket = socket

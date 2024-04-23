@@ -248,6 +248,21 @@ const router = new Router({
       }]
     },
     {
+      path: '/gaode',
+      name: 'gaoDe',
+      component: Layout,
+      redirect: '/gaode/weather',
+      meta: { title: '高德地图', icon: 'el-icon-position' },
+      children: [
+        {
+          path: '/gaode/weather',
+          name: 'Weather',
+          component: () => import('@/view/gaode/weather.vue'),
+          meta: { title: '获取城市天气', }
+        },
+      ]
+    },
+    {
       path: '/files',
       name: 'Files',
       sign: 'FILES', // 区分权限名称

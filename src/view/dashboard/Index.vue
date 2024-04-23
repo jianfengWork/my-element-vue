@@ -43,7 +43,7 @@ export default {
     this.$socket.on('sys', function(data) { // 接收服务器系统消息
       console.log(data)
     })
-    this.timer = setInterval(() => { // 每5秒进行心跳检测，防止链接断开
+    this.timer = setInterval(() => { // 每5秒进行检测，防止链接断开
       this.$socket.emit('heartbeat', {
         name,
       })

@@ -72,12 +72,6 @@ export default {
         markers[i].setLabel(label)
         map.addOverlay(markers[i])
 
-        // 地图zoom动态改变，动态获取地图中心点坐标
-        let view = map.getViewport(eval(points))
-        let mapZoom = view.zoom
-        let centerPoint = view.center
-        map.centerAndZoom(centerPoint, mapZoom)
-
         // 信息弹窗
         const { id, orgName, status } = this.results[i]
         let content = `
@@ -93,6 +87,11 @@ export default {
         addClickHandler(content, markers[i])
 
       }
+      // 地图zoom动态改变，动态获取地图中心点坐标
+      let view = map.getViewport(points)
+      let mapZoom = view.zoom
+      let centerPoint = view.center
+      map.centerAndZoom(centerPoint, mapZoom)
       
     },
     lookDetail(...args) {
@@ -115,6 +114,7 @@ export default {
       function queryInRect() {
         // 地图改变后，获取中心点，获取方圆几公里数据
         let view = map.getViewport()
+        // console.log(view)
       }
     },
     changeMap() {
