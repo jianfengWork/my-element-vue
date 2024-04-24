@@ -126,7 +126,6 @@ export default {
         { text: '16000', value: 16000 },
         { text: '22050', value: 22050 },
         { text: '24000', value: 24000 },
-        { text: '44100', value: 44100 },
         { text: '48000', value: 48000 },
       ],
       sampleBitOptions: [

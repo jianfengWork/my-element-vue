@@ -85,7 +85,7 @@ export const mapData = {
       "orgName": "开化县人民医院新冠疫苗临时新增接种点",
       "address": "开化县芹阳办事处凤凰中路59号",
       "lng": "118.408314",
-      "socialCreditCode": "12330824472000762P",
+      "socialCreditCode": "123308272000762P",
       "areaCode": "33082403",
       "id": 1913,
       "lat": "29.118626"

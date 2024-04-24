@@ -158,7 +158,7 @@ export default {
   }
   .nav-list .active:nth-child(5), .nav-list-item:nth-child(5):hover {
     color: #fff;
-    background: linear-gradient(145deg, rgb(231, 238, 144), rgb(91, 242, 185));
+    background: linear-gradient(145deg, rgb(231, 238, 150), rgb(91, 242, 185));
   }
   .nav-list .active:nth-child(6), .nav-list-item:nth-child(6):hover {
     color: #fff;
@@ -187,7 +187,7 @@ export default {
     background: linear-gradient(145deg, rgb(255, 227, 90), rgb(255, 176, 100));
   }
   .floor-wrap div:nth-child(5) {
-    background: linear-gradient(145deg, rgb(231, 238, 144), rgb(91, 242, 185));
+    background: linear-gradient(145deg, rgb(231, 238, 150), rgb(91, 242, 185));
   }
   .floor-wrap div:nth-child(6) {
     background: linear-gradient(145deg, rgb(243, 135, 188), rgb(162, 143, 237));

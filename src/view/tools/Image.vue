@@ -24,7 +24,6 @@ export default {
     return {
       srcList: [
         'https://mifbb-upload-image.oss-cn-hangzhou.aliyuncs.com/mifbb_online_app/decoration/20200305/41c19f9ced472f70c172b64d508ab22d.png',
-        'https://mifbb-upload-image.oss-cn-hangzhou.aliyuncs.com/mifbb_online_app/decoration/20200311/1d88aae44831c2da0768c10571650512.gif',
         'https://mifbb-upload-image.oss-cn-hangzhou.aliyuncs.com/mifbb_online_app/decoration/20200305/54134c96daf5b479c202bf0f0663a4e8.png',
         'https://mifbb-upload-image.oss-cn-hangzhou.aliyuncs.com/mifbb_online_app/decoration/20200305/75680054014060f575b477020725f7b7.png',
       ],
