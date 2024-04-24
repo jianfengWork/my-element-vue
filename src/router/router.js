@@ -260,6 +260,12 @@ const router = new Router({
           component: () => import('@/view/gaode/weather.vue'),
           meta: { title: '获取城市天气', }
         },
+        {
+          path: '/gaode/search',
+          name: 'Search',
+          component: () => import('@/view/gaode/search.vue'),
+          meta: { title: '周边搜索', }
+        },
       ]
     },
     {

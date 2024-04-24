@@ -61,7 +61,7 @@ export default {
         weather.getLive('余杭区', function(err, data) {
           if (!err) {
             var str = [];
-            str.push('<h4 >实时天气' + '</h4><hr>');
+            str.push('<h4>实时天气' + '</h4><hr>');
             str.push(`<p class="weather-city" onclick="window.amapData.openCity('${data.city}')">城市/区：${data.city}</p>`);
             str.push('<p>天气：' + data.weather + '</p>');
             str.push('<p>温度：' + data.temperature + '℃</p>');
