@@ -11,8 +11,6 @@
 
 <script>
 import AMapLoader from '@amap/amap-jsapi-loader'
-import icon from '@/assets/avatar.jpeg'
-const icon2 = require('@/assets/avatar.jpeg')
 
 let AMapInstance = null
 const lnglat = [120.024359, 30.289183]

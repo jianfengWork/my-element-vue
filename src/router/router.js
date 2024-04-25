@@ -266,6 +266,12 @@ const router = new Router({
           component: () => import('@/view/gaode/search.vue'),
           meta: { title: '周边搜索', }
         },
+        {
+          path: '/gaode/district',
+          name: 'District',
+          component: () => import('@/view/gaode/district.vue'),
+          meta: { title: '行政区查询', }
+        },
       ]
     },
     {
