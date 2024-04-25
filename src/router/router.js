@@ -272,6 +272,12 @@ const router = new Router({
           component: () => import('@/view/gaode/district.vue'),
           meta: { title: '行政区查询', }
         },
+        {
+          path: '/gaode/geo',
+          name: 'GeoJSON',
+          component: () => import('@/view/gaode/GeoJSON.vue'),
+          meta: { title: 'GeoJSON', }
+        },
       ]
     },
     {
