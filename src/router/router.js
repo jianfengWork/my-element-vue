@@ -367,6 +367,12 @@ const router = new Router({
           component: () => import('@/view/knowledge/VideoCover'),
           meta: { title: '获取上传视频封面', }
         },
+        {
+          path: '/knowledge/bird',
+          name: 'Bird',
+          component: () => import('@/view/knowledge/birdMG/Bird'),
+          meta: { title: '像素鸟', }
+        },
       ]
     },
   ]
