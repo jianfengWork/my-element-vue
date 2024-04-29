@@ -245,6 +245,11 @@ const router = new Router({
         name: 'stellar',
         component: () => import('@/view/front/Stellar'),
         meta: {title: '视差滚动', }
+      }, {
+        path: '/front/navbar',
+        name: 'navbar',
+        component: () => import('@/view/front/Navbar'),
+        meta: {title: '导航栏动画', }
       }]
     },
     {
