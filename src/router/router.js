@@ -322,6 +322,12 @@ const router = new Router({
         hide: false,
         component: () => import('@/view/methods/Command'),
         meta: { title: '自定义指令', }
+      }, {
+        path: '/methods/renderfn',
+        name: 'renderFn',
+        hide: false,
+        component: () => import('@/view/methods/RenderFn'),
+        meta: { title: '渲染函数', }
       }]
     },
     {
