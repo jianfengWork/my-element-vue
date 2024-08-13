@@ -20,6 +20,8 @@
     />
     <el-alert style="margin-top: 10px;" title="canvas滑块验证" type="success" :closable="false" />
     <CanvasDrag v-model="dragSuccess" />
+    <el-alert style="margin-top: 10px;" title="拖动滑块验证" type="success" :closable="false" />
+    <BaseDrag />
   </div>
 </template>
 
@@ -27,6 +29,7 @@
 import graphicCode from '@/components/GraphicCode/graphicCode'
 import smsCode from '@/components/SMScode/smsCode'
 import CanvasDrag from '@/components/GraphicCode/CanvasDrag.vue'
+import BaseDrag from '@/components/GraphicCode/BaseDrag.vue'
 
 export default {
   name: 'codetest', // 图形验证码调用
@@ -82,6 +85,7 @@ export default {
   },
   components: {
     CanvasDrag,
+    BaseDrag,
     graphicCode, smsCode
   }
 }
