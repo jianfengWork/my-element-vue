@@ -18,16 +18,21 @@
       @fail="onFail"
       @success="onSuccess"
     />
+    <el-alert style="margin-top: 10px;" title="canvas滑块验证" type="success" :closable="false" />
+    <CanvasDrag v-model="dragSuccess" />
   </div>
 </template>
 
 <script>
 import graphicCode from '@/components/GraphicCode/graphicCode'
 import smsCode from '@/components/SMScode/smsCode'
+import CanvasDrag from '@/components/GraphicCode/CanvasDrag.vue'
+
 export default {
   name: 'codetest', // 图形验证码调用
   data() {
     return {
+      dragSuccess: false,
       identifyCode: '',
       identifyCodeCont: '1234567890ABCDEFG',
       imgList: [
@@ -42,6 +47,13 @@ export default {
   mounted() {
     this.identifyCode = ''
     this.makeCode(this.identifyCodeCont, 4)
+  },
+  watch: {
+    dragSuccess(val) {
+      if (val) {
+        this.$message.success('验证通过')
+      }
+    },
   },
   methods: {
     refreshCode() {
@@ -69,6 +81,7 @@ export default {
     },
   },
   components: {
+    CanvasDrag,
     graphicCode, smsCode
   }
 }
