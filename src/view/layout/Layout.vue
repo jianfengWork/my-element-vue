@@ -6,6 +6,7 @@
         <el-header>
           <i @click="menuExpland = !menuExpland" class="menu-icon target-dom-left" :class="{'el-icon-sunny': !menuExpland , 'el-icon-sunrise': menuExpland}" />
           <span class="language">{{ $t('message')['app.header.desc'] }}</span>
+          <el-button type="primary" @click="changeWaterMark">{{ showWaterMark ? '关闭水印' : '打开水印' }}</el-button>
           <el-button type="text" @click="showNoviceGuide">新手指引</el-button>
           <div class="DIB" ref="language">
             <el-select v-model="value" @change="selectLanguage">
@@ -54,6 +55,7 @@ import queryString from 'query-string'
 import xfAside from './components/Aside'
 import Screenfull from '@/components/ScreenFull/screenfull'
 import NoviceGuide from '@/components/NoviceGuide/noviceGuide'
+import { removeWatermark, setWaterMark } from '@/utils/waterMark'
 
 export default {
   name: 'Layout',
@@ -69,6 +71,7 @@ export default {
       color: '',
       avatarUrl: '',
       fristCensor: false,
+      showWaterMark: false,
     }
   },
   watch: {
@@ -148,6 +151,19 @@ export default {
       this.$store.commit('CHANGE_THEME_COLOR', this.color)
       this.$bus.$emit('changeOptions', this.color)
       this.showSetting = false
+    },
+    changeWaterMark() {
+      this.showWaterMark = !this.showWaterMark
+      if (this.showWaterMark) {
+        const current = new Date()
+        const year = current.getFullYear()
+        const month = current.getMonth() > 9 ? current.getMonth() + 1 : '0' + (current.getMonth() + 1)
+        const day = current.getDate() > 9 ? current.getDate() : '0' + current.getDate()
+        const date = `${year}${month}${day}`
+        setWaterMark('summer', 'userId', date)
+      } else {
+        removeWatermark()
+      }
     },
   },
   components: {
