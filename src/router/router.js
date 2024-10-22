@@ -283,6 +283,12 @@ const router = new Router({
           component: () => import('@/view/gaode/GeoJSON.vue'),
           meta: { title: 'GeoJSON', }
         },
+        {
+          path: '/gaode/address',
+          name: 'Address',
+          component: () => import('@/view/gaode/DragAddress.vue'),
+          meta: { title: '拖拽选址', }
+        },
       ]
     },
     {
