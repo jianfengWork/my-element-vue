@@ -174,3 +174,40 @@ export function generateTree(arr, flag) {
   return temp
 }
 // generateTree(arr, 'category')
+
+/**
+ * @method 数组级联取label，解决省市区显示名称
+ * @param {value<id数组>, tree<级联>}
+ * @returns {[Tree]}
+ */
+/*
+var tree = [{
+  "id": 1, "parentId": 0, "regionName": "浙江省", "regionLevel": 1,
+  "childList": [{
+    "id": 2, "parentId": 1, "regionName": "杭州市", "regionLevel": 2,
+    "childList": [
+      { "id": 10, "parentId": 2, "regionName": "上城区", "regionLevel": 3, "childList": null },
+      { "id": 11, "parentId": 2,  "regionName": "拱墅区", "regionLevel": 3, "childList": null },
+    ]
+  }]
+}]
+*/
+export function generateLabel(value, tree) {
+  if (!value.length) return []
+
+  const findCityName = (list, id) => {
+    return list.find(item => item.id == id)
+  }
+  let result = ''
+  let list = tree
+
+  value.forEach(item => {
+    const currentCity = findCityName(list, item)
+    result += `/${currentCity.regionName}`
+    list = currentCity.childList || []
+  })
+  result = result.replace('/', '')
+
+  return result.split()
+}
+// generateLabel([1, 2, 10], tree)
