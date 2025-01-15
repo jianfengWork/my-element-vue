@@ -15,13 +15,13 @@ return new Promise((resolve, reject) => {
     // 读取列宽
     let sheetColumns = []
     // 1.先导出excel sheetColumns = []  2.再导入导出的excel sheetColumns = [...]
-    /* let colIndex = 0
+    let colIndex = 0
     for (let col in xws.cols) {
       if (xws.cols[col].width) {
-        sheetColumns.push({ header: colIndex + '', key: colIndex + '', width: xws.cols[col].width / 8})
+        sheetColumns.push({ header: '', key: colIndex + '', width: xws.cols[col].width / 8})
       }
       colIndex++
-    } */
+    }
     exceljsSheet.columns = sheetColumns
     for (let ri = 0; ri < rowobj.len; ++ri) {
       let row = rowobj[ri]
@@ -121,6 +121,7 @@ return new Promise((resolve, reject) => {
       })
     }
   })
+  // return
   // writeBuffer 把写好的excel 转换成 ArrayBuffer 类型
   exceljsWorkbook.xlsx.writeBuffer().then((data) => {
     const link = document.createElement('a')

@@ -131,6 +131,21 @@ export const dataOptions = {
     "len": 100
   },
   "cols": {
+    "0": {
+      "width": 180
+    },
+    "1": {
+      "width": 180
+    },
+    "2": {
+      "width": 180
+    },
+    "3": {
+      "width": 180
+    },
+    "4": {
+      "width": 180
+    },
     "len": 26
   },
   "validations": [],
