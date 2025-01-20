@@ -171,6 +171,16 @@ const router = new Router({
         name: 'DocxPreview',
         component: () => import('@/view/tools/DocxPreview'),
         meta: { title: 'docx-preview' }
+      }, {
+        path: '/tools/webrtc',
+        name: 'Webrtc',
+        component: () => import('@/view/tools/webrtc/Webrtc'),
+        meta: { title: 'Webrtc' }
+      }, {
+        path: '/tools/webrtcCall',
+        name: 'WebrtcCall',
+        component: () => import('@/view/tools/webrtc/WebrtcCall'),
+        meta: { title: 'WebrtcCall' }
       }]
     },
     {
