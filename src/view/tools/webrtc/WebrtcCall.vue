@@ -1,5 +1,5 @@
 <template>
-  <!-- 重开一浏览器，uuid 代表用户ID -->
+  <!-- 重开一页签，uuid 代表用户ID -->
   <div class="webrtc-call">
     <div class="local-stream">
       <el-alert title="local-stream" type="success" :closable="false" />

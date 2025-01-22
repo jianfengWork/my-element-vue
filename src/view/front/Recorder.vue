@@ -84,6 +84,7 @@
     <div class="btn-action">
       <div style="padding: 20px 0;">格式</div>
       <el-button type="primary" @click="downloadWAV" :disabled="download_WAV">下载WAV</el-button>
+      <el-button type="primary" @click="downloadMP3" :disabled="download_WAV">下载MP3</el-button>
     </div>
     <div class="view-area">
       <div style="padding: 20px 0;">vue-audio-native</div>
@@ -102,6 +103,7 @@
 </template>
 
 <script>
+import lamejs from 'lamejs'
 import audioSrc from '@/view/front/audioMG/music/mfbb.mp3'
 import Recorder from 'js-audio-recorder'
 // http://recorder.api.zhuyuntao.cn/
@@ -395,6 +397,48 @@ export default {
         })
         recorder.downloadWAV('recorder')
       }
+    },
+    downloadMP3() {
+      const { channels, sampleRate } = { channels: 1, sampleRate: 16000 }
+      const mp3enc = new lamejs.Mp3Encoder(channels, sampleRate, 128)
+      // 获取左右通道数据
+      const result = recorder.getChannelData()
+      const buffer = []
+
+      const leftData = result.left && new Int16Array(result.left.buffer, 0, result.left.byteLength / 2)
+      const rightData = result.right && new Int16Array(result.right.buffer, 0, result.right.byteLength / 2)
+      const remaining = leftData.length + (rightData ? rightData.length : 0)
+
+      const maxSamples = 1152
+      for (let i = 0; i < remaining; i += maxSamples) {
+        const left = leftData.subarray(i, i + maxSamples)
+        let right = null
+        let mp3buf = null
+
+        if (channels === 2) {
+          right = rightData.subarray(i, i + maxSamples)
+          mp3buf = mp3enc.encodeBuffer(left, right)
+        } else {
+          mp3buf = mp3enc.encodeBuffer(left)
+        }
+
+        if (mp3buf.length > 0) {
+          buffer.push(mp3buf)
+        }
+      }
+
+      const enc = mp3enc.flush()
+
+      if (enc.length > 0) {
+        buffer.push(enc)
+      }
+
+      const blob = new Blob(buffer, { type: 'audio/mp3' })
+      const oA = document.createElement('a')
+      oA.href = window.URL.createObjectURL(blob)
+      oA.download = `${'recorder'}.${'mp3'}`
+      oA.click()
+
     },
     destroyedRecord() {
       if (recorder) {
