@@ -8,6 +8,8 @@
       </div>
       <div class="video-cont">
         <video class="local-video" ref="localVideoDom" muted></video>
+        <!-- ios safari 手机端播放 -->
+        <!-- <video class="local-video" ref="localVideoDom" muted playsinline></video> -->
       </div>
     </div>
     <div class="remote-stream">
