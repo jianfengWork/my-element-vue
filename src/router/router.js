@@ -130,7 +130,7 @@ const router = new Router({
         path: '/tools/axios',
         name: 'Axios',
         component: () => import('@/view/tools/Axios'),
-        meta: { title: 'Axios' }
+        meta: { title: 'Axios / Worker' }
       }, {
         path: '/tools/svg',
         name: 'Svg',
