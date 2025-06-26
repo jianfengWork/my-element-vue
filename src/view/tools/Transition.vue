@@ -20,6 +20,8 @@
     <TransitionCard />
     <el-alert title="transition: 多棱柱" type="success" :closable="false" class="MT20" />
     <TransitionGraph />
+    <el-alert title="transition: 文字高亮" type="success" :closable="false" class="MT20" />
+    <TransitionText />
   </div>
 </template>
 
@@ -28,11 +30,13 @@
 import { mapState } from 'vuex';
 import TransitionCard from './components/TransitionCard'
 import TransitionGraph from './components/TransitionGraph'
+import TransitionText from './components/TransitionText'
 
 export default {
   components: {
     TransitionCard,
-    TransitionGraph
+    TransitionGraph,
+    TransitionText,
   },
   data() {
     return {
