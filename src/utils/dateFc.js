@@ -114,3 +114,99 @@ export function getCurrentMonthDate() {
 
   return { firstDay, lastDay }
 }
+
+/**
+ * @method 时间戳(毫秒)=>年月日时分秒(周几)
+ * @param {String} cFormat 日期格式 {y}-{m}-{d} {h}:{i}:{s}' 、 '{a}'
+ * @param {Number, String} time 时间戳 1589126400000
+ * @returns {y || m || d || h || i || s || a}
+ */
+export function parseTime(time, cFormat) {
+  if (arguments.length === 0 || !time) {
+    return null
+  }
+  const format = cFormat || '{y}-{m}-{d} {h}:{i}:{s}'
+  let date
+  if (typeof time === "object") {
+    date = time
+  } else {
+    if (typeof time === "string") {
+      if (/^[0-9]+$/.test(time)) {
+        // support "1538221490638"
+        time = parseInt(time)
+      } else {
+        // support safari ie
+        // https://stackoverflow.com/questions/4310953/invalid-date-in-safari
+        time = time
+          .replace(new RegExp(/-/gm), "/")
+          .replace("T", " ")
+          .replace(".000+0000", "")
+      }
+    }
+
+    if (typeof time === "number" && time.toString().length === 10) {
+      time = time * 1000
+    }
+    date = new Date(time)
+  }
+  const formatObj = {
+    y: date.getFullYear(),
+    m: date.getMonth() + 1,
+    d: date.getDate(),
+    h: date.getHours(),
+    i: date.getMinutes(),
+    s: date.getSeconds(),
+    a: date.getDay()
+  }
+  return format.replace(/{([ymdhisa])+}/g, (result, key) => {
+    const value = formatObj[key]
+    // Note: getDay() returns 0 on Sunday
+    if (key === 'a') {
+      return ['日', '一', '二', '三', '四', '五', '六'][value]
+    }
+    return value.toString().padStart(2, '0')
+  })
+}
+
+/**
+ * @method 时间戳(秒/毫秒)=>刚刚、几分钟前
+ * @param {String} option 日期格式，parseTime()
+ * @param {Number, String} timestamp 时间戳 1589126400
+ * @returns {刚刚 || 几分钟前 || 1天前 || 年月日}
+ */
+export function formatTime(time, option) {
+  if (("" + time).length === 10) {
+    time = parseInt(time) * 1000
+  } else {
+    time = +time
+  }
+  const d = new Date(time)
+  const now = Date.now()
+
+  const diff = (now - d) / 1000
+
+  if (diff < 30) {
+    return '刚刚'
+  } else if (diff < 3600) {
+    return Math.ceil(diff / 60) + '分钟前'
+  } else if (diff < 3600 * 24) {
+    return Math.ceil(diff / 3600) + '小时前'
+  } else if (diff < 3600 * 24 * 2) {
+    return '1天前'
+  }
+  if (option) {
+    return parseTime(time, option)
+  } else {
+    return (
+      d.getMonth() +
+      1 +
+      '月' +
+      d.getDate() +
+      '日' +
+      d.getHours() +
+      '时' +
+      d.getMinutes() +
+      '分'
+    )
+  }
+}
