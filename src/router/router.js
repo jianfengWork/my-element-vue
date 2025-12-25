@@ -400,6 +400,12 @@ const router = new Router({
           component: () => import('@/view/knowledge/birdMG/Bird'),
           meta: { title: '像素鸟', }
         },
+        {
+          path: '/knowledge/pizhu',
+          name: 'PiZhu',
+          component: () => import('@/view/knowledge/PiZhu'),
+          meta: { title: '文本批注', }
+        },
       ]
     },
   ]
